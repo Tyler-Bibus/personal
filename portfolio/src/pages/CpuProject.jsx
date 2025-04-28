@@ -5,7 +5,6 @@ function CpuProject() {
         <h1 className="text-4xl font-bold mb-6">
           MIPS CPU Architecture Project
         </h1>
-
         <p className="mb-4">
           As part of CprE 381 (Computer Architecture), I collaborated with a
           partner to design and implement three MIPS-based processors:
@@ -26,6 +25,14 @@ function CpuProject() {
         <p className="italic text-gray-600">
           Tools used: Logisim Evolution, VHDL, MIPS Assembly
         </p>
+        <a
+          href="https://github.com/placeholder/cpu-project"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-crimson hover:underline"
+        >
+          View on GitHub
+        </a>
       </div>
     </div>
   );
