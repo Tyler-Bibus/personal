@@ -7,6 +7,25 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+html,body {
+  height: 100%;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#top {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro {
+  flex-grow: 1;
+}
 
 .animate-fade {
   animation: fade 0.7s ease-in-out;
@@ -20,11 +39,6 @@
 
 .text-crimson {
   color: #DC143C;
-}
-
-.text-crimson:hover {
-  color: #DC143C;
-  border: 2px solid #DC143C;
 }
 
 .btn-crimson:hover {

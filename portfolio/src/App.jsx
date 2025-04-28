@@ -13,9 +13,9 @@ import './index.css';
 
 function App() {
   return (
-    <div className="font-sans flex flex-col min-h-screen bg-dark text-white">
+    <div className="flex flex-col bg-dark text-white">
       <Navbar />
-      <main className="flex-grow transition-all duration-500 ease-in-out opacity-100 animate-fade">
+      <main className="flex-grow min-h-100vh">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/web-design-projects" element={<WebDesignProjects />} />

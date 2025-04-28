@@ -1,7 +1,7 @@
 function AndroidProject() {
   return (
-    <div className="flex flex-col min-h-screen bg-dark text-white">
-      <div className="container mx-auto py-8">
+    <div className="bg-dark text-white">
+      <div className="container mx-auto py-8 flex-grow">
         <h1 className="text-3xl font-bold mb-4">
           Goods and Service Finder App
         </h1>

@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg sticky-top shadow-md border-b-2 border-crimson" style={{ backgroundColor: '#121212', zIndex: 1000 }}>
+    <nav className="navbar navbar-expand-lg sticky-top shadow-md border-b-2 border-crimson animate-fade" style={{ backgroundColor: '#121212', zIndex: 1000 }}>
       <div className="container">
         {/* Brand */}
-        <Link className="navbar-brand text-white font-bold text-xl animate-fade" to="/">
+        <Link className="navbar-brand text-white font-bold text-xl" to="/">
           Tyler Bibus
         </Link>
 
@@ -29,7 +29,7 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/work-experience"
-                style={{ border: '1px solid #DC143C', hover: { color: 'white', borderColor: '#DC143C' } }}
+                style={{ border: '1px solid #DC143C' }}
               >
                 Work Experience
               </Link>
@@ -38,7 +38,7 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/non-school-projects"
-                style={{ border: '1px solid #DC143C', hover: { color: 'white', borderColor: '#DC143C' } }}
+                style={{ border: '1px solid #DC143C' }}
               >
                 Non-School Projects
               </Link>
@@ -47,7 +47,7 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/android-project"
-                style={{ border: '1px solid #DC143C', hover: { color: 'white', borderColor: '#DC143C' } }}
+                style={{ border: '1px solid #DC143C' }}
               >
                 Android App
               </Link>
@@ -56,7 +56,7 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/cpu-project"
-                style={{ border: '1px solid #DC143C', hover: { color: 'white', borderColor: '#DC143C' } }}
+                style={{ border: '1px solid #DC143C' }}
               >
                 CPU Project
               </Link>
@@ -65,7 +65,7 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/web-design-projects"
-                style={{ border: '1px solid #DC143C', hover: { color: 'white', borderColor: '#DC143C' } }}
+                style={{ border: '1px solid #DC143C' }}
               >
                 Web App
               </Link>

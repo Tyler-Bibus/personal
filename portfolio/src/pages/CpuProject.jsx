@@ -1,7 +1,7 @@
 function CpuProject() {
   return (
-    <div className="flex flex-col min-h-screen bg-dark text-white">
-      <div className="container mx-auto py-12 px-4">
+    <div className="flex flex-col min-h-screen bg-dark text-white h-full">
+      <div className="container mx-auto py-12 px-4 h-screen flex-grow">
         <h1 className="text-4xl font-bold mb-6">
           MIPS CPU Architecture Project
         </h1>
