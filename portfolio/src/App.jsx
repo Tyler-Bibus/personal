@@ -9,6 +9,7 @@ import CpuProject from './pages/CpuProject';
 import AndroidProject from './pages/AndroidProject';
 import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
 
 function App() {
