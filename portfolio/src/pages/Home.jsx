@@ -1,16 +1,21 @@
 import ProjectCard from "../components/ProjectCard";
 import profile from "../assets/profile.jpg";
+import androidThumbnail from "../assets/androidThumbnail.png";
+import cpuThumbnail from "../assets/cpuThumbnail.png";
+import reactThumbnail from "../assets/reactThumbnail.png";
 
 function Home() {
   return (
     <div className="bg-dark text-white min-h-screen">
       <section className="py-5 text-center">
-        <img
-          src={profile}
-          alt="Profile"
-          className="rounded-circle"
-          style={{ width: "150px", height: "150px" }}
-        />
+        <div className="d-flex justify-content-center">
+          <img
+            src={profile}
+            alt="Profile"
+            className="rounded-circle"
+            style={{ width: "150px", height: "150px" }}
+          />
+        </div>
         <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
         <p className="font-mono">Computer Engineer | Iowa State University</p>
         <p className="mt-2">Graduating May 2027 | Honors Program</p>
@@ -25,7 +30,7 @@ function Home() {
               title="Goods and Service Finder App"
               description="Android app and Spring Boot backend, similar to Facebook Marketplace."
               link="/android-project"
-              imageSrc="/assets/android-project.jpg"
+              imageSrc={androidThumbnail}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
@@ -33,7 +38,7 @@ function Home() {
               title="MIPS CPU Architecture Project"
               description="Designed 3 MIPS-based processors including pipelined architectures."
               link="/cpu-project"
-              imageSrc="/assets/cpu-project.jpg"
+              imageSrc={cpuThumbnail}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
@@ -41,7 +46,7 @@ function Home() {
               title="Game Finder Web App"
               description="A React + Express based game catalog with login and quizzes."
               link="/web-design-projects"
-              imageSrc="/assets/webapp-project.jpg"
+              imageSrc={reactThumbnail}
             />
           </div>
         </div>

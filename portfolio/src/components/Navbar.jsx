@@ -73,6 +73,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
+      <br></br>
     </nav>
   );
 }

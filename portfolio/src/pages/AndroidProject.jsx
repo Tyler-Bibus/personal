@@ -2,9 +2,11 @@ function AndroidProject() {
   return (
     <div className="bg-dark text-white">
       <div className="container mx-auto py-8 flex-grow">
+        <br></br>
         <h1 className="text-3xl font-bold mb-4">
           Goods and Service Finder App
         </h1>
+        <hr></hr>
         <p className="mb-4">
           Developed in a team of 3 during our Software Development Practices
           class (ComS 309).

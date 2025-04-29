@@ -4,7 +4,7 @@ function ProjectCard({ title, description, link, imageSrc }) {
   return (
     <div
       className="card text-white border-crimson border-2 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1"
-      style={{ backgroundColor: '#1a1a1a', height: '450px' }}
+      style={{ backgroundColor: '#1a1a1a', height: '700px' }}
       role="article"
     >
       {/* Image Section */}
@@ -13,7 +13,7 @@ function ProjectCard({ title, description, link, imageSrc }) {
           src={imageSrc}
           alt={title}
           className="card-img-top object-cover"
-          style={{ height: '200px' }}
+          style={{ maxHeight: '400px' }}
         />
       ) : (
         <div

@@ -2,9 +2,11 @@ function CpuProject() {
   return (
     <div className="flex flex-col min-h-screen bg-dark text-white h-full">
       <div className="container mx-auto py-12 px-4 h-screen flex-grow">
+        <br></br>
         <h1 className="text-4xl font-bold mb-6">
           MIPS CPU Architecture Project
         </h1>
+        <hr></hr>
         <p className="mb-4">
           As part of CprE 381 (Computer Architecture), I collaborated with a
           partner to design and implement three MIPS-based processors:

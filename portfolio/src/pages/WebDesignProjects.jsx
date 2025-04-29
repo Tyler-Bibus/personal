@@ -2,7 +2,9 @@ function WebDesignProjects() {
   return (
     <div className="flex flex-col min-h-screen bg-dark text-white">
       <div className="container mx-auto py-12 px-4 flex-grow">
+        <br></br>
         <h1 className="text-4xl font-bold mb-6">Game Finder Web App</h1>
+        <hr></hr>
         <p className="mb-4">
           This is a full-stack application developed using React, TailwindCSS,
           and Express.js.

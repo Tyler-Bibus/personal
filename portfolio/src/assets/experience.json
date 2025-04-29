@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Undergraduate Researcher",
+    "company": "ARA Wireless",
+    "date": "January 2025 – Present",
+    "location": "Ames, IA",
+    "description": "Working on SRSRAN patches to enable outdoor 5G deployment for rural areas."
+  },
+  {
+    "title": "Small Business Owner",
+    "company": "Big B's Detailing",
+    "date": "Summer 2024",
+    "location": "Cottage Grove, MN",
+    "description": "Started and operated a mobile vehicle detailing company with a 78% profit margin."
+  },
+  {
+    "title": "Undergraduate Research Programmer",
+    "company": "CSAFE / EviHunter",
+    "date": "Oct 2023 – May 2024",
+    "location": "Ames, IA",
+    "description": "Developed Android digital forensic tooling and database infrastructure."
+  },
+  {
+    "title": "CAD Technician",
+    "company": "Americom",
+    "date": "Aug 2021 – July 2023",
+    "location": "Eagan, MN",
+    "description": "Created over 150 technical drawings and troubleshooted software issues for office staff."
+  }
+]
