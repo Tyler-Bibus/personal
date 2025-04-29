@@ -6,19 +6,19 @@ import reactThumbnail from "../assets/reactThumbnail.png";
 
 function Home() {
   return (
-    <div className="bg-dark text-white min-h-screen">
-      <section className="py-5 text-center">
+    <div className="bg-dark text-white d-flex flex-column flex-grow-1">
+      <section className="py-5 text-center flex-grow-1">
         <div className="d-flex justify-content-center">
           <img
             src={profile}
             alt="Profile"
-            className="rounded-circle"
-            style={{ width: "150px", height: "150px" }}
+            className="img-thumbnail rounded-circle bg-dark border-0"
+            style={{ width: "250px", height: "250px", objectFit: "cover" }}
           />
         </div>
         <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
-        <p className="font-mono">Computer Engineer | Iowa State University</p>
-        <p className="mt-2">Graduating May 2027 | Honors Program</p>
+        <h3 className="font-mono">Computer Engineer | Iowa State University</h3>
+        <p className="mt-2">Graduating May 2027</p>
       </section>
       <div className="container py-5">
         <h2 className="text-3xl font-bold text-center text-crimson mb-4">

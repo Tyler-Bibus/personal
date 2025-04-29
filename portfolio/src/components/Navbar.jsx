@@ -29,7 +29,11 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/work-experience"
-                style={{ border: '1px solid #DC143C' }}
+                style={{
+                  border: '1px solid #DC143C',
+                }}
+                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
+                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
                 Work Experience
               </Link>
@@ -38,7 +42,11 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/non-school-projects"
-                style={{ border: '1px solid #DC143C' }}
+                style={{
+                  border: '1px solid #DC143C',
+                }}
+                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
+                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
                 Non-School Projects
               </Link>
@@ -47,7 +55,11 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/android-project"
-                style={{ border: '1px solid #DC143C' }}
+                style={{
+                  border: '1px solid #DC143C',
+                }}
+                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
+                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
                 Android App
               </Link>
@@ -56,7 +68,11 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/cpu-project"
-                style={{ border: '1px solid #DC143C' }}
+                style={{
+                  border: '1px solid #DC143C',
+                }}
+                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
+                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
                 CPU Project
               </Link>
@@ -65,7 +81,11 @@ function Navbar() {
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/web-design-projects"
-                style={{ border: '1px solid #DC143C' }}
+                style={{
+                  border: '1px solid #DC143C',
+                }}
+                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
+                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
                 Web App
               </Link>

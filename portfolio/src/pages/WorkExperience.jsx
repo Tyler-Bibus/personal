@@ -2,8 +2,8 @@ import experienceData from "../assets/experience.json";
 
 function WorkExperience() {
   return (
-    <div className="flex flex-col min-h-screen bg-dark text-white">
-      <div className="container mx-auto py-8 flex-grow">
+    <div className="d-flex flex-column bg-dark text-white vh-100">
+      <div className="container py-8 flex-grow-1">
         <br></br>
         <h1 className="text-4xl font-bold mb-4">Work Experience</h1>
         <hr></hr>
