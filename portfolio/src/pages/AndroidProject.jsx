@@ -18,8 +18,17 @@ function AndroidProject() {
           The app functions similar to Ebay or Facebook Marketplace, allowing
           users to create listings, auctions, and chat.
         </p>
+        <hr/>
+        <div className="flex justify-center mb-4">
+          <embed
+            src="/personal/assets/309/BlockDiagramGnSFinder.pdf"
+            width="100%" //close enough
+            height="800"
+            type="application/pdf"
+          ></embed>
+        </div>
         <a
-          href="https://github.com/placeholder/android-project"
+          href="https://github.com/Tyler-Bibus/Coms309-GSFinder"
           target="_blank"
           rel="noopener noreferrer"
           className="text-crimson hover:underline"

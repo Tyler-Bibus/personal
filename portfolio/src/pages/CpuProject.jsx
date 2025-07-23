@@ -8,18 +8,6 @@ pdfjs.GlobalWorkerOptions.workerSrc =
   "/node_modules/pdfjs-dist/build/pdf.worker.min.js";
 
 function CpuProject() {
-  const [numPages, setNumPages] = useState(null);
-  const [error, setError] = useState(null);
-
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-    setError(null);
-  };
-
-  const onDocumentLoadError = (error) => {
-    setError("Failed to load PDF. Please try downloading it instead.");
-    console.error("PDF Load Error:", error); // Log error for debugging
-  };
 
   return (
     <div className="flex flex-col min-h-screen bg-dark text-white h-full">

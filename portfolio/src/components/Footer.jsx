@@ -1,6 +1,7 @@
 function Footer() {
   return (
     <footer className="bg-dark text-graytext py-6 mt-auto animate-fade">
+      <hr/>
       <div className="container">
         <div className="row g-4">
           {/* Contact Info */}
