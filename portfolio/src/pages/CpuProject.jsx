@@ -47,10 +47,10 @@ function CpuProject() {
           detailed top-level diagrams and documentation for each processor.
         </p>
         <hr></hr>
-        <div className="flex justify-center mb-4 w-600px h-600px">
+        <div className="flex justify-center mb-4">
           <embed
             src="/personal/assets/CPUDiagram.pdf"
-            width="1200"
+            width="100%" //close enough
             height="800"
             type="application/pdf"
           ></embed>
