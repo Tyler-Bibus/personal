@@ -19,6 +19,10 @@ function AndroidProject() {
           users to create listings, auctions, and chat.
         </p>
         <hr/>
+        <p className="mb-4">
+          Below shows the block diagram of the app architecture, including
+          the Android app, Spring Boot backend, and MySQL database.
+        </p>
         <div className="flex justify-center mb-4">
           <embed
             src="/personal/assets/309/BlockDiagramGnSFinder.pdf"

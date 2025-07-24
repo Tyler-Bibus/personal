@@ -22,7 +22,6 @@ function Footer() {
                   href="https://www.linkedin.com/in/tyler-bibus-a63087248/"
                   className="text-graytext hover-text-crimson transition-colors duration-300"
                   target="_blank"
-                  rel="noopener noreferrer"
                   aria-label="Tyler Bibus LinkedIn Profile"
                 >
                   <i className="bi bi-linkedin text-crimson fs-1"></i>
@@ -33,7 +32,6 @@ function Footer() {
                   href="https://github.com/tyler-bibus"
                   className="text-graytext hover-text-crimson transition-colors duration-300"
                   target="_blank"
-                  rel="noopener noreferrer"
                   aria-label="Tyler Bibus GitHub Profile"
                 >
                   <i className="bi bi-github text-crimson fs-1"></i>

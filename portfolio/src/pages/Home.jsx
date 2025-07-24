@@ -17,9 +17,10 @@ function Home() {
           />
         </div>
         <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
-        <h3 className="font-mono">Computer Engineer | Iowa State University</h3>
-        <p className="mt-2">Graduating May 2027</p>
+        <h3 className="font-mono">Computer Engineer</h3>
+        <p className="mt-2">Graduating May 2027 - Iowa State University</p>
       </section>
+      <hr/>
       <div className="container py-5">
         <h2 className="text-3xl font-bold text-center text-crimson mb-4">
           My Projects
