@@ -25,9 +25,8 @@ function WebDesignProjects() {
           Stack: React, TailwindCSS, Express, Node.js, MongoDB
         </p>
         <a
-          href="https://github.com/placeholder/web-design-project"
+          href="https://github.com/Tyler-Bibus/coms319-final"
           target="_blank"
-          rel="noopener noreferrer"
           className="text-crimson hover:underline"
         >
           View on GitHub
