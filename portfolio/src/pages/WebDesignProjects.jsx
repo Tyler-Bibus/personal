@@ -90,34 +90,34 @@ function WebDesignProjects() {
           </motion.div>
 
           {/* Tech Stack */}
-          <motion.div variants={itemVariants} className="text-center relative z-10 bg-gray-800/50">
-            <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
-            <div className="flex justify-center gap-6 flex-wrapbg-gray-800/50">
-              <div className="flex flex-col items-center">
-                <FaReact className="text-4xl text-blue-400 justify-center" />
-                <span className="mt-2">React</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <SiTailwindcss className="text-4xl text-cyan-400" />
-                <span className="mt-2">TailwindCSS</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaNodeJs className="text-4xl text-green-400" />
-                <span className="mt-2">Node.js</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <SiExpress className="text-4xl text-gray-400" />
-                <span className="mt-2">Express.js</span>
-              </div>
-              <div className="flex flex-col items-center bg-gray-800/50">
-                <FaDatabase className="text-4xl text-purple-400" />
-                <span className="mt-2">MongoDB</span>
-              </div>
-            </div>
-          </motion.div>
+                <motion.div variants={itemVariants} className="text-center relative z-10">
+                <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
+                <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
+                  <div className="flex flex-col  border-2 border-blue-500 rounded-lg" style={{width: '33%'}}>
+                  <h3 className="mt-2 text-3xl font-semibold">React</h3>
+                  </div>
+                  <br/>
+                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <h3 className="mt-2 text-3xl font-semibold">TailwindCSS</h3>
+                  </div>
+                  <br/>
+                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <h3 className="mt-2 text-3xl font-semibold">Node.js</h3>
+                  </div>
+                  <br/>
+                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <h3 className="mt-2 text-3xl font-semibold">Express.js</h3>
+                  </div>
+                  <br/>
+                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <h3 className="mt-2 text-3xl font-semibold">MongoDB</h3>
+                  </div>
+                </div>
+                </motion.div>
 
-          {/* Project Links */}
+                {/* Project Links */}
           <motion.div variants={itemVariants} className="text-center relative z-10">
+            <br/>
             <a
               href="https://github.com/Tyler-Bibus/coms319-final"
               target="_blank"
