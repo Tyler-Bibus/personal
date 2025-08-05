@@ -93,23 +93,23 @@ function WebDesignProjects() {
                 <motion.div variants={itemVariants} className="text-center relative z-10">
                 <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
                 <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
-                  <div className="flex flex-col  border-2 border-blue-500 rounded-lg" style={{width: '33%'}}>
+                  <div className="flex border-2 border-blue-500 rounded-lg">
                   <h3 className="mt-2 text-3xl font-semibold">React</h3>
                   </div>
                   <br/>
-                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
                   <h3 className="mt-2 text-3xl font-semibold">TailwindCSS</h3>
                   </div>
                   <br/>
-                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
                   <h3 className="mt-2 text-3xl font-semibold">Node.js</h3>
                   </div>
                   <br/>
-                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
                   <h3 className="mt-2 text-3xl font-semibold">Express.js</h3>
                   </div>
                   <br/>
-                  <div className="flex flex-col items-center p-4 border-2 border-blue-500 rounded-lg">
+                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
                   <h3 className="mt-2 text-3xl font-semibold">MongoDB</h3>
                   </div>
                 </div>
