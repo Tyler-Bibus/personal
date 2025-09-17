@@ -1,30 +1,64 @@
 [
   {
+    "title": "CPRE 3810 Teaching Assistant",
+    "company": "Iowa State University",
+    "date": "August 2025 – Present",
+    "location": "Ames, IA",
+    "bullets": [
+      "Overseeing 46 students in lab for computer architecture, assisting students with issues related to computer architecture.",
+      "Assisting professor with conversion from MIPS-based architecture to RISC-V."
+    ]
+  },
+  {
     "title": "Undergraduate Researcher",
     "company": "ARA Wireless",
-    "date": "January 2025 – Present",
+    "date": "January 2025 – August 2025",
     "location": "Ames, IA",
-    "description": "Developed patch for srsRAN to enable outdoor 5G deployment in rural areas. Updated OpenAirInterface Patch to newest release."
+    "bullets": [
+      "Collaborated directly under a graduate mentor implementing 5G networking outdoors to bring high-speed, reliable internet to rural areas.",
+      "Updated existing 5G software to work outdoors with amplifiers, utilizing C and C++ to drive SDR output pins, resulting in a 48 dB (1048x) signal improvement.",
+      "Tested and implemented Mender for remote software updates on towers to avoid manual scaling for updates."
+    ]
   },
   {
     "title": "Small Business Owner",
     "company": "Big B's Detailing",
-    "date": "Summer 2024",
+    "date": "May 2024 – August 2024",
     "location": "Cottage Grove, MN",
-    "description": "Started and operated a mobile vehicle detailing company with a 78% profit margin."
+    "bullets": [
+      "Created a business model for mobile vehicle detailing focused on high quality and fast turnaround, achieving a 78% margin.",
+      "Designed and managed a marketing campaign using posters and social media, generating dozens of impressions and sales."
+    ]
   },
   {
     "title": "Undergraduate Research Programmer",
     "company": "CSAFE / EviHunter",
-    "date": "Oct 2023 – May 2024",
+    "date": "October 2023 – May 2024",
     "location": "Ames, IA",
-    "description": "Developed Android digital forensic tooling and database infrastructure."
+    "bullets": [
+      "Collaborated with a remote, diverse team of researchers to develop Android digital forensics tools for the EviHunter project.",
+      "Developed a web crawler to scrape several hundred Android APK files and metadata for the project database.",
+      "Recovered the original MongoDB database after a system wipe, restoring critical project data."
+    ]
   },
   {
     "title": "CAD Technician",
     "company": "Americom",
-    "date": "Aug 2021 – July 2023",
+    "date": "August 2021 – August 2023",
     "location": "Eagan, MN",
-    "description": "Created over 150 technical drawings and troubleshooted software issues for office staff."
+    "bullets": [
+      "Designed and drafted over 150 AV, network cabling, and security drawings for technicians using AutoCAD LT.",
+      "Collaborated with sales and design teams to ensure drawings met installation technician and client standards."
+    ]
+  },
+  {
+    "title": "Skills",
+    "company": "",
+    "date": "",
+    "location": "",
+    "bullets": [
+      "Tools: AutoCAD LT, Android Studio, Unity, QuestaSim, Sphinx, CI/CD, Docker, Kubernetes, ModelSim, LTSpice, TensorFlow",
+      "Programming Languages: C, C++, Java, JavaScript, HTML, Python, Verilog, VHDL, MIPS Assembly"
+    ]
   }
 ]

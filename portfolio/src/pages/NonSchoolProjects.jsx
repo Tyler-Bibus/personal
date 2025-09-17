@@ -1,7 +1,23 @@
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+};
+
 function NonSchoolProjects() {
   return (
-    <div className="flex flex-col min-h-screen bg-dark text-white">
-      <div className="container mx-auto py-8">
+    <motion.div className="flex flex-col min-h-screen bg-dark text-white"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="container mx-auto py-8" variants={itemVariants}>
         <br></br>
         <h1 className="text-3xl font-bold mb-4">Non-School Projects</h1>
         <hr></hr>
@@ -13,8 +29,8 @@ function NonSchoolProjects() {
             gaining major programming experience.
           </p>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

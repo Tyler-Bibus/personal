@@ -38,7 +38,7 @@ function Navbar() {
                 Work Experience
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
                 to="/non-school-projects"
@@ -50,7 +50,7 @@ function Navbar() {
               >
                 Non-School Projects
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"

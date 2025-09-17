@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { motion } from 'framer-motion';
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -7,11 +8,25 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc =
   "/node_modules/pdfjs-dist/build/pdf.worker.min.js";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+};
+
 function CpuProject() {
 
   return (
-    <div className="flex flex-col min-h-screen bg-dark text-white h-full">
-      <div className="container mx-auto py-12 px-4 h-screen flex-grow">
+    <motion.div className="flex flex-col min-h-screen bg-dark text-white h-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="container mx-auto py-12 px-4 h-screen flex-grow" variants={itemVariants}>
         <br />
         <h1 className="text-4xl font-bold mb-6">
           MIPS CPU Architecture Project
@@ -22,10 +37,10 @@ function CpuProject() {
           partner to design and implement three MIPS-based processors:
         </p>
         <ul className="list-disc list-inside mb-6">
-          <li>✅ Single-Cycle MIPS Processor</li>
-          <li>✅ Software-Scheduled 5-Stage Pipelined MIPS Processor</li>
+          <li> Single-Cycle MIPS Processor</li>
+          <li> Software-Scheduled 5-Stage Pipelined MIPS Processor</li>
           <li>
-            ✅ Hardware-Scheduled 5-Stage Pipeline with Hazard Detection and
+             Hardware-Scheduled 5-Stage Pipeline with Hazard Detection and
             Forwarding
           </li>
         </ul>
@@ -47,15 +62,15 @@ function CpuProject() {
           Tools used: AutoCADLT, VHDL, MIPS Assembly
         </p>
         <a
-          href="https://github.com/placeholder/cpu-project"
+          href="https://github.com/Tyler-Bibus/ComputerArchitecture"
           target="_blank"
           rel="noopener noreferrer"
           className="text-crimson hover:underline"
         >
           View on GitHub
         </a>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

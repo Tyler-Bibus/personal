@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
 import { SiTailwindcss, SiExpress } from 'react-icons/si';
+import { useState, useCallback, useEffect } from 'react';
+import ImageGallery from '../components/ImageGallery';
 
 function WebDesignProjects() {
   const containerVariants = {
@@ -44,15 +46,8 @@ function WebDesignProjects() {
             </p>
           </motion.div>
 
-          {/* Project Image */}
-          <motion.div variants={itemVariants} className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
-            <img
-              src="https://via.placeholder.com/1200x600?text=Game+Finder+Screenshot"
-              alt="Game Finder Screenshot"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-          </motion.div>
+          {/* Lightweight responsive image grid with modal */}
+
 
           {/* Project Details */}
           <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-8">
@@ -90,32 +85,32 @@ function WebDesignProjects() {
           </motion.div>
 
           {/* Tech Stack */}
-                <motion.div variants={itemVariants} className="text-center relative z-10">
-                <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
-                <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
-                  <div className="flex border-2 border-blue-500 rounded-lg">
-                  <h3 className="mt-2 text-3xl font-semibold">React</h3>
-                  </div>
-                  <br/>
-                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                  <h3 className="mt-2 text-3xl font-semibold">TailwindCSS</h3>
-                  </div>
-                  <br/>
-                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                  <h3 className="mt-2 text-3xl font-semibold">Node.js</h3>
-                  </div>
-                  <br/>
-                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                  <h3 className="mt-2 text-3xl font-semibold">Express.js</h3>
-                  </div>
-                  <br/>
-                  <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                  <h3 className="mt-2 text-3xl font-semibold">MongoDB</h3>
-                  </div>
-                </div>
-                </motion.div>
+          <motion.div variants={itemVariants} className="text-center relative z-10">
+            <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
+            <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
+              <div className="flex border-2 border-blue-500 rounded-lg">
+                <h3 className="mt-2 text-3xl font-semibold">React</h3>
+              </div>
+              <br/>
+              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
+                <h3 className="mt-2 text-3xl font-semibold">TailwindCSS</h3>
+              </div>
+              <br/>
+              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
+                <h3 className="mt-2 text-3xl font-semibold">Node.js</h3>
+              </div>
+              <br/>
+              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
+                <h3 className="mt-2 text-3xl font-semibold">Express.js</h3>
+              </div>
+              <br/>
+              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
+                <h3 className="mt-2 text-3xl font-semibold">MongoDB</h3>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Project Links */}
+          {/* Project Links */}
           <motion.div variants={itemVariants} className="text-center relative z-10">
             <br/>
             <a
@@ -126,6 +121,15 @@ function WebDesignProjects() {
             >
               View on GitHub
             </a>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
+            <ImageGallery
+              images={[
+                { src: '/personal/assets/319/coms319Screenshot1.png', alt: 'Game Finder Screenshot 1' },
+                { src: '/personal/assets/319/coms319Screenshot2.png', alt: 'Game Finder Screenshot 2' }
+              ]}
+            />
           </motion.div>
         </motion.div>
       </div>

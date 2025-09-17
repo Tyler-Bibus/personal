@@ -1,13 +1,28 @@
+import { motion } from 'framer-motion';
 import ProjectCard from "../components/ProjectCard";
 import profile from "../assets/profile.jpg";
 import androidThumbnail from "../assets/androidThumbnail.png";
 import cpuThumbnail from "../assets/cpuThumbnail.png";
 import reactThumbnail from "../assets/reactThumbnail.png";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+};
+
 function Home() {
   return (
-    <div className="bg-dark text-white d-flex flex-column flex-grow-1">
-      <section className="py-5 text-center flex-grow-1">
+    <motion.div className="bg-dark text-white d-flex flex-column flex-grow-1"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.section variants={itemVariants} className="py-5 text-center flex-grow-1">
         <div className="d-flex justify-content-center">
           <img
             src={profile}
@@ -19,9 +34,9 @@ function Home() {
         <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
         <h3 className="font-mono">Computer Engineer</h3>
         <p className="mt-2">Graduating May 2027 - Iowa State University</p>
-      </section>
+      </motion.section>
       <hr/>
-      <div className="container py-5">
+      <motion.div variants={itemVariants} className="container py-5">
         <h2 className="text-3xl font-bold text-center text-crimson mb-4">
           My Projects
         </h2>
@@ -51,8 +66,8 @@ function Home() {
             />
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
