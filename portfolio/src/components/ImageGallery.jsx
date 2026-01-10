@@ -53,9 +53,9 @@ export default function ImageGallery({ images = [] }) {
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" onClick={close}>
           <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
-            <button onClick={close} className="absolute top-2 right-2 text-white bg-black/40 p-2 rounded">✕</button>
-            <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 text-white bg-black/40 p-2 rounded">◀</button>
-            <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 text-white bg-black/40 p-2 rounded">▶</button>
+            <button onClick={close} className="text-white bg-black/40 p-2 rounded">✕</button>
+            <button onClick={prev} className="justify -translate-y-1/2 text-white bg-black/40 p-2 rounded">◀</button>
+            <button onClick={next} className="justify -translate-y-1/2 text-white bg-black/40 p-2 rounded">▶</button>
             {/* Modal image: cap max dimensions to avoid very large renders */}
             <img
               src={images[current].src}
