@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,8 +12,14 @@ import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './index.css';
+import MLAccelerator from './pages/MLAccelerator';
+import LLMChatBot from './pages/LLMChatBot.jsx'
 
 function App() {
+  const [isTruth, setIsTruth] = useState(false);
+
+
+
   return (
     <div className="d-flex flex-column min-h-[100vh] bg-dark text-white">
       <Navbar />
@@ -24,6 +31,8 @@ function App() {
           <Route path="/android-project" element={<AndroidProject />} />
           <Route path="/work-experience" element={<WorkExperience />} />
           <Route path="/non-school-projects" element={<NonSchoolProjects />} />
+          <Route path="/ml-accelerator" element={<MLAccelerator />} />
+          <Route path="/llm-chat-bot" element={<LLMChatBot />} />
         </Routes>
       </main>
       <Footer />

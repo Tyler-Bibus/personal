@@ -7,18 +7,28 @@
 
 /* Add fade animation */
 @keyframes fade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-html,body {
+
+html,
+body {
   height: 100%;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #212529; /*bootstrap grey*/
+  background-color: #212529;
+  /*bootstrap grey*/
 }
 
 #top {
@@ -50,8 +60,12 @@ html, body, #root {
   color: #DC143C;
   border: 2px solid #DC143C;
 }
+
 :root {
   --crimson: #DC143C;
+  --color-bg: #1a1a1a;
+  --color-primary: #d3d3d3;
+  --color-accent: #DC143C
 }
 
 .text-crimson {
@@ -70,4 +84,12 @@ html, body, #root {
   border: 2px solid var(--crimson);
 }
 
-
+[data-theme='truth'] {
+  --color-bg: #ffefd5;
+  /* Papaya Whip */
+  --color-primary: #d946ef;
+  /* Fuchsia */
+  --color-accent: #fbbf24;
+  /* Amber */
+  font-family: 'Comic Sans MS', cursive;
+}

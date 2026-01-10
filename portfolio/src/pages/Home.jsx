@@ -18,7 +18,7 @@ const itemVariants = {
 
 function Home() {
   return (
-    <motion.div className="bg-dark text-white d-flex flex-column flex-grow-1"
+    <motion.div className=" text-white d-flex flex-column flex-grow-1"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -90,16 +90,16 @@ function Home() {
             <ProjectCard
               title="Discord LLM Bot"
               description="Android app and Spring Boot backend, similar to Facebook Marketplace."
-              link="/android-project"
-              imageSrc={androidThumbnail}
+              link="/llm-chat-bot"
+              imageSrc={iowaStateLogo}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
             <ProjectCard
               title="AI Hardware Accelerator"
               description="Designed 3 MIPS-based processors including pipelined architectures."
-              link="/cpu-project"
-              imageSrc={cpuThumbnail}
+              link="/ml-accelerator"
+              imageSrc={iowaStateLogo}
             />
           </div>
         </div>

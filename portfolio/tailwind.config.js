@@ -15,9 +15,9 @@ export default {
   theme: {
     extend: {
     colors: {
-      dark: '#1a1a1a',
-      crimson: '#DC143C',
-      graytext: '#d3d3d3',
+      dark: 'var(--color-bg)', //#1a1a1a
+      crimson: 'var(--color-accent)', //#DC143C
+      graytext: 'var(--color-primary)', //#d3d3d3
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],

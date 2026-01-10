@@ -93,20 +93,20 @@ function Navbar() {
                         <li className="nav-item">
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
-                to="/web-design-projects"
+                to="/llm-chat-bot"
                 style={{
                   border: '1px solid #DC143C',
                 }}
                 onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
                 onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
-                LLM Bot
+                LLM Chat Bot
               </Link>
             </li>
                         <li className="nav-item">
               <Link
                 className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
-                to="/web-design-projects"
+                to="/ml-accelerator"
                 style={{
                   border: '1px solid #DC143C',
                 }}
