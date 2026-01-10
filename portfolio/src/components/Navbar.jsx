@@ -113,7 +113,7 @@ function Navbar() {
                 onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
                 onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
               >
-                AI Accelerator
+                ML Accelerator
               </Link>
             </li>
           </ul>

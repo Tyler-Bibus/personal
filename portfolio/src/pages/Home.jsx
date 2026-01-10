@@ -89,15 +89,15 @@ function Home() {
           <div className="col-12 col-md-6 col-lg-4 mb-4">
             <ProjectCard
               title="Discord LLM Bot"
-              description="Android app and Spring Boot backend, similar to Facebook Marketplace."
+              description="Using a local LLM I created a bot using discord APIs to communicate with users."
               link="/llm-chat-bot"
               imageSrc={iowaStateLogo}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
             <ProjectCard
-              title="AI Hardware Accelerator"
-              description="Designed 3 MIPS-based processors including pipelined architectures."
+              title="ML Hardware Accelerator"
+              description="Designed and implemented a hardware accelerator for an image classification model."
               link="/ml-accelerator"
               imageSrc={iowaStateLogo}
             />
