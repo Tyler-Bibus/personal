@@ -25,14 +25,14 @@ function Home() {
     >
       <motion.section variants={itemVariants} className="py-5 text-center flex-grow-1">
         <div className="d-flex">
-          <div className="mx-auto d-flex gap-1">
+        {/**<div className="mx-auto d-flex gap-1">
             <img
             src={iowaStateLogo}
             alt="Iowa State University Logo"
             className="img-thumbnail bg-dark border-0"
             style={{ width: "400px", height: "400px", objectFit: "", marginLeft: "200px" }}
           />
-          </div>
+          </div>**/}
           <div className="mx-auto d-flex gap-1 ">
           <img
             src={profile}
@@ -41,14 +41,14 @@ function Home() {
             style={{ width: "250px", height: "250px", objectFit: "cover", marginTop: "75px" }}
           />
           </div>
-                    <div className="mx-auto d-flex gap-1">
+          {/**}<div className="mx-auto d-flex gap-1">
             <img
             src={iowaStateLogo}
             alt="Iowa State University Logo"
             className="img-thumbnail bg-dark border-0"
             style={{ width: "400px", height: "400px", objectFit: "", marginRight: "200px" }}
           />
-          </div>
+          </div>**/}
         </div>
         <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
         <h3 className="font-mono">Computer Engineer</h3>
