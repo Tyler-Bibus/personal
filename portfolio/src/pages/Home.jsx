@@ -1,10 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import profile from "../assets/profile.jpg";
 import androidThumbnail from "../assets/androidThumbnail.png";
 import cpuThumbnail from "../assets/cpuThumbnail.png";
 import reactThumbnail from "../assets/reactThumbnail.png";
 import iowaStateLogo from "../assets/iowaStateLogo.svg";
+import computerIcon from "../assets/computer-icon.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -13,19 +14,23 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+  visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 100 } },
 };
 
 function Home() {
   return (
-    <motion.div className=" text-white d-flex flex-column flex-grow-1"
+    <motion.div
+      className=" text-white d-flex flex-column flex-grow-1"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
-      <motion.section variants={itemVariants} className="py-5 text-center flex-grow-1">
+      <motion.section
+        variants={itemVariants}
+        className="py-5 text-center flex-grow-1"
+      >
         <div className="d-flex">
-        {/**<div className="mx-auto d-flex gap-1">
+          {/**<div className="mx-auto d-flex gap-1">
             <img
             src={iowaStateLogo}
             alt="Iowa State University Logo"
@@ -34,12 +39,17 @@ function Home() {
           />
           </div>**/}
           <div className="mx-auto d-flex gap-1 ">
-          <img
-            src={profile}
-            alt="Profile"
-            className="img-thumbnail rounded-circle bg-dark border-0"
-            style={{ width: "250px", height: "250px", objectFit: "cover", marginTop: "75px" }}
-          />
+            <img
+              src={profile}
+              alt="Profile"
+              className="img-thumbnail rounded-circle bg-dark border-0"
+              style={{
+                width: "250px",
+                height: "250px",
+                objectFit: "cover",
+                marginTop: "75px",
+              }}
+            />
           </div>
           {/**}<div className="mx-auto d-flex gap-1">
             <img
@@ -50,11 +60,12 @@ function Home() {
           />
           </div>**/}
         </div>
-        <h1 className="mt-3 text-4xl font-bold text-crimson">Tyler Bibus</h1>
-        <h3 className="font-mono">Computer Engineer</h3>
-        <p className="mt-2">Graduating December 2026 - Iowa State University</p>
+        <h1 className="mt-4 text-4xl font-bold text-crimson">Tyler Bibus</h1>
+        <h3 className="font-bold">Computer Engineer</h3>
+        <p className="mt-3">Graduating December 2026 - Iowa State University</p>
+        <p className="mt-2">tylerbibus@hotmail.com | 651-210-1342</p>
       </motion.section>
-      <hr/>
+      <hr />
       <motion.div variants={itemVariants} className="container py-5">
         <h2 className="text-3xl font-bold text-center text-crimson mb-4">
           My Projects
@@ -85,13 +96,13 @@ function Home() {
             />
           </div>
         </div>
-          <div className="row justify-content-center">
+        <div className="row justify-content-center">
           <div className="col-12 col-md-6 col-lg-4 mb-4">
             <ProjectCard
               title="Discord LLM Bot"
               description="Using a local LLM I created a bot using discord APIs to communicate with users."
               link="/llm-chat-bot"
-              imageSrc={iowaStateLogo}
+              imageSrc={computerIcon}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
@@ -99,7 +110,15 @@ function Home() {
               title="ML Hardware Accelerator"
               description="Designed and implemented a hardware accelerator for an image classification model."
               link="/ml-accelerator"
-              imageSrc={iowaStateLogo}
+              imageSrc={computerIcon}
+            />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 mb-4">
+            <ProjectCard
+              title="Senior Design Project"
+              description="Worked with client and advisor to devlop an open source ASIC Bluetooth microcontroller"
+              link="/senior-design"
+              imageSrc={computerIcon}
             />
           </div>
         </div>

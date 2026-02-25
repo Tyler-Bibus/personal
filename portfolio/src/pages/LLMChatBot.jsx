@@ -44,7 +44,7 @@ function LLMChatBot() {
 
         {/* Small Image Gallery */}
         <h2 className="text-2xl font-semibold mb-6 text-center">Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
           <motion.img 
             src="/personal/assets/llm-bot-chat-example-1.png" 
             alt="Discord chat with local LLM bot" 
@@ -75,7 +75,7 @@ function LLMChatBot() {
             className="w-full h-auto rounded-lg shadow-lg object-cover"
             variants={itemVariants}
           />
-        </div>
+        </div> */}
 
         <p className="italic text-gray-600 mb-4">
           Tools & Technologies: Python (discord.py), Node.js (optional), Local LLM frameworks (Ollama / llama.cpp / etc.), Prompt Engineering, JSON configs
