@@ -1,37 +1,31 @@
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 import aspectRatio from '@tailwindcss/aspect-ratio';
-import base from 'tailwindcss/base';
-import components from 'tailwindcss/components';
-import utilities from 'tailwindcss/utilities';
-
 
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // Already includes components subdirectory
-    "./src/components/**/*.{js,ts,jsx,tsx}", // Explicitly add components for clarity
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-    colors: {
-      dark: 'var(--color-bg)', //#1a1a1a
-      crimson: 'var(--color-accent)', //#DC143C
-      graytext: 'var(--color-primary)', //#d3d3d3
-    },
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      mono: ['Fira Code', 'monospace'],
-    },
+      colors: {
+        dark:           '#1a1a1a',   // deepest background (cards, sidebars)
+        page:           '#212529',   // main page background
+        surface:        '#2a2d35',   // elevated card / section backgrounds
+        crimson:        '#DC143C',   // primary accent
+        'crimson-dark': '#a50e2d',   // crimson hover state
+        graytext:       '#d3d3d3',   // default body text
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
+      },
     },
   },
   plugins: [
     forms,
     typography,
     aspectRatio,
-    base,
-    components,
-    utilities,
   ],
-  };
-  
+};

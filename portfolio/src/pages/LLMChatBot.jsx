@@ -42,6 +42,32 @@ function LLMChatBot() {
         </p>
         <hr className="my-8" />
 
+        <h2 className="text-2xl font-bold mt-4 mb-2">My Role</h2>
+        <p className="mb-4">
+          This was a solo project built entirely in Python. I designed and implemented everything from the
+          Discord message handling to the LM Studio API integration — a relatively small but complete script
+          that intercepts Discord requests, passes them to a locally-running LLM, and returns the response
+          to the server.
+        </p>
+        <hr className="my-4" />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Skills &amp; Knowledge Gained</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li>Prompt engineering — crafting system prompts to shape model behavior, tone, and persona</li>
+          <li>Local LLM deployment — running and optimizing quantized models on consumer hardware via LM Studio</li>
+          <li>LM Studio's built-in OpenAI-compatible server — integrating a local model through a familiar API surface</li>
+          <li>Autonomous agent patterns — passing context and tool calls through an LLM in a lightweight, local setting</li>
+          <li>Discord API — handling real-time message events and bot interactions via discord.py</li>
+        </ul>
+        <hr className="my-4" />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Resources Used</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li>Discord Developer Documentation — bot setup, event handling, and permissions reference</li>
+          <li>LM Studio — local model inference platform with built-in OpenAI-compatible API server</li>
+        </ul>
+        <hr className="my-8" />
+
         {/* Small Image Gallery */}
         <h2 className="text-2xl font-semibold mb-6 text-center">Gallery</h2>
         {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">

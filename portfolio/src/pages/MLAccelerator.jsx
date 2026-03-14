@@ -50,7 +50,42 @@ function MLAccelerator() {
           achieving better performance than a naive x86 approach but not surpassing GPUs.
           I have detailed architecture diagrams and documentation.
         </p>
-        <hr></hr>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">My Role</h2>
+        <p className="mb-4">
+          The team split work roughly along the hardware/software boundary, though most components involved
+          joint development. On the hardware side, I implemented the original MAC unit and the Storage Unit
+          in VHDL, and contributed heavily to the Fetch Unit at both the conceptual and debugging level. My
+          involvement with the Dequantization Unit was mostly conceptual and debugging support.
+        </p>
+        <p className="mb-4">
+          On the software side, I was solely responsible for the C++ implementation — including the
+          quantization logic for our CNN model and the interface layer that connected the C++ code to the
+          hardware accelerator. I also wrote all of the Python scripts used to debug outputs and visualize
+          model results throughout development.
+        </p>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Skills &amp; Knowledge Gained</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li>ML model quantization — implementing 8-bit quantization from scratch in C++, not just using a framework</li>
+          <li>Hardware/software co-design — designing C++ code to interface directly with custom VHDL hardware</li>
+          <li>CNN architecture — understanding convolutional operations deeply enough to accelerate them in hardware</li>
+          <li>MAC unit design — building the core multiply-accumulate building block of neural network inference in VHDL</li>
+          <li>Python for ML debugging — scripting visualization tools to inspect and validate model outputs at each stage</li>
+          <li>Performance analysis — comparing quantization sizes and multiplier designs, benchmarking against naive x86</li>
+          <li>Technical presentation — demonstrating findings and connecting project work to published research papers</li>
+        </ul>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Resources Used</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li>CPRE 4870/5870 course materials — accelerator template, design specifications, and dataflow requirements</li>
+          <li>Published research papers on fast multiplier architectures and quantization techniques (used for benchmarking comparison)</li>
+          <li>TensorFlow / model reference implementations — used to validate quantized output against a known-good baseline</li>
+        </ul>
+        <hr />
         <div className="flex justify-center mb-4">
           <embed
             src="/personal/assets/cnn_accelerator.pdf"

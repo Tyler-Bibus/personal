@@ -68,6 +68,36 @@ function Home() {
       <hr />
       <motion.div variants={itemVariants} className="container py-5">
         <h2 className="text-3xl font-bold text-center text-crimson mb-4">
+          Career Objective
+        </h2>
+        <div className="mx-auto" style={{ maxWidth: "800px" }}>
+          <p className="text-gray-200 mb-3" style={{ lineHeight: "1.8" }}>
+            I want to build technology that makes the world materially better — not just more convenient.
+            My time at ARA Wireless showed me what that can look like in practice: writing C++ to squeeze
+            48dB of extra signal out of a software-defined radio so that rural communities can access
+            reliable high-speed internet for the first time. That kind of work — technically demanding and
+            genuinely consequential — is what I want to spend my career doing.
+          </p>
+          <p className="text-gray-200 mb-3" style={{ lineHeight: "1.8" }}>
+            This summer I'll be joining <span className="text-crimson font-semibold">BoiSei Labs</span>, a
+            Tech for Good venture capital startup focused on environmentally sustainable technology. It's
+            a natural fit for where I'm headed. Whether it's designing more energy-efficient AI hardware
+            accelerators, building software systems that reduce waste, or applying machine learning to
+            climate and resource problems, I'm drawn to work that sits at the intersection of technical
+            depth and real-world impact.
+          </p>
+          <p className="text-gray-200" style={{ lineHeight: "1.8" }}>
+            My goal is to be the kind of engineer who understands the full stack — from VLSI and FPGA
+            design up through machine learning and systems software — so I can contribute meaningfully
+            wherever the hardest problems are. I believe a higher standard of living for everyone and a
+            lighter footprint on the planet aren't competing goals. The right technology can achieve both,
+            and that's what I want to build.
+          </p>
+        </div>
+      </motion.div>
+      <hr />
+      <motion.div variants={itemVariants} className="container py-5">
+        <h2 className="text-3xl font-bold text-center text-crimson mb-4">
           My Projects
         </h2>
         <div className="row">
