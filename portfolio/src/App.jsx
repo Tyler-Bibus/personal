@@ -8,6 +8,7 @@ import NonSchoolProjects from './pages/NonSchoolProjects';
 import WebDesignProjects from './pages/WebDesignProjects';
 import CpuProject from './pages/CpuProject';
 import AndroidProject from './pages/AndroidProject';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -42,6 +43,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

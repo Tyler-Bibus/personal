@@ -19,37 +19,91 @@ export default function ImageGallery({ images = [] }) {
   if (!images.length) return null;
 
   return (
-    <div className="flex flex-col items-center gap-4">
-
-      {/* Image — fixed portrait frame */}
-      <div
-        className="bg-surface rounded-2xl overflow-hidden flex items-center justify-center"
-        style={{ width: '260px', height: '480px' }}
-      >
-        <img
-          src={images[current].src}
-          alt={images[current].alt || ''}
-          style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
-        />
-      </div>
+    <div className="flex flex-col items-center gap-2">
 
       {/* Caption */}
-      <p className="text-graytext text-sm">{images[current].alt || ''}</p>
+      <p className="text-graytext text-sm w-full text-center">{images[current].alt || ''}</p>
 
-      {/* Prev | dots | Next */}
-      <div className="flex items-center justify-center gap-4">
+      {/* Carousel: [prev] [image] [next] in a row, dots below */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
 
-        <button
-          onClick={prev}
-          aria-label="Previous image"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-surface hover:bg-crimson text-white transition-colors duration-200"
-          style={{ fontSize: '2rem', lineHeight: 1 }}
-        >
-          ‹
-        </button>
+        {/* Row: prev arrow — image frame — next arrow */}
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
 
+          {/* Prev arrow */}
+          <button
+            onClick={prev}
+            aria-label="Previous image"
+            className="text-white transition-colors duration-200"
+            style={{
+              width: '2.5rem',
+              height: '2.5rem',
+              borderRadius: '9999px',
+              border: 'none',
+              cursor: 'pointer',
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '2rem',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#DC143C'}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.5)'}
+          >
+            ‹
+          </button>
+
+          {/* Image frame */}
+          <div
+            className="rounded-2xl overflow-hidden flex items-center justify-center"
+            style={{ width: '260px', height: '480px', backgroundColor: '#1e1e2e' }}
+          >
+            <img
+              src={images[current].src}
+              alt={images[current].alt || ''}
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+            />
+          </div>
+
+          {/* Next arrow */}
+          <button
+            onClick={next}
+            aria-label="Next image"
+            className="text-white transition-colors duration-200"
+            style={{
+              width: '2.5rem',
+              height: '2.5rem',
+              borderRadius: '9999px',
+              border: 'none',
+              cursor: 'pointer',
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '2rem',
+              lineHeight: 1,
+              flexShrink: 0,
+            }}
+            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#DC143C'}
+            onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.5)'}
+          >
+            ›
+          </button>
+
+        </div>
+
+        {/* Dot indicators — centered below the full row */}
         {images.length > 1 && (
-          <div className="flex items-center gap-2">
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
             {images.map((_, i) => (
               <button
                 key={i}
@@ -70,16 +124,8 @@ export default function ImageGallery({ images = [] }) {
           </div>
         )}
 
-        <button
-          onClick={next}
-          aria-label="Next image"
-          className="w-12 h-12 flex items-center justify-center rounded-full bg-surface hover:bg-crimson text-white transition-colors duration-200"
-          style={{ fontSize: '2rem', lineHeight: 1 }}
-        >
-          ›
-        </button>
-
       </div>
+
 
     </div>
   );
