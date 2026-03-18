@@ -5,7 +5,9 @@ import androidThumbnail from "../assets/androidThumbnail.png";
 import cpuThumbnail from "../assets/cpuThumbnail.png";
 import reactThumbnail from "../assets/reactThumbnail.png";
 import iowaStateLogo from "../assets/iowaStateLogo.svg";
-import computerIcon from "../assets/computer-icon.png";
+import llmThumbnail from "../assets/llmThumbnail.svg";
+import mlAcceleratorThumbnail from "../assets/mlAcceleratorThumbnail.svg";
+import seniorDesignThumbnail from "../assets/seniorDesignThumbnail.svg";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -116,7 +118,7 @@ function Home() {
               title="Discord LLM Bot"
               description="Using a local LLM I created a bot using discord APIs to communicate with users."
               link="/llm-chat-bot"
-              imageSrc={computerIcon}
+              imageSrc={llmThumbnail}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
@@ -124,7 +126,7 @@ function Home() {
               title="ML Hardware Accelerator"
               description="Designed and implemented a hardware accelerator for an image classification model."
               link="/ml-accelerator"
-              imageSrc={computerIcon}
+              imageSrc={mlAcceleratorThumbnail}
             />
           </div>
           <div className="col-12 col-md-6 col-lg-4 mb-4">
@@ -132,7 +134,7 @@ function Home() {
               title="Senior Design Project"
               description="Worked with client and advisor to develop an open source ASIC Bluetooth microcontroller"
               link="/senior-design"
-              imageSrc={computerIcon}
+              imageSrc={seniorDesignThumbnail}
             />
           </div>
         </div>

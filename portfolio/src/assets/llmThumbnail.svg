@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#1a1a2e"/>
+
+  <!-- Robot head -->
+  <rect x="145" y="60" width="110" height="90" rx="18" fill="#2d2d4e" stroke="#dc143c" stroke-width="2.5"/>
+  <!-- Robot eyes -->
+  <circle cx="175" cy="95" r="12" fill="#dc143c" opacity="0.9"/>
+  <circle cx="225" cy="95" r="12" fill="#dc143c" opacity="0.9"/>
+  <circle cx="175" cy="95" r="5" fill="#fff"/>
+  <circle cx="225" cy="95" r="5" fill="#fff"/>
+  <!-- Robot mouth -->
+  <rect x="168" y="120" width="64" height="8" rx="4" fill="#dc143c" opacity="0.7"/>
+  <!-- Antenna -->
+  <line x1="200" y1="60" x2="200" y2="38" stroke="#dc143c" stroke-width="2.5"/>
+  <circle cx="200" cy="33" r="6" fill="#dc143c"/>
+  <!-- Robot ears/bolts -->
+  <circle cx="145" cy="105" r="6" fill="#dc143c" opacity="0.6"/>
+  <circle cx="255" cy="105" r="6" fill="#dc143c" opacity="0.6"/>
+
+  <!-- Chat bubble 1 -->
+  <rect x="50" y="170" width="140" height="50" rx="12" fill="#2d2d4e" stroke="#dc143c" stroke-width="2"/>
+  <polygon points="80,220 95,235 110,220" fill="#2d2d4e" stroke="#dc143c" stroke-width="2"/>
+  <polygon points="80,221 95,233 110,221" fill="#2d2d4e"/>
+  <!-- dots in bubble 1 -->
+  <circle cx="80" cy="195" r="5" fill="#dc143c" opacity="0.8"/>
+  <circle cx="100" cy="195" r="5" fill="#dc143c" opacity="0.8"/>
+  <circle cx="120" cy="195" r="5" fill="#dc143c" opacity="0.8"/>
+  <circle cx="140" cy="195" r="5" fill="#dc143c" opacity="0.5"/>
+  <circle cx="160" cy="195" r="5" fill="#dc143c" opacity="0.3"/>
+
+  <!-- Chat bubble 2 -->
+  <rect x="210" y="165" width="140" height="55" rx="12" fill="#dc143c" opacity="0.15" stroke="#dc143c" stroke-width="2"/>
+  <polygon points="290,220 305,238 320,220" fill="#dc143c" opacity="0.15" stroke="#dc143c" stroke-width="2"/>
+  <polygon points="291,221 305,236 319,221" fill="#dc143c" opacity="0.15"/>
+  <!-- text lines in bubble 2 -->
+  <rect x="225" y="180" width="95" height="6" rx="3" fill="#dc143c" opacity="0.7"/>
+  <rect x="225" y="194" width="75" height="6" rx="3" fill="#dc143c" opacity="0.5"/>
+  <rect x="225" y="208" width="55" height="6" rx="3" fill="#dc143c" opacity="0.35"/>
+
+  <!-- Discord logo-ish hint: controller shape at bottom -->
+  <text x="200" y="275" font-family="Arial, sans-serif" font-size="13" fill="#dc143c" opacity="0.6" text-anchor="middle" font-weight="bold">Discord LLM Bot</text>
+</svg>
