@@ -30,14 +30,6 @@ function Home() {
         className="py-5 text-center flex-grow-1"
       >
         <div className="d-flex">
-          {/**<div className="mx-auto d-flex gap-1">
-            <img
-            src={iowaStateLogo}
-            alt="Iowa State University Logo"
-            className="img-thumbnail bg-dark border-0"
-            style={{ width: "400px", height: "400px", objectFit: "", marginLeft: "200px" }}
-          />
-          </div>**/}
           <div className="mx-auto d-flex gap-1 ">
             <img
               src={profile}
@@ -51,14 +43,6 @@ function Home() {
               }}
             />
           </div>
-          {/**}<div className="mx-auto d-flex gap-1">
-            <img
-            src={iowaStateLogo}
-            alt="Iowa State University Logo"
-            className="img-thumbnail bg-dark border-0"
-            style={{ width: "400px", height: "400px", objectFit: "", marginRight: "200px" }}
-          />
-          </div>**/}
         </div>
         <h1 className="mt-4 text-4xl font-bold text-crimson">Tyler Bibus</h1>
         <h3 className="font-bold">Computer Engineer</h3>
@@ -146,7 +130,7 @@ function Home() {
           <div className="col-12 col-md-6 col-lg-4 mb-4">
             <ProjectCard
               title="Senior Design Project"
-              description="Worked with client and advisor to devlop an open source ASIC Bluetooth microcontroller"
+              description="Worked with client and advisor to develop an open source ASIC Bluetooth microcontroller"
               link="/senior-design"
               imageSrc={computerIcon}
             />
