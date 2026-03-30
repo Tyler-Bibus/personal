@@ -17,7 +17,6 @@ import MLAccelerator from './pages/MLAccelerator';
 import LLMChatBot from './pages/LLMChatBot.jsx'
 import SeniorDesign from './pages/SeniorDesign.jsx';
 import Resume from './pages/Resume.jsx';
-import Reflections from './pages/Reflections.jsx';
 
 function App() {
   const [isTruth, setIsTruth] = useState(false);
@@ -39,7 +38,6 @@ function App() {
           <Route path="/llm-chat-bot" element={<LLMChatBot />} />
           <Route path="/senior-design" element={<SeniorDesign />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/reflections" element={<Reflections />} />
         </Routes>
       </main>
       <Footer />
