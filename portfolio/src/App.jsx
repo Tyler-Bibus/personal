@@ -8,6 +8,7 @@ import NonSchoolProjects from './pages/NonSchoolProjects';
 import WebDesignProjects from './pages/WebDesignProjects';
 import CpuProject from './pages/CpuProject';
 import AndroidProject from './pages/AndroidProject';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -16,7 +17,6 @@ import MLAccelerator from './pages/MLAccelerator';
 import LLMChatBot from './pages/LLMChatBot.jsx'
 import SeniorDesign from './pages/SeniorDesign.jsx';
 import Resume from './pages/Resume.jsx';
-import Reflections from './pages/Reflections.jsx';
 
 function App() {
   const [isTruth, setIsTruth] = useState(false);
@@ -38,10 +38,10 @@ function App() {
           <Route path="/llm-chat-bot" element={<LLMChatBot />} />
           <Route path="/senior-design" element={<SeniorDesign />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/reflections" element={<Reflections />} />
         </Routes>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

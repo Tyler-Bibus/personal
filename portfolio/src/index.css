@@ -4,23 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Add fade animation */
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-html,
-body {
-  height: 100%;
-}
-
+/* ── Base ─────────────────────────────────────────────── */
 html,
 body,
 #root {
@@ -28,7 +12,6 @@ body,
   margin: 0;
   padding: 0;
   background-color: #212529;
-  /*bootstrap grey*/
 }
 
 #top {
@@ -41,55 +24,30 @@ body,
   flex-grow: 1;
 }
 
+/* ── Animations ───────────────────────────────────────── */
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .animate-fade {
   animation: fade 0.7s ease-in-out;
+}
+
+/* ── Utility classes (use Tailwind tokens where possible) */
+.text-crimson {
+  color: #DC143C;
 }
 
 .btn-crimson {
   background-color: #DC143C;
   color: white;
   border: 2px solid #DC143C;
-}
-
-.text-crimson {
-  color: #DC143C;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .btn-crimson:hover {
   background-color: white;
   color: #DC143C;
   border: 2px solid #DC143C;
-}
-
-:root {
-  --crimson: #DC143C;
-  --color-bg: #1a1a1a;
-  --color-primary: #d3d3d3;
-  --color-accent: #DC143C
-}
-
-.text-crimson {
-  color: var(--crimson);
-}
-
-.btn-crimson {
-  background-color: var(--crimson);
-  color: white;
-  border: 2px solid var(--crimson);
-}
-
-.btn-crimson:hover {
-  background-color: white;
-  color: var(--crimson);
-  border: 2px solid var(--crimson);
-}
-
-[data-theme='truth'] {
-  --color-bg: #ffefd5;
-  /* Papaya Whip */
-  --color-primary: #d946ef;
-  /* Fuchsia */
-  --color-accent: #fbbf24;
-  /* Amber */
-  font-family: 'Comic Sans MS', cursive;
 }

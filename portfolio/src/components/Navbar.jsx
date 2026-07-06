@@ -57,19 +57,6 @@ function Navbar() {
                 Resume
               </Link>
             </li>
-              <li className="nav-item">
-              <Link
-                className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
-                to="/reflections"
-                style={{
-                  border: '1px solid #DC143C',
-                }}
-                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
-                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
-              >
-                Reflections
-              </Link>
-            </li>
               <li className="nav-item dropdown" id="projectsDropdownWrapper">
                 {/* React-controlled dropdown (works without Bootstrap JS) */}
                 {/** We'll render a button and toggle the menu via state. */}

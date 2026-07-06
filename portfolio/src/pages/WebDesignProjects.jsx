@@ -110,6 +110,40 @@ function WebDesignProjects() {
             </div>
           </motion.div>
 
+          {/* Role, Skills, Resources */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div className="bg-gray-800/50 p-6 rounded-xl">
+              <h2 className="text-2xl font-bold mb-3">My Role</h2>
+              <p className="text-gray-300">
+                This was a team project where we divided the frontend pages evenly. I was responsible for the
+                login page, the home page, and the template used for each individual game entry. Beyond my
+                assigned pages, this project was my first real exposure to full-stack development — I gained
+                hands-on experience with the backend (Express.js + MongoDB) that I hadn't touched during the
+                Android project, where I focused exclusively on the frontend.
+              </p>
+            </div>
+
+            <div className="bg-gray-800/50 p-6 rounded-xl">
+              <h2 className="text-2xl font-bold mb-3">Skills &amp; Knowledge Gained</h2>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>React — component-based UI architecture, hooks, state management, and routing</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>TailwindCSS — utility-first styling and responsive design patterns</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>HTML — semantic markup and structure as the foundation of web interfaces</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Backend development fundamentals — RESTful API design, Express.js routing, and MongoDB data modeling</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>JWT authentication — implementing secure login flows end-to-end</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Full-stack integration — connecting a React frontend to a Node/Express backend via REST</li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-800/50 p-6 rounded-xl">
+              <h2 className="text-2xl font-bold mb-3">Resources Used</h2>
+              <ul className="space-y-2 text-gray-300">
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Bootstrap documentation — component reference and layout system</li>
+                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>COMS 319 course slides — foundational concepts and project specifications</li>
+              </ul>
+            </div>
+          </motion.div>
+
           {/* Project Links */}
           <motion.div variants={itemVariants} className="text-center relative z-10">
             <br/>

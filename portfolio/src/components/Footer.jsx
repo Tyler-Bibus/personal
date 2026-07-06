@@ -1,14 +1,4 @@
-// import React, {useState, useEffect} from 'react';
-
 function Footer() {
-  //   const [isTruth, setIsTruth] = useState(false);
-  
-  //     useEffect(() => {
-  //   const root = window.document.documentElement;
-  //   root.setAttribute('data-theme', isTruth ? 'truth' : 'pro');
-  //   console.log("truth value: " + isTruth);
-  // }, [isTruth]);
-
   return (
     <footer className="bg-dark text-graytext py-6 mt-auto animate-fade">
       <hr/>
@@ -32,6 +22,7 @@ function Footer() {
                   href="https://www.linkedin.com/in/tyler-bibus-a63087248/"
                   className="text-graytext hover-text-crimson transition-colors duration-300"
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Tyler Bibus LinkedIn Profile"
                 >
                   <i className="bi bi-linkedin text-crimson fs-1"></i>
@@ -58,12 +49,6 @@ function Footer() {
             <p className="text-graytext text-sm">
               Built with <span className="text-crimson">♥</span> using React & TailwindCSS
             </p>
-            {/* <button 
-          onClick={() => {setIsTruth(!isTruth); console.log("shit")}}
-          className="px-6 py-2 bg-accent text-white rounded-full hover:scale-105 transition-transform"
-        >
-          {isTruth ? "Back to Professional" : "Click for Personality ✨"}
-        </button> */}
           </div>
         </div>
       </div>

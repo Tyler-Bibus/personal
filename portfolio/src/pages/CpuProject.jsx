@@ -49,7 +49,42 @@ function CpuProject() {
           decode, execution, memory access, and writeback stages. I have
           detailed top-level diagrams and documentation for each processor.
         </p>
-        <hr></hr>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">My Role</h2>
+        <p className="mb-4">
+          Working with one partner, I took ownership of the top-level architecture design across all three processor
+          implementations. This included designing the control unit and control flow logic that coordinates instruction
+          execution at each stage. I also drove the majority of the debugging effort — tracing signal propagation
+          through simulation to isolate and fix timing and correctness issues. For the final hardware-scheduled
+          pipelined processor, I produced the detailed architectural diagram in AutoCAD LT documenting the complete
+          datapath with hazard detection and forwarding units.
+        </p>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Skills &amp; Knowledge Gained</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li>Computer architecture fundamentals — instruction fetch/decode/execute/memory/writeback pipeline stages</li>
+          <li>Pipelining — how to overlap instruction execution and the tradeoffs in throughput vs. complexity</li>
+          <li>Hazard detection and forwarding — identifying data and control hazards and resolving them in hardware</li>
+          <li>Performance analysis — measuring CPI and comparing single-cycle vs. pipelined designs quantitatively</li>
+          <li>VHDL — hardware description language design patterns, component instantiation, and testbench development</li>
+          <li>MIPS Assembly — writing and reading assembly to verify processor correctness</li>
+          <li>Hardware debugging — using simulation waveforms to trace and fix signal-level issues</li>
+          <li>Technical documentation — producing detailed datapath diagrams to communicate hardware design</li>
+        </ul>
+        <hr />
+
+        <h2 className="text-2xl font-bold mt-4 mb-2">Resources Used</h2>
+        <ul className="list-disc ml-6 mb-4 text-gray-200">
+          <li><em>Computer Organization and Design</em> by Patterson &amp; Hennessy — primary reference for MIPS architecture and pipelining concepts</li>
+          <li><em>Free Range VHDL</em> — main textbook for VHDL syntax, design patterns, and testbench methodology</li>
+          <li>AutoCAD LT — used to produce the final pipelined processor datapath diagram</li>
+          <li>QuestaSim / ModelSim — simulation environment for waveform-based hardware debugging</li>
+          <li>CprE 381 course materials — lab specifications and reference MIPS instruction set documentation</li>
+        </ul>
+        <hr />
+
         <div className="flex justify-center mb-4">
           <embed
             src="/personal/assets/CPUDiagram.pdf"

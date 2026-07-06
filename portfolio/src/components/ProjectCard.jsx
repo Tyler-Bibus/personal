@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
-function ProjectCard({ title, description, link, imageSrc }) {
+function ProjectCard({ title, description, link, imageSrc, imageFit = 'cover' }) {
+  const isSvg = imageFit === 'contain';
   return (
         <div
       className="card text-white border-crimson border-2 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1"
@@ -9,16 +10,18 @@ function ProjectCard({ title, description, link, imageSrc }) {
     >
       {/* Image Section */}
       {imageSrc ? (
-        <img
-          src={imageSrc}
-          alt={title}
-          className="card-img-top object-cover justify-self"
-          style={{ maxHeight: '400px', minHeight: '400px', objectFit: 'contain' }}
-        />
+        <div style={{ minHeight: '400px', maxHeight: '400px', overflow: 'hidden' }}>
+          <img
+            src={imageSrc}
+            alt={title}
+            className="card-img-top"
+            style={{ height: '100%', width: '100%', objectFit: 'cover' }}
+          />
+        </div>
       ) : (
         <div
           className="bg-gray-700 d-flex align-items-center justify-content-center"
-          style={{ height: '200px' }}
+          style={{ minHeight: '400px', maxHeight: '400px' }}
         >
           <span className="text-gray-400">No Image Available</span>
         </div>
