@@ -1,53 +1,46 @@
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
+const LINKS = [
+  { href: 'mailto:tylerbibus@hotmail.com', icon: FaEnvelope, label: 'tylerbibus@hotmail.com' },
+  { href: 'https://www.linkedin.com/in/tyler-bibus-a63087248/', icon: FaLinkedin, label: 'in/tyler-bibus' },
+  { href: 'https://github.com/Tyler-Bibus', icon: FaGithub, label: 'github.com/Tyler-Bibus' },
+];
+
 function Footer() {
   return (
-    <footer className="bg-dark text-graytext py-6 mt-auto animate-fade">
-      <hr/>
+    <footer className="cyber-footer">
       <div className="container">
-        <div className="row g-4">
-          {/* Contact Info */}
-          <div className="col-12 col-md-6 text-center text-md-start">
-            <h3 className="text-crimson text-lg font-bold mb-3">Contact Me</h3>
-            <div className="d-flex justify-content-center justify-content-md-start gap-4 pb-2">
-              <div>
+        <div className="row g-4 align-items-start">
+          <div className="col-12 col-md-6">
+            <p className="kicker mb-3">// establish_uplink</p>
+            <div className="d-flex flex-column gap-2">
+              {LINKS.map(({ href, icon: Icon, label }) => (
                 <a
-                  href="mailto:tylerbibus@hotmail.com"
-                  className="text-graytext hover-text-crimson transition-colors duration-300"
-                  aria-label="Email Tyler Bibus"
-                >
-                  <i className="bi bi-envelope-fill text-crimson fs-1"></i>
-                </a>
-              </div>
-              <div>
-                <a
-                  href="https://www.linkedin.com/in/tyler-bibus-a63087248/"
-                  className="text-graytext hover-text-crimson transition-colors duration-300"
-                  target="_blank"
+                  key={href}
+                  className="footer-link"
+                  href={href}
+                  target={href.startsWith('mailto') ? undefined : '_blank'}
                   rel="noopener noreferrer"
-                  aria-label="Tyler Bibus LinkedIn Profile"
                 >
-                  <i className="bi bi-linkedin text-crimson fs-1"></i>
+                  <Icon size={16} />
+                  {label}
                 </a>
-              </div>
-              <div>
-                <a
-                  href="https://github.com/tyler-bibus"
-                  className="text-graytext hover-text-crimson transition-colors duration-300"
-                  target="_blank"
-                  aria-label="Tyler Bibus GitHub Profile"
-                >
-                  <i className="bi bi-github text-crimson fs-1"></i>
-                </a>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Copyright */}
-          <div className="col-12 col-md-6 text-center text-md-end">
-            <p className="text-graytext mb-2">
-              © {new Date().getFullYear()} Tyler Bibus
+          <div className="col-12 col-md-6 text-md-end">
+            <p className="mono mb-1" style={{ color: 'var(--faint)', fontSize: '.85rem' }}>
+              tyler@portfolio:~$ <span className="caret" />
             </p>
-            <p className="text-graytext text-sm">
-              Built with <span className="text-crimson">♥</span> using React & TailwindCSS
+            <p className="mono mb-1" style={{ color: 'var(--dim)', fontSize: '.85rem' }}>
+              © {new Date().getFullYear()} Tyler Bibus — Ames, IA
+            </p>
+            <p className="mono mb-0" style={{ color: 'var(--faint)', fontSize: '.78rem' }}>
+              built with react · vite · far too many keyframes
+            </p>
+            <p className="mono mt-2 mb-0" style={{ color: 'var(--faint)', fontSize: '.72rem', letterSpacing: '.12em' }}>
+              hint: the portrait is clickable. so is ↑↑↓↓←→←→ba
             </p>
           </div>
         </div>

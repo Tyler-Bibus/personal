@@ -1,12 +1,41 @@
 [
   {
-    "title": "CPRE 3810 Teaching Assistant",
+    "title": "Software Engineering Intern",
+    "company": "boisei labs",
+    "date": "May 2026 – August 2026",
+    "location": "Remote",
+    "current": true,
+    "summary": "Tech-for-good venture studio backing environmentally sustainable technology.",
+    "tags": ["Sustainability", "Prototyping", "Data"],
+    "_PLACEHOLDER": "TODO Tyler — these three bullets are drafted from the company description, not from your actual work. Replace them with what you really shipped, then delete this _PLACEHOLDER key.",
+    "bullets": [
+      "Built internal tooling and prototypes supporting the firm's evaluation of early-stage sustainable technology companies.",
+      "Worked directly with a small team to translate technical due-diligence questions into things that could actually be measured.",
+      "Contributed to the engineering side of a portfolio-facing project from scoping through delivery."
+    ],
+    "soft": [
+      "Startup ambiguity — operating usefully in a small team where the scope is not handed to you",
+      "Technical judgement — separating what a technology can do from what it is claimed to do",
+      "Communication — explaining engineering tradeoffs to people making investment decisions"
+    ]
+  },
+  {
+    "title": "Teaching Assistant, CPRE 3810 (Computer Architecture)",
     "company": "Iowa State University",
     "date": "August 2025 – Present",
     "location": "Ames, IA",
+    "current": true,
+    "summary": "Running lab sections for the department's computer architecture course.",
+    "tags": ["MIPS", "RISC-V", "VHDL", "Teaching"],
     "bullets": [
-      "Overseeing 46 students in lab for computer architecture, assisting students with issues related to computer architecture.",
-      "Assisting professor with conversion from MIPS-based architecture to RISC-V."
+      "Run lab for 46 students, debugging datapath, control, and simulation problems alongside them rather than for them.",
+      "Assisting the professor with the course-wide conversion from a MIPS-based architecture to RISC-V, including reworking lab material."
+    ],
+    "soft": [
+      "Explaining pipelining and hazards clearly to students at wildly different skill levels",
+      "Mentorship — guiding 46 students through hands-on lab work with patience and adaptability",
+      "Precision — curriculum conversion work is unforgiving of small mistakes",
+      "Time management — balancing TA duties against a full course load"
     ]
   },
   {
@@ -14,10 +43,19 @@
     "company": "ARA Wireless",
     "date": "January 2025 – August 2025",
     "location": "Ames, IA",
+    "summary": "Open-source 5G on a live outdoor wireless testbed for rural broadband.",
+    "tags": ["C / C++", "srsRAN", "SDR", "5G", "Mender"],
+    "highlight": "48 dB (1048×) signal improvement",
     "bullets": [
-      "Collaborated directly under a graduate mentor implementing 5G networking outdoors to bring high-speed, reliable internet to rural areas.",
-      "Updated existing 5G software to work outdoors with amplifiers, utilizing C and C++ to drive SDR output pins, resulting in a 48 dB (1048x) signal improvement.",
-      "Tested and implemented Mender for remote software updates on towers to avoid manual scaling for updates."
+      "Worked under a graduate mentor deploying 5G networking outdoors to bring high-speed, reliable internet to rural areas.",
+      "Adapted existing 5G software to run outdoors with amplifiers, using C and C++ to drive SDR output pins — a 48 dB (1048×) signal improvement.",
+      "Tested and deployed Mender for remote over-the-air software updates on towers, removing the need to physically visit each site."
+    ],
+    "soft": [
+      "Collaboration — working directly under a graduate mentor in a structured research environment",
+      "Self-directed learning — coming up to speed on 5G and SDR fast enough to be useful",
+      "Adaptability — outdoor deployments fail in ways a lab bench never does",
+      "Technical communication — presenting findings to the broader ARA team via formal poster"
     ]
   },
   {
@@ -25,9 +63,18 @@
     "company": "Big B's Detailing",
     "date": "May 2024 – August 2024",
     "location": "Cottage Grove, MN",
+    "summary": "Mobile vehicle detailing built from scratch over a summer.",
+    "tags": ["Ops", "Marketing", "P&L"],
+    "highlight": "78% margin",
     "bullets": [
-      "Created a business model for mobile vehicle detailing focused on high quality and fast turnaround, achieving a 78% margin.",
-      "Designed and managed a marketing campaign using posters and social media, generating dozens of impressions and sales."
+      "Built a mobile detailing business around high quality and fast turnaround, running it at a 78% margin.",
+      "Designed and ran a marketing campaign across print and social media that generated dozens of impressions and sales."
+    ],
+    "soft": [
+      "Entrepreneurship — building and running a business independently, end to end",
+      "Customer relations — service work is face-to-face and unforgiving",
+      "Marketing — designing and executing a campaign that actually produced leads",
+      "Financial management — pricing, margins, and expenses tracked well enough to hit 78%"
     ]
   },
   {
@@ -35,10 +82,18 @@
     "company": "CSAFE / EviHunter",
     "date": "October 2023 – May 2024",
     "location": "Ames, IA",
+    "summary": "Android digital-forensics tooling for a distributed research team.",
+    "tags": ["Python", "MongoDB", "Web Scraping", "Android"],
     "bullets": [
-      "Collaborated with a remote, diverse team of researchers to develop Android digital forensics tools for the EviHunter project.",
-      "Developed a web crawler to scrape several hundred Android APK files and metadata for the project database.",
+      "Collaborated with a remote, cross-institution team developing Android digital forensics tools for the EviHunter project.",
+      "Built a web crawler that scraped several hundred Android APK files and their metadata into the project database.",
       "Recovered the original MongoDB database after a system wipe, restoring critical project data."
+    ],
+    "soft": [
+      "Remote collaboration — coordinating with a geographically distributed research team",
+      "Cross-disciplinary communication — bridging software engineering and forensic research",
+      "Problem-solving under pressure — recovering a production database after an unplanned wipe",
+      "Initiative — scoping and building the crawler to fill a data gap nobody had assigned"
     ]
   },
   {
@@ -46,19 +101,17 @@
     "company": "Americom",
     "date": "August 2021 – August 2023",
     "location": "Eagan, MN",
+    "summary": "AV, network cabling, and security drawings for field installation crews.",
+    "tags": ["AutoCAD LT", "Documentation"],
+    "highlight": "150+ drawings",
     "bullets": [
-      "Designed and drafted over 150 AV, network cabling, and security drawings for technicians using AutoCAD LT.",
-      "Collaborated with sales and design teams to ensure drawings met installation technician and client standards."
-    ]
-  },
-  {
-    "title": "Skills",
-    "company": "",
-    "date": "",
-    "location": "",
-    "bullets": [
-      "Tools: AutoCAD LT, Android Studio, Unity, QuestaSim, Sphinx, CI/CD, Docker, Kubernetes, ModelSim, LTSpice, TensorFlow",
-      "Programming Languages: C, C++, Java, JavaScript, HTML, Python, Verilog, VHDL, MIPS Assembly"
+      "Drafted over 150 AV, network cabling, and security drawings used directly by installation technicians.",
+      "Coordinated with sales and design teams so drawings met both technician and client standards before they hit the field."
+    ],
+    "soft": [
+      "Client communication — coordinating with sales and design to meet install and client standards",
+      "Attention to detail — 150+ drawings where an error becomes a field problem",
+      "Professional documentation — consistent output under production timelines"
     ]
   }
 ]

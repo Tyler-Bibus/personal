@@ -1,56 +1,40 @@
 import { Link } from 'react-router-dom';
 
-function ProjectCard({ title, description, link, imageSrc, imageFit = 'cover' }) {
-  const isSvg = imageFit === 'contain';
+/**
+ * A project dossier. Images were removed in the cyberpunk redesign —
+ * each card is now a terminal record: index, status pip, tech tags.
+ *
+ * @param {string}   id      two-digit record number, e.g. "03"
+ * @param {string}   status  'live' | 'done' | 'archive'
+ * @param {string[]} tags    short tech labels
+ */
+function ProjectCard({ id, title, description, link, tags = [], status = 'done', statusLabel }) {
   return (
-        <div
-      className="card text-white border-crimson border-2 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1"
-      style={{ backgroundColor: '#1a1a1a', height: '700px' }}
-      role="article"
-    >
-      {/* Image Section */}
-      {imageSrc ? (
-        <div style={{ minHeight: '400px', maxHeight: '400px', overflow: 'hidden' }}>
-          <img
-            src={imageSrc}
-            alt={title}
-            className="card-img-top"
-            style={{ height: '100%', width: '100%', objectFit: 'cover' }}
-          />
-        </div>
-      ) : (
-        <div
-          className="bg-gray-700 d-flex align-items-center justify-content-center"
-          style={{ minHeight: '400px', maxHeight: '400px' }}
-        >
-          <span className="text-gray-400">No Image Available</span>
+    <article className="cyber-card">
+      <div className="cyber-card__id">
+        <span>REC_{id}</span>
+        <span>
+          <span className={`pip pip--${status}`} />
+          {statusLabel || (status === 'live' ? 'ACTIVE' : 'SHIPPED')}
+        </span>
+      </div>
+
+      <h3 className="cyber-card__title">{title}</h3>
+      <p className="cyber-card__desc">{description}</p>
+
+      {tags.length > 0 && (
+        <div className="cyber-card__tags">
+          {tags.map((t) => (
+            <span className="tag" key={t}>{t}</span>
+          ))}
         </div>
       )}
 
-      {/* Card Body */}
-      <div className="card-body p-4 d-flex flex-column">
-        <div className="flex-grow-1 d-flex flex-column justify-content-center text-center">
-          <h3 className="card-title text-xl font-bold mb-3 text-crimson" style={{}}>{title}</h3>
-          <p className="card-text text-gray-300 text-base" style={{ minHeight: '80px' }}>
-            {description}
-          </p>
-        </div>
-
-        {/* Button Section */}
-        <div className="mt-3">
-          <Link
-            to={link}
-            className="btn btn-outline-danger w-100 text-crimson border-crimson hover:bg-crimson hover:text-white transition-colors duration-300"
-            aria-label={`View details for ${title} project`}
-          >
-            View Project
-          </Link>
-        </div>
-      </div>
-    </div>
+      <Link to={link} className="btn-cyber" aria-label={`Open the ${title} project page`}>
+        Open Record <span aria-hidden="true">▸</span>
+      </Link>
+    </article>
   );
 }
 
 export default ProjectCard;
-
-

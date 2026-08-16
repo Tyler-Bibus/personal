@@ -1,173 +1,165 @@
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
-import { SiTailwindcss, SiExpress } from 'react-icons/si';
-import { useState, useCallback, useEffect } from 'react';
+
 import ImageGallery from '../components/ImageGallery';
+import SectionHeading from '../components/SectionHeading';
+import TerminalPanel from '../components/TerminalPanel';
+import GlitchText from '../components/GlitchText';
+
+const stagger = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const rise = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100, damping: 16 } },
+};
+
+const STATS = [
+  { val: 'JWT', key: 'auth' },
+  { val: 'MERN', key: 'stack' },
+  { val: 'REST', key: 'api' },
+  { val: 'COMS 319', key: 'course' },
+];
+
+const STACK = ['React', 'TailwindCSS', 'Node.js', 'Express.js', 'MongoDB'];
 
 function WebDesignProjects() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100
-      }
-    }
-  };
-
   return (
-    <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-      <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-12"
-        >
-          {/* Hero Section */}
-          <motion.div variants={itemVariants} className="text-center">
-            <h1 className="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-pink-600">
-              Game Finder Web App
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              A full-stack application designed to help users discover their perfect game through interactive quizzes
+    <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
+      <motion.div variants={rise}>
+        <p className="kicker mb-2">// project_file</p>
+        <h1 className="page__title mb-3">
+          <GlitchText text="GAME FINDER WEB APP" />
+        </h1>
+        <p className="mb-4" style={{ color: 'var(--lilac)', fontSize: '1.05rem' }}>
+          A full-stack application that helps users discover their perfect game through interactive
+          quizzes.
+        </p>
+      </motion.div>
+
+      {/* ── Stats ────────────────────────────────────────── */}
+      <motion.div variants={rise} className="row g-3 mb-5">
+        {STATS.map((s) => (
+          <div className="col-6 col-md-3" key={s.key}>
+            <div className="stat">
+              <div className="stat__val">{s.val}</div>
+              <div className="stat__key">{s.key}</div>
+            </div>
+          </div>
+        ))}
+      </motion.div>
+
+      {/* ── Brief ────────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="01" title="BRIEF" />
+        <TerminalPanel title="~/projects/game-finder/README.md" right="coms 319 · iowa state">
+          <div className="prose">
+            <p>
+              Built for <strong>COMS 319</strong> at Iowa State University, this is a full-stack web
+              app assembled from modern tooling and pointed squarely at user experience: intuitive
+              navigation and a sleek, responsive interface.
             </p>
-          </motion.div>
+            <p className="mb-0">
+              Express.js and MongoDB handle data on the backend; React and TailwindCSS drive a
+              dynamic frontend on top of it.
+            </p>
+          </div>
+        </TerminalPanel>
+      </motion.div>
 
-          {/* Lightweight responsive image grid with modal */}
+      {/* ── Features ─────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="02" title="FEATURES" />
+        <ul className="cyber-list">
+          <li>Secure user authentication with a JWT-based login system</li>
+          <li>Interactive Buzzfeed-style quizzes for personalized game recommendations</li>
+          <li>Responsive, mobile-first design with TailwindCSS</li>
+          <li>RESTful API integration with an Express.js backend</li>
+        </ul>
+      </motion.div>
 
-
-          {/* Project Details */}
-          <motion.div variants={itemVariants} className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h2 className="text-2xl font-bold mb-4">Key Features</h2>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✅</span>
-                  Secure user authentication with JWT-based login system
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✅</span>
-                  Interactive Buzzfeed-style quizzes for personalized game recommendations
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✅</span>
-                  Responsive, mobile-first design with TailwindCSS
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-400 mr-2">✅</span>
-                  RESTful API integration with Express.js backend
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
-              <p className="text-gray-300 mb-4">
-                Developed for COMS 319 at Iowa State University, this project showcases a full-stack web application built with modern web technologies. The app focuses on user experience, featuring intuitive navigation and a sleek, responsive design.
-              </p>
-              <p className="text-gray-300">
-                The backend leverages Express.js and MongoDB for efficient data management, while the frontend uses React and TailwindCSS for a dynamic and visually appealing interface.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Tech Stack */}
-          <motion.div variants={itemVariants} className="text-center relative z-10">
-            <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
-            <div className="flex justify-center items-center gap-6 flex-wrap max-w-4xl mx-auto">
-              <div className="flex border-2 border-blue-500 rounded-lg">
-                <h3 className="mt-2 text-3xl font-semibold">React</h3>
-              </div>
-              <br/>
-              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                <h3 className="mt-2 text-3xl font-semibold">TailwindCSS</h3>
-              </div>
-              <br/>
-              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                <h3 className="mt-2 text-3xl font-semibold">Node.js</h3>
-              </div>
-              <br/>
-              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                <h3 className="mt-2 text-3xl font-semibold">Express.js</h3>
-              </div>
-              <br/>
-              <div className="flex flex-col items-center border-2 border-blue-500 rounded-lg">
-                <h3 className="mt-2 text-3xl font-semibold">MongoDB</h3>
+      {/* ── Stack ────────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="03" title="STACK" />
+        <div className="row g-3">
+          {STACK.map((tech) => (
+            <div className="col-6 col-md-4 col-lg" key={tech}>
+              <div className="cyber-card text-center" style={{ padding: '1rem .75rem' }}>
+                <div className="cyber-card__title mb-0" style={{ fontSize: '.95rem' }}>
+                  {tech}
+                </div>
               </div>
             </div>
-          </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
-          {/* Role, Skills, Resources */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h2 className="text-2xl font-bold mb-3">My Role</h2>
-              <p className="text-gray-300">
-                This was a team project where we divided the frontend pages evenly. I was responsible for the
-                login page, the home page, and the template used for each individual game entry. Beyond my
-                assigned pages, this project was my first real exposure to full-stack development — I gained
-                hands-on experience with the backend (Express.js + MongoDB) that I hadn't touched during the
-                Android project, where I focused exclusively on the frontend.
-              </p>
-            </div>
+      {/* ── Role ─────────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="04" title="MY ROLE" />
+        <TerminalPanel title="~/projects/game-finder/role.md" right="team project">
+          <div className="prose">
+            <p className="mb-0">
+              A team project with the frontend pages split evenly. I owned the{' '}
+              <strong>login page</strong>, the <strong>home page</strong>, and the{' '}
+              <strong>template used for each individual game entry</strong>. Beyond my assigned
+              pages, this was my first real exposure to full-stack development — hands-on time with
+              the Express.js + MongoDB backend I never touched during the Android project, where I
+              worked purely on the frontend.
+            </p>
+          </div>
+        </TerminalPanel>
+      </motion.div>
 
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h2 className="text-2xl font-bold mb-3">Skills &amp; Knowledge Gained</h2>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>React — component-based UI architecture, hooks, state management, and routing</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>TailwindCSS — utility-first styling and responsive design patterns</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>HTML — semantic markup and structure as the foundation of web interfaces</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Backend development fundamentals — RESTful API design, Express.js routing, and MongoDB data modeling</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>JWT authentication — implementing secure login flows end-to-end</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Full-stack integration — connecting a React frontend to a Node/Express backend via REST</li>
-              </ul>
-            </div>
+      {/* ── Skills ───────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="05" title="SKILLS GAINED" />
+        <ul className="cyber-list cyber-list--purple">
+          <li>React — component-based UI architecture, hooks, state management, and routing</li>
+          <li>TailwindCSS — utility-first styling and responsive design patterns</li>
+          <li>HTML — semantic markup as the foundation of a web interface</li>
+          <li>
+            Backend fundamentals — RESTful API design, Express.js routing, and MongoDB data modeling
+          </li>
+          <li>JWT authentication — implementing secure login flows end-to-end</li>
+          <li>Full-stack integration — wiring a React frontend to a Node/Express backend via REST</li>
+        </ul>
+      </motion.div>
 
-            <div className="bg-gray-800/50 p-6 rounded-xl">
-              <h2 className="text-2xl font-bold mb-3">Resources Used</h2>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>Bootstrap documentation — component reference and layout system</li>
-                <li className="flex items-start"><span className="text-blue-400 mr-2">▸</span>COMS 319 course slides — foundational concepts and project specifications</li>
-              </ul>
-            </div>
-          </motion.div>
+      {/* ── Resources ────────────────────────────────────── */}
+      <motion.div variants={rise} className="mb-5">
+        <SectionHeading index="06" title="RESOURCES" />
+        <ul className="cyber-list">
+          <li>Bootstrap documentation — component reference and layout system</li>
+          <li>COMS 319 course slides — foundational concepts and project specifications</li>
+        </ul>
 
-          {/* Project Links */}
-          <motion.div variants={itemVariants} className="text-center relative z-10">
-            <br/>
-            <a
-              href="https://github.com/Tyler-Bibus/coms319-final"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
-            >
-              View on GitHub
-            </a>
-          </motion.div>
+        <div className="mt-4">
+          <a
+            className="btn-cyber"
+            href="https://github.com/Tyler-Bibus/coms319-final"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
+          </a>
+        </div>
+      </motion.div>
 
-          <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
-            <ImageGallery
-              images={[
-                { src: '/personal/assets/319/coms319Screenshot1.png', alt: 'Game Finder Screenshot 1' },
-                { src: '/personal/assets/319/coms319Screenshot2.png', alt: 'Game Finder Screenshot 2' }
-              ]}
-            />
-          </motion.div>
-        </motion.div>
-      </div>
-    </div>
+      <div className="rule-dash" />
+
+      {/* ── Gallery ──────────────────────────────────────── */}
+      <motion.div variants={rise}>
+        <p className="kicker mb-3">// screenshots</p>
+        <ImageGallery
+          images={[
+            { src: '/personal/assets/319/coms319Screenshot1.png', alt: 'Game Finder Screenshot 1' },
+            { src: '/personal/assets/319/coms319Screenshot2.png', alt: 'Game Finder Screenshot 2' },
+          ]}
+        />
+      </motion.div>
+    </motion.div>
   );
 }
 

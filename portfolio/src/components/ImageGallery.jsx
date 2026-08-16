@@ -1,5 +1,34 @@
 import { useState, useCallback, useEffect } from 'react';
 
+const ARROW_BASE = {
+  width: '2.5rem',
+  height: '2.5rem',
+  border: '1px solid var(--line-hot)',
+  cursor: 'pointer',
+  backgroundColor: 'rgba(8, 3, 18, .8)',
+  color: 'var(--lilac)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '2rem',
+  lineHeight: 1,
+  flexShrink: 0,
+  transition: 'background-color .2s, color .2s, box-shadow .2s',
+  clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
+};
+
+function arrowOn(el) {
+  el.style.backgroundColor = 'var(--magenta)';
+  el.style.color = '#08030f';
+  el.style.boxShadow = '0 0 22px rgba(255, 43, 214, .5)';
+}
+
+function arrowOff(el) {
+  el.style.backgroundColor = 'rgba(8, 3, 18, .8)';
+  el.style.color = 'var(--lilac)';
+  el.style.boxShadow = 'none';
+}
+
 // Props: images: Array<{ src: string, alt?: string }>
 export default function ImageGallery({ images = [] }) {
   const [current, setCurrent] = useState(0);
@@ -19,10 +48,15 @@ export default function ImageGallery({ images = [] }) {
   if (!images.length) return null;
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="d-flex flex-column align-items-center">
 
       {/* Caption */}
-      <p className="text-graytext text-sm w-full text-center">{images[current].alt || ''}</p>
+      <p
+        className="mono text-center w-100 mb-2"
+        style={{ color: 'var(--faint)', fontSize: '.85rem', letterSpacing: '.08em' }}
+      >
+        {images[current].alt || ''}
+      </p>
 
       {/* Carousel: [prev] [image] [next] in a row, dots below */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
@@ -34,31 +68,26 @@ export default function ImageGallery({ images = [] }) {
           <button
             onClick={prev}
             aria-label="Previous image"
-            className="text-white transition-colors duration-200"
-            style={{
-              width: '2.5rem',
-              height: '2.5rem',
-              borderRadius: '9999px',
-              border: 'none',
-              cursor: 'pointer',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '2rem',
-              lineHeight: 1,
-              flexShrink: 0,
-            }}
-            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#DC143C'}
-            onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.5)'}
+            style={ARROW_BASE}
+            onMouseEnter={(e) => arrowOn(e.currentTarget)}
+            onMouseLeave={(e) => arrowOff(e.currentTarget)}
           >
             ‹
           </button>
 
           {/* Image frame */}
           <div
-            className="rounded-2xl overflow-hidden flex items-center justify-center"
-            style={{ width: '260px', height: '480px', backgroundColor: '#1e1e2e' }}
+            className="d-flex align-items-center justify-content-center"
+            style={{
+              width: '260px',
+              height: '480px',
+              overflow: 'hidden',
+              backgroundColor: 'var(--panel)',
+              border: '1px solid var(--line-hot)',
+              boxShadow: '0 0 24px rgba(176, 38, 255, .18)',
+              clipPath:
+                'polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px))',
+            }}
           >
             <img
               src={images[current].src}
@@ -71,23 +100,9 @@ export default function ImageGallery({ images = [] }) {
           <button
             onClick={next}
             aria-label="Next image"
-            className="text-white transition-colors duration-200"
-            style={{
-              width: '2.5rem',
-              height: '2.5rem',
-              borderRadius: '9999px',
-              border: 'none',
-              cursor: 'pointer',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '2rem',
-              lineHeight: 1,
-              flexShrink: 0,
-            }}
-            onMouseEnter={e => e.currentTarget.style.backgroundColor = '#DC143C'}
-            onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.5)'}
+            style={ARROW_BASE}
+            onMouseEnter={(e) => arrowOn(e.currentTarget)}
+            onMouseLeave={(e) => arrowOff(e.currentTarget)}
           >
             ›
           </button>
@@ -112,8 +127,8 @@ export default function ImageGallery({ images = [] }) {
                 style={{
                   width:  i === current ? '20px' : '10px',
                   height: '10px',
-                  borderRadius: '9999px',
-                  backgroundColor: i === current ? '#DC143C' : '#6b7280',
+                  backgroundColor: i === current ? 'var(--magenta)' : 'var(--faint)',
+                  boxShadow: i === current ? '0 0 10px rgba(255, 43, 214, .7)' : 'none',
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.2s',
@@ -125,7 +140,6 @@ export default function ImageGallery({ images = [] }) {
         )}
 
       </div>
-
 
     </div>
   );
