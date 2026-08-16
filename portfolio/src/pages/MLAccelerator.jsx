@@ -4,6 +4,7 @@ import SectionHeading from '../components/SectionHeading';
 import TerminalPanel from '../components/TerminalPanel';
 import GlitchText from '../components/GlitchText';
 import EyeOfSilicon from '../components/visuals/EyeOfSilicon';
+import SideBackdrop from '../components/visuals/SideBackdrop';
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -18,8 +19,8 @@ const rise = {
 const stats = [
   { val: '8-bit', key: 'quantization' },
   { val: '4', key: 'parallel MACs' },
-  { val: '64×64×3', key: 'input volume' },
-  { val: '60×60×32', key: 'output volume' },
+  { val: '64×64×3', key: 'layer 1 input' },
+  { val: '60×60×32', key: 'layer 1 output' },
 ];
 
 const pipeline = [
@@ -48,7 +49,7 @@ const pipeline = [
     id: 'U3',
     name: 'Output Storage',
     desc:
-      'Buffers and writes back the 60×60×32 output volume, including the optional 2×2 max-pooling stage before results leave the accelerator.',
+      'Buffers and writes back the 60×60×32 layer-1 output volume, including the optional 2×2 max-pooling stage before results leave the accelerator.',
     tags: ['VHDL', 'Max-pool', 'Writeback'],
   },
 ];
@@ -74,6 +75,10 @@ const tools = ['VHDL', 'C++', 'Python', 'TensorFlow'];
 function MLAccelerator() {
   return (
     <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
+      {/* The MAC array running in the margins — same multiply-accumulate
+          wave the accelerator does, just bigger and slower. */}
+      <SideBackdrop variants={['mac']} />
+
       {/* ── Masthead ─────────────────────────────────────── */}
       <motion.div variants={rise}>
         <p className="kicker mb-2">// cpre_4870_5870</p>
@@ -87,14 +92,6 @@ function MLAccelerator() {
         <hr />
       </motion.div>
 
-      {/* ── The classifier, looking back ─────────────────── */}
-      <motion.figure variants={rise} className="eye-stage mb-5">
-        <EyeOfSilicon />
-        <figcaption className="mono text-center mt-2" style={{ color: 'var(--faint)', fontSize: '.76rem', letterSpacing: '.16em' }}>
-          5×5 KERNEL · WALKING A 64×64×3 INPUT · 4 MACS WIDE
-        </figcaption>
-      </motion.figure>
-
       {/* ── Stat row ─────────────────────────────────────── */}
       <motion.div variants={rise} className="row g-3 mb-5">
         {stats.map((s) => (
@@ -106,6 +103,14 @@ function MLAccelerator() {
           </div>
         ))}
       </motion.div>
+
+      {/* ── The classifier, looking back ─────────────────── */}
+      <motion.figure variants={rise} className="eye-stage mb-5">
+        <EyeOfSilicon />
+        <figcaption className="mono text-center mt-2" style={{ color: 'var(--faint)', fontSize: '.76rem', letterSpacing: '.16em' }}>
+          5×5 KERNEL · WALKING A 64×64×3 INPUT · 4 MACS WIDE
+        </figcaption>
+      </motion.figure>
 
       {/* ── 01 Brief ─────────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">

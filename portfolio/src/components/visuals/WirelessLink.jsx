@@ -67,10 +67,6 @@ function WirelessLink({ opacity = 1 }) {
         <rect y="188" width="20" height="8" rx="1" style={{ animationDelay: '2.6s' }} />
       </g>
 
-      <g className="viz-rf__meta">
-        <text x="160" y="44">2.4 GHz ISM</text>
-        <text x="160" y="292">BLE 4.0 · LINK LAYER</text>
-      </g>
     </svg>
   );
 }

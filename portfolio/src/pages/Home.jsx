@@ -109,7 +109,7 @@ const PROJECTS = [
 const VISUALS = [
   {
     to: '/senior-design',
-    label: 'Wireless Link',
+    label: 'BLE ASIC',
     sub: 'BLE 4.0 · LINK LAYER + HCI',
     render: () => <WirelessLink />,
   },
@@ -117,7 +117,7 @@ const VISUALS = [
     to: '/ml-accelerator',
     label: 'Convolution Engine',
     sub: '5×5 KERNEL · 4 MACS · INT8',
-    render: () => <EyeOfSilicon compact />,
+    render: () => <EyeOfSilicon />,
   },
   {
     to: '/cpu-project',

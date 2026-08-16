@@ -1221,12 +1221,74 @@ hr {
   100%      { transform: translateX(212px); opacity: 0; }
 }
 
-.viz-rf__meta text {
-  fill: var(--faint);
+/* ── Radio mesh column extras ───────────────────────────── */
+.viz-rf__ant { stroke: rgba(255, 43, 214, .7); stroke-width: 1.4; }
+
+.viz-rf__ant-tip {
+  fill: var(--magenta);
+  filter: drop-shadow(0 0 5px rgba(255, 43, 214, .9));
+}
+
+/* omnidirectional wavefronts, for the column view */
+.viz-rf__wave--omni circle {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: 1.4;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 4px rgba(255, 43, 214, .7));
+  animation: rfWave 3.4s ease-out infinite;
+}
+
+.viz-rf__hop circle {
+  fill: var(--magenta);
+  filter: drop-shadow(0 0 6px rgba(255, 43, 214, .95));
+}
+
+/* ── MAC array column ───────────────────────────────────── */
+.viz-mac__stream path {
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 1.2;
+  stroke-dasharray: 6 38;
+  opacity: .55;
+  filter: drop-shadow(0 0 3px rgba(176, 38, 255, .8));
+  animation: traceFlow 3.4s linear infinite;
+}
+
+.viz-mac__cell rect {
+  fill: none;
+  stroke: rgba(176, 38, 255, .3);
+  stroke-width: 1;
+}
+
+.viz-mac__cell text {
+  fill: var(--lilac);
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: .18em;
+  font-size: 12px;
+  letter-spacing: .06em;
   text-anchor: middle;
+}
+
+.viz-mac__cell g { animation: macFire 2.6s ease-in-out infinite; }
+
+@keyframes macFire {
+  0%, 100% { opacity: .32; }
+  18%      { opacity: 1; }
+  45%      { opacity: .5; }
+}
+
+.viz-mac__acc rect {
+  fill: var(--magenta);
+  opacity: 0;
+  animation: macAcc 2.6s ease-out infinite;
+}
+
+@keyframes macAcc {
+  0%, 100% { opacity: 0; }
+  15%      { opacity: .22; }
+  55%      { opacity: 0; }
 }
 
 /* ── Classifier eye ─────────────────────────────────────── */
@@ -1275,21 +1337,24 @@ hr {
   fill: #05010c;
   stroke: var(--magenta);
   stroke-width: 2;
-  transform-origin: 210px 130px;
   filter: drop-shadow(0 0 10px rgba(255, 43, 214, .95));
-  animation: pupilBreathe 5.5s ease-in-out infinite;
+  animation: pupilGlance 13s ease-in-out infinite;
 }
 
 .viz-eye__pupil-core {
   fill: var(--magenta);
-  transform-origin: 210px 130px;
   filter: drop-shadow(0 0 14px rgba(255, 43, 214, 1));
-  animation: pupilBreathe 5.5s ease-in-out infinite;
+  animation: pupilGlance 13s ease-in-out infinite;
 }
 
-@keyframes pupilBreathe {
-  0%, 100% { transform: scaleX(1)   scaleY(1); }
-  45%      { transform: scaleX(1.5) scaleY(.82); }
+/* Holds dead centre most of the cycle, then flicks aside and back —
+   an eye scanning the room, not a shutter opening and closing. */
+@keyframes pupilGlance {
+  0%,  30%  { transform: translateX(0); }
+  36%, 46%  { transform: translateX(-30px); }
+  53%, 68%  { transform: translateX(0); }
+  74%, 84%  { transform: translateX(26px); }
+  91%, 100% { transform: translateX(0); }
 }
 
 .viz-eye__lid {
@@ -1331,21 +1396,34 @@ hr {
 }
 
 .side-bd__col--l { left: 0; }
-.side-bd__col--r { right: 0; transform: scaleX(-1); }
+.side-bd__col--r { right: 0; }
 
 .side-bd__layer {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 26px;
-  padding: 0 8px;
   opacity: 0;
   transition: opacity 1.6s ease-in-out;
-  /* fade toward the text column so nothing competes with the copy */
-  mask-image: linear-gradient(to right, #000 30%, transparent 96%);
-  -webkit-mask-image: linear-gradient(to right, #000 30%, transparent 96%);
+}
+
+/* Each column holds one continuous drawing sized to the column, so the
+   art never repeats. `slice` lets it cover whatever height the viewport
+   happens to be. */
+.side-bd__layer .viz--col {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fade toward the text column so nothing competes with the copy. The two
+   margins fade in opposite directions — the right column is a separate
+   seeded drawing rather than a mirror, so it needs its own gradient. */
+.side-bd__col--l .side-bd__layer {
+  mask-image: linear-gradient(to right, #000 25%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to right, #000 25%, transparent 98%);
+}
+
+.side-bd__col--r .side-bd__layer {
+  mask-image: linear-gradient(to left, #000 25%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to left, #000 25%, transparent 98%);
 }
 
 .side-bd__layer.is-active { opacity: .30; }

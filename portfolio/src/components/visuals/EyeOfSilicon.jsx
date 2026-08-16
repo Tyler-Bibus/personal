@@ -9,11 +9,11 @@
 const RING_RADII = [78, 64, 50, 36];
 const KERNEL = Array.from({ length: 25 }, (_, i) => [i % 5, Math.floor(i / 5)]);
 
-function EyeOfSilicon({ compact = false }) {
+function EyeOfSilicon() {
   return (
     <svg
       viewBox="0 0 420 260"
-      className={`viz viz--eye ${compact ? 'viz--compact' : ''}`.trim()}
+      className="viz viz--eye"
       aria-hidden="true"
       preserveAspectRatio="xMidYMid meet"
     >
