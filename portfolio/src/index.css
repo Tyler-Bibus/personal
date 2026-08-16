@@ -1,53 +1,5 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
-@import 'tailwindcss';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-/* ── Base ─────────────────────────────────────────────── */
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #212529;
-}
-
-#top {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.intro {
-  flex-grow: 1;
-}
-
-/* ── Animations ───────────────────────────────────────── */
-@keyframes fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.animate-fade {
-  animation: fade 0.7s ease-in-out;
-}
-
-/* ── Utility classes (use Tailwind tokens where possible) */
-.text-crimson {
-  color: #DC143C;
-}
-
-.btn-crimson {
-  background-color: #DC143C;
-  color: white;
-  border: 2px solid #DC143C;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.btn-crimson:hover {
-  background-color: white;
-  color: #DC143C;
-  border: 2px solid #DC143C;
-}
+/* The cyberpunk design system. Loaded after Bootstrap (see main.jsx)
+   so its overrides win. All theme tokens live in styles/cyber.css. */
+@import './styles/cyber.css';

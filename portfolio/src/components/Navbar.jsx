@@ -1,71 +1,65 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
+import GlitchText from './GlitchText';
+
+const PROJECT_LINKS = [
+  { to: '/senior-design',       label: 'senior_design.sv' },
+  { to: '/ml-accelerator',      label: 'cnn_accelerator.vhd' },
+  { to: '/cpu-project',         label: 'mips_cpu.vhd' },
+  { to: '/llm-chat-bot',        label: 'discord_llm.py' },
+  { to: '/android-project',     label: 'gs_finder.java' },
+  { to: '/web-design-projects', label: 'game_finder.jsx' },
+];
 
 function Navbar() {
+  const [open, setOpen] = useState(false);       // mobile collapse
+  const location = useLocation();
+
+  // close the mobile menu whenever the route changes
+  useEffect(() => setOpen(false), [location.pathname]);
+
   return (
-    <nav className="navbar navbar-expand-lg sticky-top shadow-md border-b-2 border-crimson animate-fade" style={{ backgroundColor: '#121212', zIndex: 1000 }}>
+    <nav className="cyber-nav navbar navbar-expand-lg py-2">
       <div className="container">
-        {/* Brand */}
-        <Link className="navbar-brand text-white font-bold text-xl px-3" to="/"
-                style={{
-                  border: '1px solid #DC143C',
-                }}
-                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
-                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}>
-          Tyler Bibus
+        <Link className="cyber-nav__brand navbar-brand" to="/">
+          <span className="neon-m mono">&gt;</span>
+          <GlitchText text="TYLER BIBUS" hover />
         </Link>
 
-        {/* Toggler */}
         <button
-          className="navbar-toggler border-crimson"
+          className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={open}
           aria-label="Toggle navigation"
+          onClick={() => setOpen((v) => !v)}
         >
-          <span className="navbar-toggler-icon"></span>
+          <i className={`bi ${open ? 'bi-x-lg' : 'bi-list'}`} />
         </button>
 
-        {/* Collapsible Content */}
-        <div className="collapse navbar-collapse justify-content-end bg-[#141414] md:bg-transparent p-3 md:p-0" id="navbarNav">
-          <ul className="navbar-nav gap-3">
+        <div className={`collapse navbar-collapse justify-content-end ${open ? 'show' : ''}`}>
+          <ul className="navbar-nav align-items-lg-center gap-lg-4 gap-2 mt-3 mt-lg-0">
             <li className="nav-item">
-              <Link
-                className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
+              <NavLink
                 to="/work-experience"
-                style={{
-                  border: '1px solid #DC143C',
-                }}
-                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
-                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
+                className={({ isActive }) => `cyber-nav__link nav-link ${isActive ? 'is-active' : ''}`}
               >
-                Work Experience
-              </Link>
+                Experience
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link text-white rounded-md transition-colors duration-300 px-3 py-2"
+              <NavLink
                 to="/resume"
-                style={{
-                  border: '1px solid #DC143C',
-                }}
-                onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
-                onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
+                className={({ isActive }) => `cyber-nav__link nav-link ${isActive ? 'is-active' : ''}`}
               >
                 Resume
-              </Link>
+              </NavLink>
             </li>
-              <li className="nav-item dropdown" id="projectsDropdownWrapper">
-                {/* React-controlled dropdown (works without Bootstrap JS) */}
-                {/** We'll render a button and toggle the menu via state. */}
-                <ProjectsDropdown />
-              </li>
+            <li className="nav-item">
+              <ProjectsDropdown />
+            </li>
           </ul>
         </div>
       </div>
-      <br></br>
     </nav>
   );
 }
@@ -77,63 +71,47 @@ function ProjectsDropdown() {
   const ref = useRef(null);
 
   useEffect(() => {
-    function handleClick(e) {
+    if (!open) return undefined;
+    const onClick = (e) => {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-    }
-    function handleKey(e) {
-      if (e.key === 'Escape') setOpen(false);
-    }
-    document.addEventListener('click', handleClick);
-    document.addEventListener('keydown', handleKey);
-    return () => {
-      document.removeEventListener('click', handleClick);
-      document.removeEventListener('keydown', handleKey);
     };
-  }, []);
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="position-relative">
       <button
         type="button"
-        className="nav-link dropdown-toggle text-white rounded-md transition-colors duration-300 px-3 py-2 bg-transparent"
+        className="cyber-nav__link nav-link"
         aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        style={{ border: '1px solid #DC143C' }}
-        onMouseEnter={(e) => (e.target.style.border = '1px solid #8B0000')}
-        onMouseLeave={(e) => (e.target.style.border = '1px solid #DC143C')}
       >
-        Projects
+        Projects <span className="mono">{open ? '[-]' : '[+]'}</span>
       </button>
 
-      <ul
-        className={`dropdown-menu dropdown-menu-end dropdown-menu-dark bg-[#141414] absolute right-0 mt-2 min-w-[200px] z-50 ${open ? 'block show' : 'hidden'}`}
-        aria-labelledby="projectsDropdown"
-        style={{ border: '1px solid #DC143C' }}
-      >
-        {/* <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/non-school-projects" onClick={() => setOpen(false)}>Non-School Projects</Link>
-        </li> */}
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/android-project" onClick={() => setOpen(false)}>Android App</Link>
-        </li>
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/cpu-project" onClick={() => setOpen(false)}>CPU Project</Link>
-        </li>
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/web-design-projects" onClick={() => setOpen(false)}>Web App</Link>
-        </li>
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/llm-chat-bot" onClick={() => setOpen(false)}>LLM Chat Bot</Link>
-        </li>
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/ml-accelerator" onClick={() => setOpen(false)}>ML Accelerator</Link>
-        </li>
-        <li>
-          <Link className="dropdown-item text-white px-4 py-2 block" to="/senior-design" onClick={() => setOpen(false)}>Senior Design</Link>
-        </li>
-      </ul>
+      {open && (
+        <ul className="cyber-menu list-unstyled mb-0">
+          <li className="px-2 pt-1 pb-2 mono" style={{ fontSize: '.68rem', color: 'var(--faint)', letterSpacing: '.14em' }}>
+            ~/projects — {PROJECT_LINKS.length} records
+          </li>
+          {PROJECT_LINKS.map((p) => (
+            <li key={p.to}>
+              <Link className="cyber-menu__item" to={p.to} onClick={() => setOpen(false)}>
+                {p.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
-

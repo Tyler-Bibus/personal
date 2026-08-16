@@ -1,155 +1,181 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import experienceData from "../assets/experience.json";
 
-const containerVariants = {
+import experienceData from '../assets/experience.json';
+import SectionHeading from '../components/SectionHeading';
+import TerminalPanel from '../components/TerminalPanel';
+import GlitchText from '../components/GlitchText';
+
+const stagger = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
-const itemVariants = {
-  hidden: { y: 12, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100 } },
+const rise = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 100, damping: 16 } },
 };
 
-function WorkExperience() {
-  const skillsEntry = experienceData.find((e) => e.title === 'Skills');
+function ExperienceNode({ job }) {
+  const [openSoft, setOpenSoft] = useState(false);
 
   return (
-    <motion.div
-      className="d-flex flex-column bg-dark text-white"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+    <motion.article
+      className={`tl__node ${job.current ? 'tl__node--current' : ''}`.trim()}
+      variants={rise}
     >
-      <div className="container py-8 flex-grow-1">
-        <br />
-        <h1 className="text-4xl font-bold mb-4">Work Experience</h1>
-        <hr />
-
-        {experienceData
-          .filter((e) => e.title !== 'Skills')
-          .map((experience, index) => (
-            <motion.div className="mb-8" key={index} variants={itemVariants}>
-              <h2 className="text-xl font-bold">
-                {experience.title}
-                {experience.company ? ` – ${experience.company}` : ''}
-              </h2>
-              <p className="italic">
-                {experience.date}
-                {experience.date && experience.location ? ' | ' : ''}
-                {experience.location}
-              </p>
-
-              {experience.bullets ? (
-                <ul className="list-disc ml-6 mt-2 text-base text-gray-200">
-                  {experience.bullets.map((b, i) => (
-                    <li key={i} className="mb-1">
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                experience.description && <p>{experience.description}</p>
-              )}
-
-              <hr className="mt-3" />
-            </motion.div>
-          ))}
-
-        {skillsEntry && (
-          <motion.div className="mb-8" variants={itemVariants}>
-            <h2 className="text-xl font-bold">Technical Skills</h2>
-            <div className="mt-2 text-base text-gray-200">
-              {skillsEntry.bullets.map((b, i) => (
-                <p key={i} className="mb-1">
-                  • {b}
-                </p>
-              ))}
-            </div>
-          </motion.div>
+      <h3 className="tl__role mb-0">
+        {job.title}
+        {job.company && (
+          <>
+            <span className="mono" style={{ color: 'var(--faint)' }}> @ </span>
+            <span className="tl__org">{job.company}</span>
+          </>
         )}
+      </h3>
 
-        <motion.div className="mb-8" variants={itemVariants}>
-          <h2 className="text-xl font-bold mb-3">Soft Skills by Position</h2>
-          <div className="space-y-4 text-gray-200">
-            <div>
-              <h3 className="font-semibold text-white">CPRE 3810 Teaching Assistant</h3>
-              <ul className="list-disc ml-6 mt-1">
-                <li>Communication — explaining complex computer architecture concepts clearly to students at varying skill levels</li>
-                <li>Mentorship — guiding 46 students through hands-on lab work with patience and adaptability</li>
-                <li>Attention to detail — maintaining accuracy while converting course curriculum from MIPS to RISC-V</li>
-                <li>Time management — balancing TA responsibilities alongside coursework and other commitments</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white">Undergraduate Researcher – ARA Wireless</h3>
-              <ul className="list-disc ml-6 mt-1">
-                <li>Collaboration — working directly under a graduate mentor in a structured research environment</li>
-                <li>Self-directed learning — rapidly acquiring domain knowledge in 5G networking and SDR systems</li>
-                <li>Adaptability — troubleshooting real-world outdoor deployments where conditions are unpredictable</li>
-                <li>Technical communication — presenting research findings to the broader ARA team via formal poster presentation</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white">Small Business Owner – Big B's Detailing</h3>
-              <ul className="list-disc ml-6 mt-1">
-                <li>Entrepreneurship — building and managing a business independently from the ground up</li>
-                <li>Customer relations — maintaining client satisfaction in a service-oriented, face-to-face environment</li>
-                <li>Marketing — designing and executing a social media and print campaign to generate leads</li>
-                <li>Financial management — pricing, tracking margins, and managing expenses to achieve 78% profitability</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white">Undergraduate Research Programmer – CSAFE / EviHunter</h3>
-              <ul className="list-disc ml-6 mt-1">
-                <li>Remote collaboration — coordinating effectively with a geographically distributed research team</li>
-                <li>Cross-disciplinary communication — bridging software engineering and forensic research domains</li>
-                <li>Problem-solving under pressure — recovering a production MongoDB database after an unplanned system wipe</li>
-                <li>Initiative — independently scoping and building a web crawler to fill a critical data gap in the project</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-white">CAD Technician – Americom</h3>
-              <ul className="list-disc ml-6 mt-1">
-                <li>Client communication — coordinating with sales and design teams to meet installation and client standards</li>
-                <li>Attention to detail — producing over 150 technical drawings where accuracy directly affects field work</li>
-                <li>Professional documentation — delivering consistent, high-quality technical output under production timelines</li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
+      <div className="tl__meta">
+        <span>{job.date}</span>
+        {job.location && <span>◇ {job.location}</span>}
+        {job.current && <span className="neon-m">◇ current</span>}
+      </div>
+
+      {job.summary && (
+        <p className="mb-3" style={{ color: 'var(--lilac)', fontSize: '1rem' }}>
+          {job.summary}
+        </p>
+      )}
+
+      {job.highlight && (
+        <div className="d-inline-block mb-3">
+          <span className="stat__val mono" style={{ fontSize: '1.05rem' }}>
+            &gt;&gt; {job.highlight}
+          </span>
+        </div>
+      )}
+
+      <ul className="cyber-list mb-3">
+        {job.bullets.map((b, i) => (
+          <li key={i}>{b}</li>
+        ))}
+      </ul>
+
+      {job.tags?.length > 0 && (
+        <div className="cyber-card__tags mb-2">
+          {job.tags.map((t) => (
+            <span className="tag" key={t}>{t}</span>
+          ))}
+        </div>
+      )}
+
+      {job.soft?.length > 0 && (
+        <>
+          <button
+            type="button"
+            className="btn-cyber btn-cyber--ghost mt-2"
+            style={{ fontSize: '.7rem', padding: '.35rem .8rem' }}
+            aria-expanded={openSoft}
+            onClick={() => setOpenSoft((v) => !v)}
+          >
+            {openSoft ? '− ' : '+ '} soft skills
+          </button>
+
+          {openSoft && (
+            <motion.ul
+              className="cyber-list cyber-list--purple mt-3"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              style={{ overflow: 'hidden' }}
+            >
+              {job.soft.map((s, i) => (
+                <li key={i} style={{ fontSize: '.94rem' }}>{s}</li>
+              ))}
+            </motion.ul>
+          )}
+        </>
+      )}
+    </motion.article>
+  );
+}
+
+function WorkExperience() {
+  const jobs = experienceData;
+  const years = new Set(jobs.flatMap((j) => j.date.match(/\d{4}/g) || []));
+
+  return (
+    <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
+      <motion.div variants={rise}>
+        <p className="kicker mb-2">// personnel_file</p>
+        <h1 className="page__title mb-3">
+          <GlitchText text="WORK EXPERIENCE" />
+        </h1>
+        <p className="mono mb-4" style={{ color: 'var(--faint)' }}>
+          {jobs.length} records · {Math.min(...years)}–present · hardware, research, teaching, and one detailing business
+        </p>
         <hr />
+      </motion.div>
 
-        <motion.div className="mb-8" variants={itemVariants}>
-          <h2 className="text-xl font-bold mb-2">Evaluations</h2>
-          <p className="text-gray-400 italic">
-            No formal written performance evaluations are available for these positions.
-          </p>
-        </motion.div>
-        <hr />
+      {/* ── Timeline ─────────────────────────────────────── */}
+      <motion.div variants={rise}>
+        <SectionHeading index="01" title="TIMELINE" />
+      </motion.div>
 
-        <motion.div className="mb-8" variants={itemVariants}>
-          <h2 className="text-xl font-bold mb-3">Presentations</h2>
-          <h3 className="font-semibold text-white mb-1">
+      <div className="tl">
+        {jobs.map((job) => (
+          <ExperienceNode key={`${job.company}-${job.title}`} job={job} />
+        ))}
+      </div>
+
+      {/* ── Presentation ─────────────────────────────────── */}
+      <motion.div variants={rise} className="mt-5">
+        <SectionHeading index="02" title="PRESENTATIONS" />
+
+        <TerminalPanel
+          title="~/ara/srsRAN_outdoor_poster.pdf"
+          right="summer 2025"
+          className="mb-4"
+        >
+          <h3 className="mb-2" style={{ fontSize: '1.05rem' }}>
             Field-Deployable Open Source 5G Software Stack on ARA
           </h3>
-          <p className="text-gray-300 mb-4">
-            Poster presented at the conclusion of the ARA Wireless REU program, summer 2025. The poster
-            documents the end-to-end deployment of an open-source 5G software stack (srsRAN) on the ARA
-            outdoor wireless living lab, including the signal amplifier modifications, GPIO-driven SDR
-            output tuning that achieved a 48 dB signal improvement, field deployment setup, and
-            throughput and latency measurements collected on the ARA platform.
+          <p className="mb-0" style={{ color: 'var(--dim)' }}>
+            Poster presented at the close of the ARA Wireless REU program. It documents the
+            end-to-end deployment of an open-source 5G stack (srsRAN) on the ARA outdoor wireless
+            living lab: the amplifier modifications, the GPIO-driven SDR output tuning that produced
+            the 48 dB improvement, the field deployment itself, and the throughput and latency
+            measured on the platform.
           </p>
-          <div className="flex justify-center">
-            <embed
-              src="/personal/assets/srsRAN_Outdoor_Poster.pdf"
-              width="100%"
-              height="900"
-              type="application/pdf"
-            />
-          </div>
-        </motion.div>
-      </div>
+        </TerminalPanel>
+
+        <div className="doc-frame">
+          <embed
+            src="/personal/assets/srsRAN_Outdoor_Poster.pdf"
+            width="100%"
+            height="820"
+            type="application/pdf"
+            title="ARA Wireless srsRAN outdoor deployment poster"
+          />
+        </div>
+      </motion.div>
+
+      {/* ── Evaluations ──────────────────────────────────────
+          Parked until the recommendation letters land (1–2 professors
+          plus one other). Drop the letters in as entries below and
+          uncomment; the section is otherwise ready to go.
+
+      <motion.div variants={rise} className="mt-5">
+        <SectionHeading index="03" title="EVALUATIONS" />
+        <TerminalPanel title="~/records/evaluations" right="empty">
+          <p className="mono mb-0" style={{ color: 'var(--faint)' }}>
+            $ ls ./evaluations
+            <br />
+            <span style={{ color: 'var(--dim)' }}>
+              no formal written performance evaluations on file for these positions.
+            </span>
+          </p>
+        </TerminalPanel>
+      </motion.div>
+      ──────────────────────────────────────────────────── */}
     </motion.div>
   );
 }
