@@ -39,8 +39,14 @@
 html, body, #root {
   margin: 0;
   padding: 0;
-  background-color: var(--void) !important;
 }
+
+/* Only <html> paints the void. body and #root must stay transparent:
+   they are block-level descendants, so an opaque background on either
+   one paints *over* the z-index:-1/-2 fixed layers (.cyber-bg and
+   .side-bd) and the whole background rig disappears. */
+html { background-color: var(--void); }
+body, #root { background-color: transparent !important; }
 
 body {
   min-height: 100%;
@@ -1091,6 +1097,314 @@ hr {
   text-transform: uppercase;
   color: var(--faint);
   margin-top: .3rem;
+}
+
+/* ============================================================
+   Project visuals — RTL floorplan, wireless link, classifier eye
+   ============================================================ */
+.viz { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* ── RTL / datapath floorplan ───────────────────────────── */
+.viz-rtl__grid line { stroke: rgba(176, 38, 255, .10); stroke-width: 1; }
+
+.viz-rtl__copper path {
+  fill: none;
+  stroke: rgba(176, 38, 255, .42);
+  stroke-width: 1.4;
+  stroke-linecap: square;
+}
+
+.viz-rtl__flow path {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 5 46;
+  filter: drop-shadow(0 0 3px rgba(255, 43, 214, .9));
+  animation: traceFlow 3.4s linear infinite;
+}
+
+@keyframes traceFlow { to { stroke-dashoffset: -204; } }
+
+.viz-rtl__via circle {
+  fill: var(--void);
+  stroke: rgba(255, 43, 214, .7);
+  stroke-width: 1.2;
+}
+
+.viz-rtl__block rect {
+  fill: rgba(10, 4, 22, .92);
+  stroke: rgba(255, 43, 214, .55);
+  stroke-width: 1;
+}
+
+.viz-rtl__block text {
+  fill: var(--lilac);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-anchor: middle;
+}
+
+.viz-rtl__block g { animation: blockPing 6s ease-in-out infinite; }
+
+@keyframes blockPing {
+  0%, 88%, 100% { opacity: .85; }
+  92%           { opacity: 1; filter: drop-shadow(0 0 5px rgba(255, 43, 214, .8)); }
+}
+
+/* ── Wireless link ──────────────────────────────────────── */
+.viz-rf__guide line {
+  stroke: rgba(176, 38, 255, .16);
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+}
+
+.viz-rf__body {
+  fill: rgba(12, 5, 26, .95);
+  stroke: rgba(255, 43, 214, .6);
+  stroke-width: 1.2;
+}
+
+.viz-rf__screen {
+  fill: rgba(176, 38, 255, .16);
+  stroke: rgba(176, 38, 255, .5);
+  stroke-width: .8;
+  animation: rfScreen 2.6s ease-in-out infinite;
+}
+
+@keyframes rfScreen {
+  0%, 100% { fill: rgba(176, 38, 255, .10); }
+  50%      { fill: rgba(255, 43, 214, .26); }
+}
+
+.viz-rf__pin line { stroke: rgba(255, 43, 214, .55); stroke-width: 1.4; }
+
+.viz-rf__label {
+  fill: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-anchor: middle;
+}
+
+.viz-rf__wave path {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgba(255, 43, 214, .8));
+  animation: rfWave 2.4s ease-out infinite;
+  /* scale about the arc's flat edge, i.e. the antenna it leaves from */
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+}
+
+.viz-rf__wave--mir path { transform-origin: 100% 50%; }
+
+@keyframes rfWave {
+  0%   { opacity: 0;   transform: scale(.55); }
+  25%  { opacity: .95; }
+  100% { opacity: 0;   transform: scale(1.15); }
+}
+
+.viz-rf__packet rect {
+  fill: var(--magenta);
+  filter: drop-shadow(0 0 5px rgba(255, 43, 214, .9));
+  animation: rfPacket 4s linear infinite;
+}
+
+@keyframes rfPacket {
+  0%        { transform: translateX(92px);  opacity: 0; }
+  12%, 78%  { opacity: 1; }
+  100%      { transform: translateX(212px); opacity: 0; }
+}
+
+.viz-rf__meta text {
+  fill: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-anchor: middle;
+}
+
+/* ── Classifier eye ─────────────────────────────────────── */
+.viz-eye__field { fill: rgba(8, 2, 18, .9); }
+
+.viz-eye__scan line {
+  stroke: rgba(176, 38, 255, .13);
+  stroke-width: 1;
+}
+
+.viz-eye__ring {
+  fill: none;
+  stroke: var(--purple);
+  stroke-width: 2;
+  opacity: .75;
+  transform-origin: 210px 130px;
+  filter: drop-shadow(0 0 3px rgba(176, 38, 255, .7));
+}
+
+.viz-eye__ring--cw  { animation: spin    linear infinite; }
+.viz-eye__ring--ccw { animation: spinRev linear infinite; }
+
+.viz-eye__kernel {
+  animation: kernelWalk 11s steps(9) infinite;
+}
+
+.viz-eye__kernel rect {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: 1;
+  opacity: .55;
+  animation: kernelCell 1.6s ease-in-out infinite;
+}
+
+@keyframes kernelWalk {
+  0%   { transform: translate(96px, 60px); }
+  100% { transform: translate(258px, 138px); }
+}
+
+@keyframes kernelCell {
+  0%, 100% { opacity: .28; }
+  50%      { opacity: .95; }
+}
+
+.viz-eye__pupil {
+  fill: #05010c;
+  stroke: var(--magenta);
+  stroke-width: 2;
+  transform-origin: 210px 130px;
+  filter: drop-shadow(0 0 10px rgba(255, 43, 214, .95));
+  animation: pupilBreathe 5.5s ease-in-out infinite;
+}
+
+.viz-eye__pupil-core {
+  fill: var(--magenta);
+  transform-origin: 210px 130px;
+  filter: drop-shadow(0 0 14px rgba(255, 43, 214, 1));
+  animation: pupilBreathe 5.5s ease-in-out infinite;
+}
+
+@keyframes pupilBreathe {
+  0%, 100% { transform: scaleX(1)   scaleY(1); }
+  45%      { transform: scaleX(1.5) scaleY(.82); }
+}
+
+.viz-eye__lid {
+  fill: none;
+  stroke: var(--magenta);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgba(255, 43, 214, .6));
+}
+
+.viz-eye__lash line {
+  stroke: var(--purple);
+  stroke-width: 1.4;
+  opacity: .45;
+  animation: lashPulse 3.2s ease-in-out infinite;
+}
+
+@keyframes lashPulse {
+  0%, 100% { opacity: .18; }
+  50%      { opacity: .8; }
+}
+
+/* ── Side-margin backdrop ───────────────────────────────── */
+.side-bd {
+  position: fixed;
+  inset: var(--nav-h) 0 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.side-bd__col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Exactly the gutter left over beside the 1320px xxl container, so the
+     backdrop never creeps under the text column. */
+  width: min(280px, max(0px, calc((100vw - 1330px) / 2)));
+  overflow: hidden;
+}
+
+.side-bd__col--l { left: 0; }
+.side-bd__col--r { right: 0; transform: scaleX(-1); }
+
+.side-bd__layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 26px;
+  padding: 0 8px;
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+  /* fade toward the text column so nothing competes with the copy */
+  mask-image: linear-gradient(to right, #000 30%, transparent 96%);
+  -webkit-mask-image: linear-gradient(to right, #000 30%, transparent 96%);
+}
+
+.side-bd__layer.is-active { opacity: .30; }
+
+/* Only ever drawn once the gutters are wide enough to be worth it. */
+@media (max-width: 1599px) {
+  .side-bd { display: none; }
+}
+
+.eye-stage {
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+/* ── Visual index cards (home page) ─────────────────────── */
+.viz-card {
+  position: relative;
+  display: block;
+  height: 100%;
+  padding: 1rem 1rem .9rem;
+  background: linear-gradient(160deg, rgba(16, 10, 31, .9), rgba(6, 3, 13, .9));
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.viz-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 1px rgba(255, 43, 214, .3), 0 12px 34px rgba(176, 38, 255, .2);
+}
+
+.viz-card__stage {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.viz-card__stage .viz { max-height: 190px; }
+
+.viz-card__label {
+  font-family: var(--font-display);
+  font-size: .82rem;
+  color: var(--text);
+  margin: .7rem 0 .2rem;
+  transition: color .2s, text-shadow .2s;
+}
+
+.viz-card:hover .viz-card__label { color: var(--magenta); text-shadow: var(--glow-m); }
+
+.viz-card__sub {
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  letter-spacing: .08em;
+  color: var(--faint);
+  margin: 0;
 }
 
 /* ============================================================

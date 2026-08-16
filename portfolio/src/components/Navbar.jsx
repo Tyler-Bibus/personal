@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import GlitchText from './GlitchText';
 
 const PROJECT_LINKS = [
-  { to: '/senior-design',       label: 'senior_design.v' },
+  { to: '/senior-design',       label: 'senior_design.sv' },
   { to: '/ml-accelerator',      label: 'cnn_accelerator.vhd' },
   { to: '/cpu-project',         label: 'mips_cpu.vhd' },
   { to: '/llm-chat-bot',        label: 'discord_llm.py' },

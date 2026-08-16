@@ -158,7 +158,11 @@ function WorkExperience() {
         </div>
       </motion.div>
 
-      {/* ── Evaluations ──────────────────────────────────── */}
+      {/* ── Evaluations ──────────────────────────────────────
+          Parked until the recommendation letters land (1–2 professors
+          plus one other). Drop the letters in as entries below and
+          uncomment; the section is otherwise ready to go.
+
       <motion.div variants={rise} className="mt-5">
         <SectionHeading index="03" title="EVALUATIONS" />
         <TerminalPanel title="~/records/evaluations" right="empty">
@@ -171,6 +175,7 @@ function WorkExperience() {
           </p>
         </TerminalPanel>
       </motion.div>
+      ──────────────────────────────────────────────────── */}
     </motion.div>
   );
 }

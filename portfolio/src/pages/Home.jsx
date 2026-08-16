@@ -10,6 +10,9 @@ import TerminalPanel from '../components/TerminalPanel';
 import HackerOverlay from '../components/HackerOverlay';
 import Typewriter from '../components/Typewriter';
 import GlitchText from '../components/GlitchText';
+import EyeOfSilicon from '../components/visuals/EyeOfSilicon';
+import RtlTrace from '../components/visuals/RtlTrace';
+import WirelessLink from '../components/visuals/WirelessLink';
 import profile from '../assets/profile.jpg';
 
 /* ── motion presets ───────────────────────────────────────── */
@@ -101,12 +104,42 @@ const PROJECTS = [
   },
 ];
 
-const STATS = [
-  { val: 'Dec 2026', key: 'graduation' },
-  { val: '48 dB', key: 'signal gain @ ARA' },
-  { val: '130 nm', key: 'process node' },
-  { val: '46', key: 'students taught' },
+/* A visual index of the three hardware projects — each card runs the
+   same diagram that lives on the project page it links to. */
+const VISUALS = [
+  {
+    to: '/senior-design',
+    label: 'Wireless Link',
+    sub: 'BLE 4.0 · LINK LAYER + HCI',
+    render: () => <WirelessLink />,
+  },
+  {
+    to: '/ml-accelerator',
+    label: 'Convolution Engine',
+    sub: '5×5 KERNEL · 4 MACS · INT8',
+    render: () => <EyeOfSilicon compact />,
+  },
+  {
+    to: '/cpu-project',
+    label: 'Pipelined Datapath',
+    sub: 'FETCH → DECODE → EX → MEM → WB',
+    render: () => <RtlTrace />,
+  },
 ];
+
+/* Rolled once per page load, not per render — so it changes on reload
+   and stays put while you are reading. */
+const TAGLINES = [
+  'Looking for a new grad engineer who can go up and down the stack?',
+  'Need someone who reads the datasheet and writes the frontend?',
+  'Got a hard problem somewhere between the transistor and the browser?',
+  'Hiring for a role that touches both silicon and software?',
+  'Want an engineer who is comfortable one layer lower than the job description?',
+  'Need someone who will actually open the waveform viewer?',
+  'Looking for an engineer who can take a project from RTL to release?',
+];
+
+const TAGLINE = TAGLINES[Math.floor(Math.random() * TAGLINES.length)];
 
 function Home() {
   const [hacked, setHacked] = useState(false);
@@ -188,21 +221,22 @@ function Home() {
         </div>
       </motion.section>
 
-      {/* ── Stat readout strip ───────────────────────────── */}
+      {/* ── Visual index of the hardware work ────────────── */}
       <motion.section
         className="container py-4"
         variants={section}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <div className="row g-2 g-md-3">
-          {STATS.map((s) => (
-            <div className="col-6 col-lg-3" key={s.key}>
-              <div className="stat">
-                <div className="stat__val">{s.val}</div>
-                <div className="stat__key">{s.key}</div>
-              </div>
+        <div className="row g-3">
+          {VISUALS.map((v) => (
+            <div className="col-12 col-md-4" key={v.to}>
+              <Link to={v.to} className="viz-card">
+                <div className="viz-card__stage">{v.render()}</div>
+                <p className="viz-card__label">{v.label}</p>
+                <p className="viz-card__sub">{v.sub}</p>
+              </Link>
             </div>
           ))}
         </div>
@@ -229,17 +263,22 @@ function Home() {
               stubborn, genuinely consequential. That is the shape of work I'm after.
             </p>
             <p>
-              I'm wrapping up an internship at <strong className="neon-m">boisei labs</strong>, a
-              tech-for-good venture firm backing environmentally sustainable technology, which
-              sharpened the other half of the picture: knowing which problems are worth the silicon.
-              Energy-efficient AI accelerators, systems that waste less, ML aimed at climate and
-              resource constraints — the interesting work is where hardware depth meets a real
-              consequence.
+              The other half of the picture is software, and I spent this year proving it out at{' '}
+              <strong className="neon-m">boisei labs</strong>, a tech-for-good venture backing
+              environmentally sustainable technology. I was the{' '}
+              <strong>sole developer on a full-stack React Native application</strong> —
+              architecture, backend, frontend, and testing, all of it mine — and got it near
+              production-ready inside the internship term. I also designed and deployed custom AI
+              agent workflows into the team's build and test process, and shipped features into a
+              production React web app alongside the rest of engineering. Solo when a project needed
+              an owner, on a team when it needed a team.
             </p>
             <p className="mb-0">
-              So the goal is range with teeth: VLSI and FPGA up through ML and systems software,
-              deep enough at each layer to be useful where the hard problems live. Graduating{' '}
-              <strong>December 2026</strong> and looking for exactly that.
+              What I want next is technical engineering work where the problem is genuinely hard. My
+              preference runs <strong>hardware first</strong> — RTL, verification, ASIC and FPGA work
+              is where I'm happiest — then software, but I care more about the problem than the layer
+              it lives on, and I have now shipped at both ends. Graduating{' '}
+              <strong>December 2026</strong>.
             </p>
           </div>
         </TerminalPanel>
@@ -290,7 +329,7 @@ function Home() {
         <div className="rule-dash" />
         <p className="kicker mb-3">// end of transmission</p>
         <h2 className="mb-4" style={{ fontSize: 'clamp(1.2rem,3vw,1.8rem)' }}>
-          Looking for a new grad engineer who can go up and down the stack?
+          {TAGLINE}
         </h2>
         <div className="d-flex justify-content-center gap-3 flex-wrap">
           <a className="btn-cyber" href="mailto:tylerbibus@hotmail.com">

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import TerminalPanel from '../components/TerminalPanel';
 import GlitchText from '../components/GlitchText';
+import SideBackdrop from '../components/visuals/SideBackdrop';
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -18,7 +19,7 @@ const stats = [
   { val: '130nm', key: 'SKY130 process' },
   { val: '9', key: 'engineers' },
   { val: 'BLE 4.0', key: 'link layer + HCI' },
-  { val: 'Verilog', key: 'synthesizable RTL' },
+  { val: 'SystemVerilog', key: 'synthesizable RTL' },
 ];
 
 const skills = [
@@ -27,7 +28,7 @@ const skills = [
   'Bluetooth 4.0 protocol — the Link Layer specification and Host Controller Interface at an implementation level',
   'Digital hardware simulation — BumbleSim and BabbleSim for Bluetooth protocol simulation and validation',
   'Large team engineering — coordinating across a 9-person cross-disciplinary team with client and advisor oversight',
-  'Verilog for ASIC — writing synthesizable RTL that targets a real fabrication flow, not an FPGA',
+  'SystemVerilog for ASIC — writing synthesizable RTL that targets a real fabrication flow, not an FPGA',
 ];
 
 const resources = [
@@ -38,7 +39,7 @@ const resources = [
 ];
 
 const tools = [
-  'Verilog',
+  'SystemVerilog',
   'Caravel',
   'SkyWater SKY130',
   'LTSpice',
@@ -61,6 +62,10 @@ const reports = [
 function SeniorDesign() {
   return (
     <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
+      {/* Side margins cross-fade between the digital floorplan and the
+          radio link — the two halves of this project. */}
+      <SideBackdrop variants={['rtl', 'rf']} />
+
       {/* ── Masthead ─────────────────────────────────────── */}
       <motion.div variants={rise}>
         <p className="kicker mb-2">// senior_design</p>
@@ -100,7 +105,7 @@ function SeniorDesign() {
               It is the capstone of my education at Iowa State: a full academic year working
               collaboratively with eight other engineers to design, develop, and deliver a finished
               part. Unlike the FPGA-oriented work in my computer architecture and machine learning
-              courses, this is written in <strong>Verilog</strong> and never touches Questasim or
+              courses, this is written in <strong>SystemVerilog</strong> and never touches Questasim or
               Vivado — the flow is open-source EDA all the way to the SKY130 tapeout.
             </p>
           </div>

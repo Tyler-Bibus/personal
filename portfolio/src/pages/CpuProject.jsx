@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import TerminalPanel from '../components/TerminalPanel';
 import GlitchText from '../components/GlitchText';
+import SideBackdrop from '../components/visuals/SideBackdrop';
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -75,6 +76,9 @@ const tools = ['AutoCAD LT', 'VHDL', 'MIPS Assembly', 'QuestaSim'];
 function CpuProject() {
   return (
     <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
+      {/* Datapath floorplan routed through the empty side margins. */}
+      <SideBackdrop variants={['rtl']} />
+
       {/* ── Header ───────────────────────────────────────── */}
       <motion.div variants={rise}>
         <p className="kicker mb-2">// project_record</p>

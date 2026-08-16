@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import TerminalPanel from '../components/TerminalPanel';
 import GlitchText from '../components/GlitchText';
+import EyeOfSilicon from '../components/visuals/EyeOfSilicon';
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -85,6 +86,14 @@ function MLAccelerator() {
         </p>
         <hr />
       </motion.div>
+
+      {/* ── The classifier, looking back ─────────────────── */}
+      <motion.figure variants={rise} className="eye-stage mb-5">
+        <EyeOfSilicon />
+        <figcaption className="mono text-center mt-2" style={{ color: 'var(--faint)', fontSize: '.76rem', letterSpacing: '.16em' }}>
+          5×5 KERNEL · WALKING A 64×64×3 INPUT · 4 MACS WIDE
+        </figcaption>
+      </motion.figure>
 
       {/* ── Stat row ─────────────────────────────────────── */}
       <motion.div variants={rise} className="row g-3 mb-5">

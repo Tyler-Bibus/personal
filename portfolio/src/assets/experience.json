@@ -1,22 +1,23 @@
 [
   {
-    "title": "Software Engineering Intern",
+    "title": "Software Developer Intern",
     "company": "boisei labs",
-    "date": "May 2026 – August 2026",
-    "location": "Remote",
+    "date": "May 2026 – Present",
+    "location": "State College, PA",
     "current": true,
-    "summary": "Tech-for-good venture studio backing environmentally sustainable technology.",
-    "tags": ["Sustainability", "Prototyping", "Data"],
-    "_PLACEHOLDER": "TODO Tyler — these three bullets are drafted from the company description, not from your actual work. Replace them with what you really shipped, then delete this _PLACEHOLDER key.",
+    "summary": "Full-stack development at a tech-for-good venture backing environmentally sustainable technology.",
+    "tags": ["React Native", "React", "Full-Stack", "AI Agents", "Testing"],
+    "highlight": "sole developer, end to end",
     "bullets": [
-      "Built internal tooling and prototypes supporting the firm's evaluation of early-stage sustainable technology companies.",
-      "Worked directly with a small team to translate technical due-diligence questions into things that could actually be measured.",
-      "Contributed to the engineering side of a portfolio-facing project from scoping through delivery."
+      "Sole developer of a full-stack React Native application — owning architecture, backend, frontend, and testing end to end, and delivering a near-production-ready app within the internship term.",
+      "Designed, tested, and deployed custom AI agent workflows to accelerate development, integrating them into the build and testing process.",
+      "Developed features for a production React web application as part of the engineering team."
     ],
     "soft": [
-      "Startup ambiguity — operating usefully in a small team where the scope is not handed to you",
-      "Technical judgement — separating what a technology can do from what it is claimed to do",
-      "Communication — explaining engineering tradeoffs to people making investment decisions"
+      "Ownership — carrying an application from architecture through testing with no one else on it",
+      "Team engineering — shipping into a production codebase alongside the rest of the engineering team",
+      "Tooling judgement — building AI agent workflows that actually paid for themselves in build and test time",
+      "Startup ambiguity — operating usefully where the scope is not handed to you"
     ]
   },
   {
