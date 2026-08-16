@@ -27,6 +27,7 @@ const skills = [
   'Open-source ASIC toolchain — the Caravel harness and the open-source EDA tools around it',
   'Bluetooth 4.0 protocol — the Link Layer specification and Host Controller Interface at an implementation level',
   'Digital hardware simulation — BumbleSim and BabbleSim for Bluetooth protocol simulation and validation',
+  'Verification environments — leading the software test environment the rest of the team validates its RTL against',
   'Large team engineering — coordinating across a 9-person cross-disciplinary team with client and advisor oversight',
   'SystemVerilog for ASIC — writing synthesizable RTL that targets a real fabrication flow, not an FPGA',
 ];
@@ -115,12 +116,15 @@ function SeniorDesign() {
       {/* ── 02 My role ───────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="02" title="MY ROLE" />
-        <TerminalPanel title="~/sddec26-10/role.md" right="digital design · team lead">
+        <TerminalPanel title="~/sddec26-10/role.md" right="digital design · test env lead">
           <div className="prose">
             <p>
-              I sit on the <strong>Digital Design team</strong>, owning the{' '}
-              <strong>Link Layer and Host Controller Interface</strong> and acting largely as a lead
-              for the team.
+              I sit on the <strong>Digital Design team</strong>, working on the{' '}
+              <strong>Link Layer and Host Controller Interface</strong>.
+            </p>
+            <p>
+              I also <strong>lead the software testing environment</strong> for the project — the
+              harness the rest of the team validates their RTL against.
             </p>
             <p>
               My piece is the seam of the whole chip: I connect the physical layer to the rest of the

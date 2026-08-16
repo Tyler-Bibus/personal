@@ -56,7 +56,7 @@ const PROJECTS = [
     id: '01',
     title: 'Open-Source ASIC Bluetooth Microcontroller',
     description:
-      'Senior design. Nine engineers building a silicon-proven BLE radio microcontroller on SKY130. I lead the Link Layer and Host Controller Interface work.',
+      'Senior design. Nine engineers building a silicon-proven BLE radio microcontroller on SKY130. I work on the Link Layer and Host Controller Interface, and lead the software testing environment.',
     link: '/senior-design',
     tags: ['Verilog', 'SKY130', 'Caravel', 'BLE 4.0'],
     status: 'live',
@@ -115,7 +115,7 @@ const VISUALS = [
   },
   {
     to: '/ml-accelerator',
-    label: 'Convolution Engine',
+    label: 'CNN Hardware Accelerator',
     sub: '5×5 KERNEL · 4 MACS · INT8',
     render: () => <EyeOfSilicon />,
   },

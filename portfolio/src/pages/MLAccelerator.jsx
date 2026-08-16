@@ -19,8 +19,8 @@ const rise = {
 const stats = [
   { val: '8-bit', key: 'quantization' },
   { val: '4', key: 'parallel MACs' },
-  { val: '64×64×3', key: 'layer 1 input' },
-  { val: '60×60×32', key: 'layer 1 output' },
+  { val: '64×64×3', key: 'image input' },
+  { val: '58.2%', key: 'top-10 accuracy' },
 ];
 
 const pipeline = [
