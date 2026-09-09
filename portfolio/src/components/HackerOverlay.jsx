@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 /**
  * Easter egg. Triggered by clicking the hotspot over the nose in the
@@ -9,26 +10,23 @@ import { useEffect, useRef, useState } from 'react';
 const GLYPHS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789<>[]{}/\\|=+*#$%&@ABCDEF';
 
 const LOG_LINES = [
-  '> ssh tyler@portfolio.local -p 2077',
-  '  [ok] handshake accepted — key: ed25519/BIBUS',
-  '> mount /dev/persona --readonly',
-  '  scanning 6 project partitions ................ done',
-  '  decrypting résumé blob ....................... done',
-  '  indexing 5 roles / 4 years ................... done',
-  '> cat ./secrets/whoami.txt',
-  '  "I like the parts of the stack most people skip:',
-  '   the RTL under the driver, the driver under the app."',
-  '> ./deploy --target=december-2026 --status',
-  '  [ok] graduating on schedule. now hiring me is trivial.',
-  '> echo "nothing was actually hacked. nice find."',
+  '> ./portrait --diagnostic',
+  '  [ok] face detected',
+  '  [ok] unexpected nose input',
+  '> cat /dev/null',
+  ' ',
+  '> echo "That is all."',
 ];
 
 function HackerOverlay({ onClose }) {
+  const reducedMotion = useReducedMotion();
+  const closeRef = useRef(null);
   const canvasRef = useRef(null);
   const [visibleLines, setVisibleLines] = useState(0);
 
   /* ── character rain ─────────────────────────────────── */
   useEffect(() => {
+    if (reducedMotion) return undefined;
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
 
@@ -84,7 +82,7 @@ function HackerOverlay({ onClose }) {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [reducedMotion]);
 
   /* ── typed log ──────────────────────────────────────── */
   useEffect(() => {
@@ -96,13 +94,17 @@ function HackerOverlay({ onClose }) {
   /* ── dismissal ──────────────────────────────────────── */
   useEffect(() => {
     const onKey = (e) => {
+      if (e.key === 'Tab') { e.preventDefault(); closeRef.current?.focus(); }
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') onClose();
     };
+    const previousFocus = document.activeElement;
+    closeRef.current?.focus();
     document.addEventListener('keydown', onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', onKey);
+      previousFocus?.focus();
       document.body.style.overflow = prevOverflow;
     };
   }, [onClose]);
@@ -125,6 +127,7 @@ function HackerOverlay({ onClose }) {
           {LOG_LINES.slice(0, visibleLines).join('\n')}
           {!done && <span className="caret" />}
         </pre>
+        <button ref={closeRef} type="button" className="btn-cyber hack__close" onClick={onClose}>Close</button>
         <div className="hack__hint">{done ? 'click anywhere or press esc to exit' : 'decrypting…'}</div>
       </div>
     </div>

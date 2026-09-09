@@ -1,21 +1,16 @@
 import { Link } from 'react-router-dom';
+import ProjectVisual from './ProjectVisual';
 
-/**
- * A project dossier. Images were removed in the cyberpunk redesign —
- * each card is now a terminal record: index, status pip, tech tags.
- *
- * @param {string}   id      two-digit record number, e.g. "03"
- * @param {string}   status  'live' | 'done' | 'archive'
- * @param {string[]} tags    short tech labels
- */
-function ProjectCard({ id, title, description, link, tags = [], status = 'done', statusLabel }) {
+/** Project summary with a diagram or screenshot of the work. */
+function ProjectCard({ id, title, description, link, tags = [], status = 'done', statusLabel, visual }) {
   return (
-    <article className="cyber-card">
+    <article className="cyber-card project-card">
+      {visual && <ProjectVisual kind={visual} />}
       <div className="cyber-card__id">
         <span>REC_{id}</span>
         <span>
           <span className={`pip pip--${status}`} />
-          {statusLabel || (status === 'live' ? 'ACTIVE' : 'SHIPPED')}
+          {statusLabel || (status === 'live' ? 'ACTIVE' : 'COMPLETE')}
         </span>
       </div>
 
@@ -31,7 +26,7 @@ function ProjectCard({ id, title, description, link, tags = [], status = 'done',
       )}
 
       <Link to={link} className="btn-cyber" aria-label={`Open the ${title} project page`}>
-        Open Record <span aria-hidden="true">▸</span>
+        View Project <span aria-hidden="true">▸</span>
       </Link>
     </article>
   );

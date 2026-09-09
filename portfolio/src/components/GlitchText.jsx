@@ -10,6 +10,7 @@ function GlitchText({ text, hover = false, as: Tag = 'span', className = '', ...
     <Tag
       className={`${hover ? 'glitch-hover' : 'glitch'} ${className}`.trim()}
       data-text={text}
+      aria-label={text}
       {...rest}
     >
       {text}

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 /**
  * Replaces the old pill cloud. Each skill category becomes a neon
  * billboard whose contents scroll continuously — alternating direction
@@ -54,8 +56,12 @@ function Billboard({ label, items, duration, reverse }) {
 }
 
 function SkillBillboards() {
+  const [staticView, setStaticView] = useState(false);
   return (
-    <div className="bb-stack">
+    <div className={`bb-stack ${staticView ? 'bb-stack--static' : ''}`}>
+      <button className="btn-cyber btn-cyber--ghost mb-3" aria-pressed={staticView} onClick={() => setStaticView((value) => !value)}>
+        {staticView ? 'Animate skills' : 'Show all skills'}
+      </button>
       {BILLBOARDS.map((b) => (
         <Billboard key={b.label} {...b} />
       ))}

@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import SectionHeading from '../components/SectionHeading';
@@ -18,7 +19,7 @@ const rise = {
 const stats = [
   { val: '3', key: 'processors built' },
   { val: '5', key: 'pipeline stages' },
-  { val: 'VHDL', key: 'hdl of record' },
+  { val: 'VHDL', key: 'hardware language' },
   { val: 'MIPS', key: 'instruction set' },
 ];
 
@@ -27,21 +28,21 @@ const builds = [
     id: 'BUILD_01',
     title: 'Single-Cycle MIPS Processor',
     desc:
-      'Every instruction completes in one clock. The baseline design — fetch, decode, execute, memory, and writeback all resolve inside a single long cycle, which makes the datapath easy to reason about and the clock period brutal.',
+      'Each instruction completes in one clock cycle. Fetch, decode, execute, memory access, and writeback must all finish before the next cycle, so the slowest instruction sets the minimum clock period.',
     tags: ['VHDL', 'DATAPATH', 'CONTROL UNIT'],
   },
   {
     id: 'BUILD_02',
     title: 'Software-Scheduled 5-Stage Pipeline',
     desc:
-      'The same ISA split across five overlapping stages, with hazards left to the compiler. Correctness depends on the assembly itself scheduling around dependencies — no hardware safety net.',
+      'Instruction execution is divided into five overlapping stages. The assembly must be scheduled to avoid dependencies because this design does not detect or resolve hazards in hardware.',
     tags: ['PIPELINING', 'MIPS ASM', 'HAZARDS'],
   },
   {
     id: 'BUILD_03',
     title: 'Hardware-Scheduled 5-Stage Pipeline',
     desc:
-      'The full build: hazard detection and forwarding units resolve data and control hazards in hardware, so unscheduled assembly runs correctly. Stalls only where forwarding cannot cover the dependency.',
+      'Hazard detection, forwarding, and stall logic manage instruction dependencies in hardware. Forwarding passes results directly to later instructions; stalls delay execution when a result is not yet available.',
     tags: ['FORWARDING', 'HAZARD DETECT', 'STALL LOGIC'],
   },
 ];
@@ -102,6 +103,8 @@ function CpuProject() {
         ))}
       </motion.div>
 
+      <ProjectVisual kind="03" detail />
+
       {/* ── 01 Brief ─────────────────────────────────────── */}
       <motion.div variants={rise}>
         <SectionHeading index="01" title="BRIEF" />
@@ -113,9 +116,9 @@ function CpuProject() {
               single long clock cycle to a fully interlocked five-stage pipeline.
             </p>
             <p className="mb-0">
-              Every design demanded careful planning around instruction fetch, decode, execution,
-              memory access, and writeback. Each processor is backed by top-level diagrams and
-              written documentation.
+              The project shows how pipelining changes instruction execution and what additional
+              control logic is needed to keep it correct. The final datapath diagram below shows
+              the five stages, hazard detection, and forwarding connections.
             </p>
           </div>
         </TerminalPanel>
@@ -162,7 +165,7 @@ function CpuProject() {
               at each stage.
             </li>
             <li>
-              Drove the majority of the debugging effort — tracing signal propagation through
+              Led most of the debugging — tracing signal propagation through
               simulation to isolate timing and correctness bugs.
             </li>
             <li>
@@ -198,7 +201,8 @@ function CpuProject() {
       <motion.div variants={rise} className="mt-5">
         <SectionHeading index="06" title="DATAPATH" />
         <div className="doc-frame mb-3">
-          <embed
+          <a className="doc-frame__link" href="/personal/assets/CPUDiagram.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
             src="/personal/assets/CPUDiagram.pdf"
             width="100%"
             height="800"

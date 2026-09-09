@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import SectionHeading from '../components/SectionHeading';
@@ -20,7 +21,7 @@ const stats = [
   { val: '8-bit', key: 'quantization' },
   { val: '4', key: 'parallel MACs' },
   { val: '64×64×3', key: 'image input' },
-  { val: '58.2%', key: 'top-10 accuracy' },
+  { val: '5×5', key: 'convolution kernel' },
 ];
 
 const pipeline = [
@@ -55,7 +56,7 @@ const pipeline = [
 ];
 
 const skills = [
-  'ML model quantization — implementing 8-bit quantization from scratch in C++, not just calling a framework',
+  'ML model quantization — implementing 8-bit quantization in C++',
   'Hardware/software co-design — writing C++ that interfaces directly with custom VHDL hardware',
   'CNN architecture — understanding convolution deeply enough to accelerate it in hardware',
   'MAC unit design — building the core multiply-accumulate block of neural network inference in VHDL',
@@ -112,6 +113,8 @@ function MLAccelerator() {
         </figcaption>
       </motion.figure>
 
+      <ProjectVisual kind="02" detail />
+
       {/* ── 01 Brief ─────────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="01" title="BRIEF" />
@@ -120,7 +123,7 @@ function MLAccelerator() {
             <p>
               For CPRE 4870/5870 (Advanced Computer Architecture) I worked with partners to design
               and implement a <strong>convolutional hardware accelerator</strong> for our CNN model —
-              extensive VHDL across four subcomponents dropped into a larger accelerator template.
+              four VHDL subcomponents integrated into the course accelerator template.
             </p>
             <p>
               The design runs <strong>8-bit quantization</strong> for weights and activations with
@@ -130,8 +133,9 @@ function MLAccelerator() {
               ReLU and 2×2 max-pooling.
             </p>
             <p className="mb-0">
-              It beats a naive x86 implementation comfortably, and does not surpass a GPU. Detailed
-              architecture diagrams and documentation back the whole thing.
+              We compared the accelerator with a naive x86 implementation and a GPU. It performed
+              better than the naive x86 implementation, but did not exceed GPU performance. The
+              architecture and project results are included in the documentation below.
             </p>
           </div>
         </TerminalPanel>
@@ -187,7 +191,7 @@ function MLAccelerator() {
             <TerminalPanel title="~/cnn_accel/software" right="c++ · python">
               <div className="prose">
                 <p>
-                  On the software side I was the sole owner of everything above the RTL.
+                  I was responsible for the C++ implementation and Python debugging scripts.
                 </p>
               </div>
               <ul className="cyber-list cyber-list--purple">
@@ -227,7 +231,8 @@ function MLAccelerator() {
           $ open cnn_accelerator.pdf
         </p>
         <div className="doc-frame">
-          <embed
+          <a className="doc-frame__link" href="/personal/assets/cnn_accelerator.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
             src="/personal/assets/cnn_accelerator.pdf"
             width="100%"
             height="800"

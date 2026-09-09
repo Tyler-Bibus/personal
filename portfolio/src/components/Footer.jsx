@@ -12,7 +12,7 @@ function Footer() {
       <div className="container">
         <div className="row g-4 align-items-start">
           <div className="col-12 col-md-6">
-            <p className="kicker mb-3">// establish_uplink</p>
+            <p className="kicker mb-3">// contact</p>
             <div className="d-flex flex-column gap-2">
               {LINKS.map(({ href, icon: Icon, label }) => (
                 <a
@@ -37,10 +37,7 @@ function Footer() {
               © {new Date().getFullYear()} Tyler Bibus — Ames, IA
             </p>
             <p className="mono mb-0" style={{ color: 'var(--faint)', fontSize: '.78rem' }}>
-              built with react · vite · far too many keyframes
-            </p>
-            <p className="mono mt-2 mb-0" style={{ color: 'var(--faint)', fontSize: '.72rem', letterSpacing: '.12em' }}>
-              hint: the portrait is clickable. so is ↑↑↓↓←→←→ba
+              React · Vite
             </p>
           </div>
         </div>
