@@ -33,12 +33,12 @@ function Diagram({ kind }) {
     {kind === '02' && <>
       <text className="project-diagram__note" x="22" y="28">INT8 INPUTS → INT32 ACCUMULATION</text>
       <path className="project-diagram__wire" d="M113 120H151 M151 55V190 M151 55H182 M151 100H182 M151 145H182 M151 190H182 M256 55H288V190 M256 100H288 M256 145H288 M256 190H288 M288 120H326" />
-      <Block x={16} y={96} label="INPUT" sub="64 × 64 × 3" />
+      <Block x={16} y={96} label="INPUT" />
       {[45, 90, 135, 180].map((y, i) => <g key={y} className="project-diagram__lane" style={{ animationDelay: `${i * .45}s` }}>
         <rect x="178" y={y - 9} width="80" height="36" rx="3" />
         <text x="218" y={y + 13}>MAC {i}</text>
       </g>)}
-      <Block x={324} y={96} width={100} label="OUTPUT" sub="60 × 60 × 32" />
+      <Block x={324} y={96} width={100} label="OUTPUT" />
       <text className="project-diagram__note" x="22" y="226">5 × 5 KERNEL / OUTPUT-STATIONARY DATAFLOW</text>
     </>}
     {kind === '03' && <>
