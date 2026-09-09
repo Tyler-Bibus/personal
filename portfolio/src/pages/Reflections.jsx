@@ -38,7 +38,8 @@ function Reflections() {
 					that supported technical growth throughout my degree.
 				</p>
 				<div className="flex justify-center mb-4">
-					<embed
+					<a className="doc-frame__link" href="/personal/assets/reflections/General_Education_Reflection.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
 						src="/personal/assets/reflections/General_Education_Reflection.pdf"
 						width="100%"
 						height="800"
@@ -55,7 +56,8 @@ function Reflections() {
 					shaped my approach to engineering problems.
 				</p>
 				<div className="flex justify-center mb-4">
-					<embed
+					<a className="doc-frame__link" href="/personal/assets/reflections/Cumulative_Reflection_TylerBibus.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
 						src="/personal/assets/reflections/Cumulative_Reflection_TylerBibus.pdf"
 						width="100%"
 						height="800"

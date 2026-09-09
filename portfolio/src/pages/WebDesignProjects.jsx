@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import ImageGallery from '../components/ImageGallery';
@@ -33,8 +34,7 @@ function WebDesignProjects() {
           <GlitchText text="GAME FINDER WEB APP" />
         </h1>
         <p className="mb-4" style={{ color: 'var(--lilac)', fontSize: '1.05rem' }}>
-          A full-stack application that helps users discover their perfect game through interactive
-          quizzes.
+          A web application that recommends games based on answers to a quiz.
         </p>
       </motion.div>
 
@@ -50,19 +50,20 @@ function WebDesignProjects() {
         ))}
       </motion.div>
 
+      <ProjectVisual kind="06" detail />
+
       {/* ── Brief ────────────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="01" title="BRIEF" />
         <TerminalPanel title="~/projects/game-finder/README.md" right="coms 319 · iowa state">
           <div className="prose">
             <p>
-              Built for <strong>COMS 319</strong> at Iowa State University, this is a full-stack web
-              app assembled from modern tooling and pointed squarely at user experience: intuitive
-              navigation and a sleek, responsive interface.
+              For <strong>COMS 319</strong> at Iowa State University, our team built a game catalog
+              with account login, individual game pages, and quizzes that recommend games based
+              on user preferences.
             </p>
             <p className="mb-0">
-              Express.js and MongoDB handle data on the backend; React and TailwindCSS drive a
-              dynamic frontend on top of it.
+              The backend uses Express.js and MongoDB. The frontend uses React and TailwindCSS.
             </p>
           </div>
         </TerminalPanel>
@@ -72,7 +73,7 @@ function WebDesignProjects() {
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="02" title="FEATURES" />
         <ul className="cyber-list">
-          <li>Secure user authentication with a JWT-based login system</li>
+          <li>User authentication with a JWT-based login system</li>
           <li>Interactive Buzzfeed-style quizzes for personalized game recommendations</li>
           <li>Responsive, mobile-first design with TailwindCSS</li>
           <li>RESTful API integration with an Express.js backend</li>
@@ -104,9 +105,8 @@ function WebDesignProjects() {
               A team project with the frontend pages split evenly. I owned the{' '}
               <strong>login page</strong>, the <strong>home page</strong>, and the{' '}
               <strong>template used for each individual game entry</strong>. Beyond my assigned
-              pages, this was my first real exposure to full-stack development — hands-on time with
-              the Express.js + MongoDB backend I never touched during the Android project, where I
-              worked purely on the frontend.
+              pages, I worked with the Express.js and MongoDB backend. This gave me experience
+              connecting frontend components to server routes and stored data.
             </p>
           </div>
         </TerminalPanel>
@@ -122,7 +122,7 @@ function WebDesignProjects() {
           <li>
             Backend fundamentals — RESTful API design, Express.js routing, and MongoDB data modeling
           </li>
-          <li>JWT authentication — implementing secure login flows end-to-end</li>
+          <li>JWT authentication — implementing token-based login flows</li>
           <li>Full-stack integration — wiring a React frontend to a Node/Express backend via REST</li>
         </ul>
       </motion.div>
@@ -153,6 +153,7 @@ function WebDesignProjects() {
       <motion.div variants={rise}>
         <p className="kicker mb-3">// screenshots</p>
         <ImageGallery
+          layout="landscape"
           images={[
             { src: '/personal/assets/319/coms319Screenshot1.png', alt: 'Game Finder Screenshot 1' },
             { src: '/personal/assets/319/coms319Screenshot2.png', alt: 'Game Finder Screenshot 2' },

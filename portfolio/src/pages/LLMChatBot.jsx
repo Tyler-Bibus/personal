@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import SectionHeading from '../components/SectionHeading';
@@ -17,7 +18,7 @@ const rise = {
 const STATS = [
   { val: 'LOCAL', key: 'inference' },
   { val: 'PYTHON', key: 'stack' },
-  { val: '0', key: 'cloud api calls' },
+  { val: 'LM STUDIO', key: 'model server' },
   { val: 'SWAPPABLE', key: 'personas' },
 ];
 
@@ -39,7 +40,7 @@ function LLMChatBot() {
           <GlitchText text="LOCAL LLM DISCORD BOT" />
         </h1>
         <p className="mono mb-4" style={{ color: 'var(--faint)' }}>
-          personal project · self-hosted · no cloud dependency
+          personal project · Python · locally hosted model
         </p>
       </motion.div>
 
@@ -55,20 +56,22 @@ function LLMChatBot() {
         ))}
       </motion.div>
 
+      <ProjectVisual kind="04" detail />
+
       {/* ── Brief ────────────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="01" title="BRIEF" />
         <TerminalPanel title="~/projects/llm-bot/README.md" right="self-hosted">
           <div className="prose">
             <p>
-              A fully self-hosted Discord bot wired to a local Large Language Model. Everything runs
-              on personal hardware — <strong>no cloud API dependency</strong> — so server members can
-              chat naturally while privacy and control stay on my side of the wire.
+              This Discord bot uses a <strong>large language model running on my own hardware</strong>
+              to respond to messages. A Python script receives messages through Discord, passes
+              them to LM Studio, and returns the generated response to the channel.
             </p>
             <p className="mb-0">
-              End-to-end AI deployment in one script: model selection and quantization, server setup,
-              Discord API integration, prompt engineering, and extensible tool usage. Local means low
-              latency and zero data leaving the machine.
+              I can change the model, prompts, and personalities without changing the message
+              handling. Inference runs locally without a hosted model API; messages still pass
+              through Discord, and optional web tools use external services.
             </p>
           </div>
         </TerminalPanel>
@@ -84,7 +87,7 @@ function LLMChatBot() {
             Tool integration — the model can call custom functions and scripts (web search,
             calculations, file ops, game commands)
           </li>
-          <li>discord.py / discord.js backend with real-time message handling</li>
+          <li>discord.py backend with real-time message handling</li>
           <li>Configurable through simple scripts or JSON for personalities, prompts, and tools</li>
         </ul>
       </motion.div>
@@ -95,10 +98,9 @@ function LLMChatBot() {
         <TerminalPanel title="~/projects/llm-bot/role.md" right="solo">
           <div className="prose">
             <p className="mb-0">
-              Solo project, written entirely in <strong>Python</strong>. I designed and implemented
-              every layer — from Discord message handling through to the LM Studio API integration.
-              A small but complete script that intercepts Discord requests, passes them to a
-              locally-running LLM, and returns the response to the server.
+              I built this project in <strong>Python</strong>, including Discord message handling,
+              prompt configuration, and the LM Studio API connection. I also selected and
+              configured the quantized model used to generate responses.
             </p>
           </div>
         </TerminalPanel>

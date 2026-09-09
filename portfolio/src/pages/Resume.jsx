@@ -38,7 +38,8 @@ function Resume() {
       </motion.div>
 
       <motion.div variants={rise} className="doc-frame">
-        <embed
+        <a className="doc-frame__link" href="/personal/assets/Resume-Bibus.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
           src="/personal/assets/Resume-Bibus.pdf"
           width="100%"
           height="900"

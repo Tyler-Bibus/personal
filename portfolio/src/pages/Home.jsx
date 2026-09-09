@@ -10,9 +10,6 @@ import TerminalPanel from '../components/TerminalPanel';
 import HackerOverlay from '../components/HackerOverlay';
 import Typewriter from '../components/Typewriter';
 import GlitchText from '../components/GlitchText';
-import EyeOfSilicon from '../components/visuals/EyeOfSilicon';
-import RtlTrace from '../components/visuals/RtlTrace';
-import WirelessLink from '../components/visuals/WirelessLink';
 import profile from '../assets/profile.jpg';
 
 /* ── motion presets ───────────────────────────────────────── */
@@ -45,10 +42,10 @@ const wordVariants = {
 const SUBTITLE = ['Computer Engineer', '·', 'Hardware', '·', 'Full-Stack', '·', 'ML'];
 
 const BOOT_LINES = [
-  'writing verilog that ends up on real silicon',
-  'squeezing 48 dB out of a software-defined radio',
-  'quantizing a CNN down to 8 bits, then building the hardware for it',
-  'shipping the frontend too, because someone has to',
+  'SystemVerilog / Bluetooth Link Layer',
+  'VHDL / computer architecture',
+  'C++ / model quantization',
+  'React Native / application development',
 ];
 
 const PROJECTS = [
@@ -56,9 +53,9 @@ const PROJECTS = [
     id: '01',
     title: 'Open-Source ASIC Bluetooth Microcontroller',
     description:
-      'Senior design. Nine engineers building a silicon-proven BLE radio microcontroller on SKY130. I work on the Link Layer and Host Controller Interface, and lead the software testing environment.',
+      "Our nine-person senior design team is developing an open-source Bluetooth microcontroller on SKY130. I work on the Link Layer, Host Controller Interface, and software testing environment.",
     link: '/senior-design',
-    tags: ['Verilog', 'SKY130', 'Caravel', 'BLE 4.0'],
+    tags: ['SystemVerilog', 'SKY130', 'Caravel', 'BLE 4.0'],
     status: 'live',
     statusLabel: 'IN PROGRESS',
   },
@@ -66,7 +63,7 @@ const PROJECTS = [
     id: '02',
     title: 'Convolutional Hardware Accelerator',
     description:
-      'An output-stationary CNN accelerator in VHDL with 4 parallel MACs, plus the C++ quantization and driver layer that feeds it. Beats naive x86; does not beat a GPU, and that is fine.',
+      "A VHDL accelerator that processes a convolutional layer using four parallel multiply-accumulate units. I implemented the MAC and storage units, C++ quantization, and hardware interface.",
     link: '/ml-accelerator',
     tags: ['VHDL', 'C++', 'INT8', 'MAC Array'],
   },
@@ -74,7 +71,7 @@ const PROJECTS = [
     id: '03',
     title: 'Three MIPS Processors',
     description:
-      'Single-cycle, software-scheduled pipeline, and a hardware-scheduled 5-stage pipeline with full hazard detection and forwarding. I owned the control path and most of the debugging.',
+      "Three MIPS processors that use the same instruction set with different execution strategies. I designed the top-level architecture and control logic, and led simulation debugging.",
     link: '/cpu-project',
     tags: ['VHDL', 'MIPS ASM', 'Pipelining', 'QuestaSim'],
   },
@@ -82,7 +79,7 @@ const PROJECTS = [
     id: '04',
     title: 'Local LLM Discord Bot',
     description:
-      'A self-hosted Discord bot wired to a quantized model running on my own hardware. Swappable personalities, tool calls, no cloud API and no data leaving the box.',
+      "A Python bot that sends Discord messages to a quantized model running on my hardware. I built the message handling, LM Studio integration, and configurable personalities.",
     link: '/llm-chat-bot',
     tags: ['Python', 'LM Studio', 'discord.py'],
   },
@@ -90,7 +87,7 @@ const PROJECTS = [
     id: '05',
     title: 'Goods & Service Finder',
     description:
-      'A marketplace app for Android backed by Spring Boot — listings, auctions, and live chat. I was frontend lead and owned the full CRUD lifecycle against the REST API.',
+      "An Android marketplace with listings, auctions, and live chat. As frontend lead, I built the screens and connected listing creation, updates, and deletion to the REST API.",
     link: '/android-project',
     tags: ['Java', 'Spring Boot', 'MySQL', 'WebSockets'],
   },
@@ -98,48 +95,11 @@ const PROJECTS = [
     id: '06',
     title: 'Game Finder Web App',
     description:
-      'Full-stack game discovery with JWT auth and quiz-driven recommendations. My first real trip below the frontend into Express and MongoDB.',
+      "A web app that recommends games through quizzes. I built the login page, home page, and game-entry template, and worked with the Express and MongoDB backend.",
     link: '/web-design-projects',
     tags: ['React', 'Express', 'MongoDB', 'JWT'],
   },
 ];
-
-/* A visual index of the three hardware projects — each card runs the
-   same diagram that lives on the project page it links to. */
-const VISUALS = [
-  {
-    to: '/senior-design',
-    label: 'BLE ASIC',
-    sub: 'BLE 4.0 · LINK LAYER + HCI',
-    render: () => <WirelessLink />,
-  },
-  {
-    to: '/ml-accelerator',
-    label: 'CNN Hardware Accelerator',
-    sub: '5×5 KERNEL · 4 MACS · INT8',
-    render: () => <EyeOfSilicon />,
-  },
-  {
-    to: '/cpu-project',
-    label: 'Pipelined Datapath',
-    sub: 'FETCH → DECODE → EX → MEM → WB',
-    render: () => <RtlTrace />,
-  },
-];
-
-/* Rolled once per page load, not per render — so it changes on reload
-   and stays put while you are reading. */
-const TAGLINES = [
-  'Looking for a new grad engineer who can go up and down the stack?',
-  'Need someone who reads the datasheet and writes the frontend?',
-  'Got a hard problem somewhere between the transistor and the browser?',
-  'Hiring for a role that touches both silicon and software?',
-  'Want an engineer who is comfortable one layer lower than the job description?',
-  'Need someone who will actually open the waveform viewer?',
-  'Looking for an engineer who can take a project from RTL to release?',
-];
-
-const TAGLINE = TAGLINES[Math.floor(Math.random() * TAGLINES.length)];
 
 function Home() {
   const [hacked, setHacked] = useState(false);
@@ -188,8 +148,8 @@ function Home() {
             ))}
           </motion.div>
 
-          <p className="hero__meta mt-4 mb-1">
-            <span className="neon-m">$</span> currently:{' '}
+          <p className="hero__meta hero__activity mt-4 mb-1">
+            <span className="neon-m">$</span> work:{' '}
             <Typewriter lines={BOOT_LINES} className="dim" />
           </p>
           <p className="hero__meta mb-1">Iowa State University · B.S. Computer Engineering · Dec 2026</p>
@@ -221,27 +181,6 @@ function Home() {
         </div>
       </motion.section>
 
-      {/* ── Visual index of the hardware work ────────────── */}
-      <motion.section
-        className="container py-4"
-        variants={section}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        <div className="row g-3">
-          {VISUALS.map((v) => (
-            <div className="col-12 col-md-4" key={v.to}>
-              <Link to={v.to} className="viz-card">
-                <div className="viz-card__stage">{v.render()}</div>
-                <p className="viz-card__label">{v.label}</p>
-                <p className="viz-card__sub">{v.sub}</p>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
       {/* ── 01 · Mission (was "Career Objective") ────────── */}
       <motion.section
         className="container py-5"
@@ -255,30 +194,21 @@ function Home() {
         <TerminalPanel title="~/about/mission.txt" right="read-only">
           <div className="prose" style={{ maxWidth: '90ch' }}>
             <p>
-              I build the layer most people never see — the RTL under the driver, the driver under
-              the app — and I want it pointed at problems that actually matter. At{' '}
-              <strong className="neon-m">ARA Wireless</strong> that meant writing C and C++ to drive
-              the output pins on a software-defined radio, pulling <strong>48 dB</strong> of extra
-              signal out of the hardware so rural Iowa could get real broadband. Technically
-              stubborn, genuinely consequential. That is the shape of work I'm after.
+              I am studying Computer Engineering at Iowa State University, with an expected
+              graduation date of <strong>December 2026</strong>. I am most interested in digital
+              hardware design and verification. I like understanding how the individual components
+              of a system work and how they fit together.
             </p>
             <p>
-              The other half of the picture is software, and I spent this year proving it out at{' '}
-              <strong className="neon-m">boisei labs</strong>, a tech-for-good venture backing
-              environmentally sustainable technology. I was the{' '}
-              <strong>sole developer on a full-stack React Native application</strong> —
-              architecture, backend, frontend, and testing, all of it mine — and got it near
-              production-ready inside the internship term. I also designed and deployed custom AI
-              agent workflows into the team's build and test process, and shipped features into a
-              production React web app alongside the rest of engineering. Solo when a project needed
-              an owner, on a team when it needed a team.
+              At <strong>ARA Wireless</strong>, I worked with C and C++ to control a software-defined
+              radio for an outdoor 5G testbed. At <strong>boisei labs</strong>, I have been the sole
+              developer of a React Native application, including its backend, frontend, and testing.
+              These projects have given me experience with both hardware and the software that uses it.
             </p>
             <p className="mb-0">
-              What I want next is technical engineering work where the problem is genuinely hard. My
-              preference runs <strong>hardware first</strong> — RTL, verification, ASIC and FPGA work
-              is where I'm happiest — then software, but I care more about the problem than the layer
-              it lives on, and I have now shipped at both ends. Graduating{' '}
-              <strong>December 2026</strong>.
+              I want to continue this work in an engineering role, preferably in RTL design,
+              verification, or ASIC and FPGA development. I am also interested in software work
+              where I can use that hardware background to understand and solve the problem.
             </p>
           </div>
         </TerminalPanel>
@@ -297,7 +227,7 @@ function Home() {
         <div className="row g-4">
           {PROJECTS.map((p) => (
             <div className="col-12 col-md-6 col-xl-4" key={p.id}>
-              <ProjectCard {...p} />
+              <ProjectCard {...p} visual={p.id} />
             </div>
           ))}
         </div>
@@ -313,7 +243,7 @@ function Home() {
       >
         <SectionHeading index="03" title="STACK" />
         <p className="mono mb-3" style={{ color: 'var(--faint)', fontSize: '.82rem', letterSpacing: '.08em' }}>
-          // hover a marquee to hold it still
+          Languages, tools, and platforms used across my projects.
         </p>
         <SkillBillboards />
       </motion.section>
@@ -327,13 +257,13 @@ function Home() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <div className="rule-dash" />
-        <p className="kicker mb-3">// end of transmission</p>
+        <p className="kicker mb-3">// contact</p>
         <h2 className="mb-4" style={{ fontSize: 'clamp(1.2rem,3vw,1.8rem)' }}>
-          {TAGLINE}
+          Hardware and software opportunities · December 2026
         </h2>
         <div className="d-flex justify-content-center gap-3 flex-wrap">
           <a className="btn-cyber" href="mailto:tylerbibus@hotmail.com">
-            Send Transmission
+            Email Me
           </a>
           <Link className="btn-cyber btn-cyber--ghost" to="/work-experience">
             View Experience

@@ -21,8 +21,8 @@
   --lilac:     #d9a8ff;
 
   --text:      #ece4ff;
-  --dim:       #a291c4;
-  --faint:     #6f6090;
+  --dim:       #b6a7cf;
+  --faint:     #a292bc;
 
   --glow-p: 0 0 5px rgba(176, 38, 255, .85), 0 0 18px rgba(176, 38, 255, .40);
   --glow-m: 0 0 5px rgba(255, 43, 214, .85), 0 0 20px rgba(255, 43, 214, .35);
@@ -312,14 +312,6 @@ a:hover { color: var(--lilac); text-shadow: var(--glow-m); }
   letter-spacing: .06em;
 }
 
-.term__dot {
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.term__dot--a { background: var(--magenta); box-shadow: var(--glow-m); }
-.term__dot--b { background: var(--purple);  box-shadow: var(--glow-p); }
-.term__dot--c { background: var(--line-hot); }
 
 .term__body { padding: 1.35rem 1.5rem; }
 
@@ -1570,4 +1562,73 @@ hr {
   }
   .cyber-bg__beam, .cyber-bg__scan { display: none; }
   .bb__track { animation: none; }
+}
+
+/* Project drawings share the site's circuit palette; screenshots retain their original colors. */
+.term__path { overflow-wrap: anywhere; }
+.term__bar { border-left: 2px solid var(--magenta); }
+.hero__activity { min-height: 3.4em; max-width: 680px; margin-inline: auto; }
+.project-card { padding-top: 0; }
+.project-visual { margin: 0 -1.4rem 1.2rem; background: #080511; border-bottom: 1px solid var(--line); }
+.project-visual__stage { height: 224px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.project-visual figcaption { color: var(--faint); font: .7rem var(--font-mono); padding: .6rem 1rem; border-top: 1px solid var(--line); }
+.project-diagram { width: 100%; max-height: 100%; }
+.project-diagram__grid { stroke: #b026ff; stroke-width: .5; opacity: .1; }
+.project-diagram__wire { stroke: #db69ff; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; animation: traceFlow 18s linear infinite; }
+.project-diagram__boundary { fill: #140b23; fill-opacity: .5; stroke: #6a3990; stroke-dasharray: 3 4; }
+.project-diagram__block rect, .project-diagram__lane rect { fill: #1b0b2c; stroke: #ce52ea; }
+.project-diagram text { fill: #efe2ff; font: 11px var(--font-mono); text-anchor: middle; }
+.project-diagram .project-diagram__sub { font-size: 8px; fill: #c3aedc; }
+.project-diagram .project-diagram__note { font-size: 9px; fill: #bc9cd5; text-anchor: start; letter-spacing: .4px; }
+.project-diagram__lane { animation: lanePulse 3.6s ease-in-out infinite; }
+@keyframes lanePulse { 0%, 70%, 100% { opacity: .6; } 25% { opacity: 1; filter: drop-shadow(0 0 5px #b026ff); } }
+.project-visual__stage--screen { background: radial-gradient(ellipse at center, #362046, #0c0716 80%); padding: 16px 24px 0; }
+.project-visual__stage--screen img { display: block; box-shadow: 0 8px 30px #0008; border: 1px solid #714893; }
+.project-visual__stage--05 img { height: 270px; width: auto; align-self: flex-start; }
+.project-visual__stage--06 img { width: 100%; align-self: flex-start; }
+.project-visual--detail { max-width: 850px; margin: 0 auto 2.5rem; border: 1px solid var(--line-hot); }
+.project-visual--detail .project-visual__stage { height: auto; min-height: 220px; }
+.project-visual--detail .project-diagram { max-height: 370px; }
+.project-visual--detail .project-visual__stage--05 { height: 400px; }
+.project-visual--detail .project-visual__stage--05 img { height: 100%; }
+.project-visual--detail .project-visual__stage--06 { max-height: 400px; }
+:focus-visible { outline: 2px solid var(--lilac); outline-offset: 4px; }
+.page__title, .stat__val { overflow-wrap: anywhere; }
+.stat__val { font-size: clamp(1rem, 2.2vw, 1.7rem); }
+.prose { max-width: 90ch; }
+.gallery { width: 100%; margin-inline: auto; }
+.gallery__frame { width: 100%; display: flex; justify-content: center; background: var(--panel); border: 1px solid var(--line-hot); }
+.gallery__frame img { display: block; width: 100%; max-height: 740px; object-fit: contain; }
+.gallery--portrait { max-width: 370px; }
+.gallery--landscape { max-width: 1040px; }
+.gallery__controls { display: flex; justify-content: center; align-items: center; gap: 1.2rem; margin-top: 1rem; }
+.gallery__controls button { min-width: 44px; min-height: 44px; }
+@media (max-width: 575px) {
+  .hero__activity { min-height: 5.1em; }
+  .project-visual__stage { height: 208px; }
+  .stat { padding: .85rem .5rem; }
+  .cyber-card__id { letter-spacing: .12em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-diagram__wire, .project-diagram__lane { animation: none; }
+  .bb__track { flex-wrap: wrap; width: auto; transform: none; }
+  .bb__item[aria-hidden="true"] { display: none; }
+  .bb__viewport { overflow: visible; }
+}
+
+.hack__close { pointer-events: auto; }
+
+.doc-frame__link { display: inline-block; margin: .4rem .6rem .7rem; font-family: var(--font-mono); font-size: .85rem; }
+@media (max-width: 575px) { .page__title { font-size: clamp(1.1rem, 5.7vw, 1.75rem); } }
+
+.bb-stack--static .bb__track { animation: none; flex-wrap: wrap; width: auto; transform: none; padding: .8rem; gap: .5rem 1.1rem; }
+.bb-stack--static .bb__item[aria-hidden="true"] { display: none; }
+.bb-stack--static .bb__item { font-size: 1.05rem; }
+.bb-stack--static .bb__label { position: relative; padding: .35rem .8rem; }
+.bb-stack--static .bb__viewport { overflow: visible; padding: 0; mask-image: none; }
+@media (prefers-reduced-motion: reduce) {
+  .bb__label { position: relative; padding: .35rem .8rem; }
+  .bb__viewport { padding: 0; mask-image: none; }
+  .bb__track { padding: .8rem; gap: .5rem 1.1rem; }
+  .bb__item { font-size: 1.05rem; }
 }

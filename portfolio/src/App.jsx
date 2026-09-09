@@ -54,7 +54,7 @@ function App() {
       'background:#ff2bd6;color:#04010a;font:bold 20px Audiowide,monospace;padding:8px 14px;'
     );
     console.log(
-      '%cYou opened the console. Respect.\nTwo more secrets on this page: the portrait, and ↑↑↓↓←→←→BA.\nHiring? tylerbibus@hotmail.com',
+      '%cSource: github.com/Tyler-Bibus/personal\nTry ↑↑↓↓←→←→BA.',
       'color:#b026ff;font:13px monospace;'
     );
   }, []);

@@ -8,10 +8,7 @@ function TerminalPanel({ title = '~', right, children, className = '', bodyClass
   return (
     <div className={`term ${className}`.trim()}>
       <div className="term__bar">
-        <span className="term__dot term__dot--a" />
-        <span className="term__dot term__dot--b" />
-        <span className="term__dot term__dot--c" />
-        <span className="ms-2">{title}</span>
+        <span className="term__path">{title}</span>
         {right && <span className="ms-auto d-none d-sm-inline">{right}</span>}
       </div>
       <div className={`term__body ${bodyClassName}`.trim()}>{children}</div>

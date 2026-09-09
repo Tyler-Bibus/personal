@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import SectionHeading from '../components/SectionHeading';
@@ -92,22 +93,22 @@ function SeniorDesign() {
         ))}
       </motion.div>
 
+      <ProjectVisual kind="01" detail />
+
       {/* ── 01 Brief ─────────────────────────────────────── */}
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="01" title="BRIEF" />
-        <TerminalPanel title="~/sddec26-10/brief.md" right="silicon-proven target">
+        <TerminalPanel title="~/sddec26-10/brief.md" right="in development">
           <div className="prose">
             <p>
-              The radio microcontroller market is dominated by closed-source silicon. This project
-              is an <strong>open-source ASIC Bluetooth microcontroller</strong> — a complete,
-              end-to-end, silicon-proven radio MCU built in the open.
+              Our team is developing an <strong>open-source ASIC Bluetooth microcontroller</strong>
+              using the SkyWater 130nm process. The goal is to design and fabricate a radio
+              microcontroller that other engineers can study and build on.
             </p>
             <p>
-              It is the capstone of my education at Iowa State: a full academic year working
-              collaboratively with eight other engineers to design, develop, and deliver a finished
-              part. Unlike the FPGA-oriented work in my computer architecture and machine learning
-              courses, this is written in <strong>SystemVerilog</strong> and never touches Questasim or
-              Vivado — the flow is open-source EDA all the way to the SKY130 tapeout.
+              This is my senior design project at Iowa State. I work with eight other engineers
+              on the digital and radio components. We use <strong>SystemVerilog</strong>, the Caravel
+              harness, and open-source design tools to prepare the design for fabrication.
             </p>
           </div>
         </TerminalPanel>
@@ -119,7 +120,7 @@ function SeniorDesign() {
         <TerminalPanel title="~/sddec26-10/role.md" right="digital design · test env lead">
           <div className="prose">
             <p>
-              I sit on the <strong>Digital Design team</strong>, working on the{' '}
+              I am part of the <strong>Digital Design team</strong>, working on the{' '}
               <strong>Link Layer and Host Controller Interface</strong>.
             </p>
             <p>
@@ -127,9 +128,9 @@ function SeniorDesign() {
               harness the rest of the team validates their RTL against.
             </p>
             <p>
-              My piece is the seam of the whole chip: I connect the physical layer to the rest of the
-              project, bridging physical electrical circuits and software through the medium of
-              digital hardware design.
+              The Link Layer manages Bluetooth communication, while the Host Controller Interface
+              carries commands and data between the host and controller. My work connects these
+              digital components to the physical radio interface.
             </p>
           </div>
         </TerminalPanel>
@@ -159,7 +160,7 @@ function SeniorDesign() {
       <motion.div variants={rise} className="mb-5">
         <SectionHeading index="05" title="REPORTS" />
 
-        <TerminalPanel title="~/sddec26-10/weekly" right="published as we go" className="mb-4">
+        <TerminalPanel title="~/sddec26-10/weekly" right="weekly progress" className="mb-4">
           <div className="prose">
             <p className="mb-3">
               The team maintains a project website through Iowa State&apos;s ECpE Senior Design
@@ -182,6 +183,7 @@ function SeniorDesign() {
               $ open {r.label.toLowerCase().replace(/ /g, '_')}.pdf
             </p>
             <div className="doc-frame">
+              <a className="doc-frame__link" href={r.src} target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
               <embed
                 src={r.src}
                 width="100%"

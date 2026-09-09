@@ -1,3 +1,4 @@
+import ProjectVisual from '../components/ProjectVisual';
 import { motion } from 'framer-motion';
 
 import ImageGallery from '../components/ImageGallery';
@@ -84,20 +85,21 @@ function AndroidProject() {
         ))}
       </motion.div>
 
+      <ProjectVisual kind="05" detail />
+
       {/* ── 01 Brief ─────────────────────────────────────── */}
       <motion.div variants={rise}>
         <SectionHeading index="01" title="BRIEF" />
-        <TerminalPanel title="~/coms309/README.md" right="shipped">
+        <TerminalPanel title="~/coms309/README.md" right="complete">
           <div className="prose">
             <p>
-              A marketplace app in the shape of eBay or Facebook Marketplace: users post{' '}
+              An Android marketplace where users post{' '}
               <strong>listings</strong>, run <strong>auctions</strong>, and{' '}
               <strong>chat</strong> with each other about what is for sale.
             </p>
             <p className="mb-3">
-              The Android frontend is written in Java, talking to the server over Volley for REST
-              calls and WebSockets for live chat. Behind it sits a Spring Boot backend on a MySQL
-              database.
+              The Java frontend uses Volley for REST requests and WebSockets for live chat.
+              A Spring Boot server handles these requests and stores the application data in MySQL.
             </p>
             <div className="cyber-card__tags mb-0">
               {stack.map((t) => (
@@ -153,7 +155,8 @@ function AndroidProject() {
       <motion.div variants={rise} className="mt-5">
         <SectionHeading index="05" title="ARCHITECTURE" />
         <div className="doc-frame mb-3">
-          <embed
+          <a className="doc-frame__link" href="/personal/assets/309/BlockDiagramGnSFinder.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
             src="/personal/assets/309/BlockDiagramGnSFinder.pdf"
             width="100%"
             height="800"

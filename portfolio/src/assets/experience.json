@@ -5,19 +5,25 @@
     "date": "May 2026 – Present",
     "location": "State College, PA",
     "current": true,
-    "summary": "Full-stack development at a tech-for-good venture backing environmentally sustainable technology.",
-    "tags": ["React Native", "React", "Full-Stack", "AI Agents", "Testing"],
-    "highlight": "sole developer, end to end",
+    "summary": "Application development for environmentally sustainable technology.",
+    "tags": [
+      "React Native",
+      "React",
+      "Full-Stack",
+      "AI Agents",
+      "Testing"
+    ],
+    "highlight": "React Native application",
     "bullets": [
       "Sole developer of a full-stack React Native application — owning architecture, backend, frontend, and testing end to end, and delivering a near-production-ready app within the internship term.",
       "Designed, tested, and deployed custom AI agent workflows to accelerate development, integrating them into the build and testing process.",
       "Developed features for a production React web application as part of the engineering team."
     ],
     "soft": [
-      "Ownership — carrying an application from architecture through testing with no one else on it",
-      "Team engineering — shipping into a production codebase alongside the rest of the engineering team",
-      "Tooling judgement — building AI agent workflows that actually paid for themselves in build and test time",
-      "Startup ambiguity — operating usefully where the scope is not handed to you"
+      "Independent development — planning architecture, implementation, and testing for an application",
+      "Team development — contributing features to an existing production application",
+      "Development tooling — integrating AI workflows into build and test processes",
+      "Project planning — defining tasks and adjusting scope as requirements changed"
     ]
   },
   {
@@ -27,16 +33,21 @@
     "location": "Ames, IA",
     "current": true,
     "summary": "Running lab sections for the department's computer architecture course.",
-    "tags": ["MIPS", "RISC-V", "VHDL", "Teaching"],
+    "tags": [
+      "MIPS",
+      "RISC-V",
+      "VHDL",
+      "Teaching"
+    ],
     "bullets": [
-      "Run lab for 46 students, debugging datapath, control, and simulation problems alongside them rather than for them.",
+      "Run lab for 46 students, debugging datapath, control, and simulation problems with them.",
       "Assisting the professor with the course-wide conversion from a MIPS-based architecture to RISC-V, including reworking lab material."
     ],
     "soft": [
-      "Explaining pipelining and hazards clearly to students at wildly different skill levels",
-      "Mentorship — guiding 46 students through hands-on lab work with patience and adaptability",
-      "Precision — curriculum conversion work is unforgiving of small mistakes",
-      "Time management — balancing TA duties against a full course load"
+      "Teaching — explaining pipelines and hazards to students with different levels of experience",
+      "Mentorship — helping 46 students debug their lab work",
+      "Curriculum development — checking lab material during the transition to RISC-V",
+      "Time management — balancing teaching duties with coursework"
     ]
   },
   {
@@ -45,18 +56,24 @@
     "date": "January 2025 – August 2025",
     "location": "Ames, IA",
     "summary": "Open-source 5G on a live outdoor wireless testbed for rural broadband.",
-    "tags": ["C / C++", "srsRAN", "SDR", "5G", "Mender"],
-    "highlight": "48 dB (1048×) signal improvement",
+    "tags": [
+      "C / C++",
+      "srsRAN",
+      "SDR",
+      "5G",
+      "Mender"
+    ],
+    "highlight": "48 dB signal improvement",
     "bullets": [
       "Worked under a graduate mentor deploying 5G networking outdoors to bring high-speed, reliable internet to rural areas.",
-      "Adapted existing 5G software to run outdoors with amplifiers, using C and C++ to drive SDR output pins — a 48 dB (1048×) signal improvement.",
+      "Adapted existing 5G software to run outdoors with amplifiers, using C and C++ to drive SDR output pins — a 48 dB signal improvement.",
       "Tested and deployed Mender for remote over-the-air software updates on towers, removing the need to physically visit each site."
     ],
     "soft": [
-      "Collaboration — working directly under a graduate mentor in a structured research environment",
-      "Self-directed learning — coming up to speed on 5G and SDR fast enough to be useful",
-      "Adaptability — outdoor deployments fail in ways a lab bench never does",
-      "Technical communication — presenting findings to the broader ARA team via formal poster"
+      "Collaboration — working with a graduate mentor in a research team",
+      "Independent learning — learning the 5G software stack and SDR controls",
+      "Field testing — troubleshooting hardware and software during outdoor deployment",
+      "Technical communication — presenting the deployment in a research poster"
     ]
   },
   {
@@ -65,17 +82,21 @@
     "date": "May 2024 – August 2024",
     "location": "Cottage Grove, MN",
     "summary": "Mobile vehicle detailing built from scratch over a summer.",
-    "tags": ["Ops", "Marketing", "P&L"],
+    "tags": [
+      "Ops",
+      "Marketing",
+      "P&L"
+    ],
     "highlight": "78% margin",
     "bullets": [
       "Built a mobile detailing business around high quality and fast turnaround, running it at a 78% margin.",
       "Designed and ran a marketing campaign across print and social media that generated dozens of impressions and sales."
     ],
     "soft": [
-      "Entrepreneurship — building and running a business independently, end to end",
-      "Customer relations — service work is face-to-face and unforgiving",
-      "Marketing — designing and executing a campaign that actually produced leads",
-      "Financial management — pricing, margins, and expenses tracked well enough to hit 78%"
+      "Business operations — scheduling and completing mobile detailing services",
+      "Customer communication — discussing service expectations and results",
+      "Marketing — creating print and social media campaigns",
+      "Financial management — tracking prices, expenses, and margins"
     ]
   },
   {
@@ -84,17 +105,22 @@
     "date": "October 2023 – May 2024",
     "location": "Ames, IA",
     "summary": "Android digital-forensics tooling for a distributed research team.",
-    "tags": ["Python", "MongoDB", "Web Scraping", "Android"],
+    "tags": [
+      "Python",
+      "MongoDB",
+      "Web Scraping",
+      "Android"
+    ],
     "bullets": [
       "Collaborated with a remote, cross-institution team developing Android digital forensics tools for the EviHunter project.",
       "Built a web crawler that scraped several hundred Android APK files and their metadata into the project database.",
       "Recovered the original MongoDB database after a system wipe, restoring critical project data."
     ],
     "soft": [
-      "Remote collaboration — coordinating with a geographically distributed research team",
-      "Cross-disciplinary communication — bridging software engineering and forensic research",
-      "Problem-solving under pressure — recovering a production database after an unplanned wipe",
-      "Initiative — scoping and building the crawler to fill a data gap nobody had assigned"
+      "Remote collaboration — coordinating with researchers at other institutions",
+      "Technical communication — working across software and forensic research",
+      "Data recovery — restoring the project database after a system wipe",
+      "Independent development — building a crawler to collect project data"
     ]
   },
   {
@@ -103,16 +129,19 @@
     "date": "August 2021 – August 2023",
     "location": "Eagan, MN",
     "summary": "AV, network cabling, and security drawings for field installation crews.",
-    "tags": ["AutoCAD LT", "Documentation"],
+    "tags": [
+      "AutoCAD LT",
+      "Documentation"
+    ],
     "highlight": "150+ drawings",
     "bullets": [
       "Drafted over 150 AV, network cabling, and security drawings used directly by installation technicians.",
-      "Coordinated with sales and design teams so drawings met both technician and client standards before they hit the field."
+      "Coordinated with sales and design teams so drawings met both technician and client standards before field installation."
     ],
     "soft": [
-      "Client communication — coordinating with sales and design to meet install and client standards",
-      "Attention to detail — 150+ drawings where an error becomes a field problem",
-      "Professional documentation — consistent output under production timelines"
+      "Client communication — coordinating drawing requirements with sales and design teams",
+      "Attention to detail — preparing drawings used for field installation",
+      "Technical documentation — keeping drawings consistent across projects"
     ]
   }
 ]

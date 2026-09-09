@@ -105,12 +105,12 @@ function WorkExperience() {
   return (
     <motion.div className="container page" variants={stagger} initial="hidden" animate="visible">
       <motion.div variants={rise}>
-        <p className="kicker mb-2">// personnel_file</p>
+        <p className="kicker mb-2">// experience</p>
         <h1 className="page__title mb-3">
           <GlitchText text="WORK EXPERIENCE" />
         </h1>
         <p className="mono mb-4" style={{ color: 'var(--faint)' }}>
-          {jobs.length} records · {Math.min(...years)}–present · hardware, research, teaching, and one detailing business
+          {jobs.length} roles · {Math.min(...years)}–present · engineering, research, teaching, and small business
         </p>
         <hr />
       </motion.div>
@@ -148,7 +148,8 @@ function WorkExperience() {
         </TerminalPanel>
 
         <div className="doc-frame">
-          <embed
+          <a className="doc-frame__link" href="/personal/assets/srsRAN_Outdoor_Poster.pdf" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a>
+              <embed
             src="/personal/assets/srsRAN_Outdoor_Poster.pdf"
             width="100%"
             height="820"
